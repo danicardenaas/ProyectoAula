@@ -8,6 +8,7 @@
     $usuario= (isset($_POST['usuario']) && $_POST["usuario"] != "")? $_POST['usuario'] : "no especifico";
     $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
     $foto= (isset($_POST['foto']) && $_POST["foto"] != "")? $_POST['foto'] : "no especifico";
+
     echo "<table border='1'>
                 <thead>
                     <tr>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro</title>
+    </head>
+    <body>
+        <header>
+            <h1>Aula virtual</h1> 
+        </header>
+        <main>
+            <div align="center">
+                <form action="..\dynamics\datosinicio.php" method="post">
+                    <fieldset>
+                        <legend>Inicio de sesión:</legend>
+                        <label for="usuario">Correo o número de cuenta: </label>
+                        <input type="text" name="usuario" placeholder="Correo electrónicoo no. de cuenta" required><br/><br/>
+                        <label for="contraseña">Contraseña: </label>
+                        <input type="password" name="contraseña" placeholder="  Contraseña" required><br/><br/>
+                        <a>¿Olvisdaste tu contraseña?</a><br><br>
+                        ¿Eres nuevo?<a href=".\FormRegistro.html">Registráte aquí</a><br><br>
+                        <button type="reset">Volver al inicio</button>
+                        <button type="submit">Siguiente</button> 
+                    
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
