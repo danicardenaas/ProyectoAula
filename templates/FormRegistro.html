@@ -12,23 +12,30 @@
         </header>
         <main>
             
-            <form action="..\dynamics\datosregistro.php" method="post">
+            <form action="..\dynamics\datosregistro.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Registro de usuario:</legend>
                     <input type="text" name="nombre" placeholder="Nombre:" required>
                     <input type="text" name="apellido" placeholder="Apellidos" required><br/><br/><br/>
                     <label for="cumpleaños">Fecha de nacimiento: </label>
                     <input type="date" name="cumpleaños" required><br/><br/><br/>
+                    <label for="cuenta"> No. de cuenta o RFC de trabajador:</label>
                     <input type="number" name="cuenta" placeholder="No.de cuenta:000000000" required>
                     <input type="email" name="correo" placeholder="Correo electónico" required><br/><br/><br/>
                     <label for="grado">Grado que cursas: </label>
-                    <select  name="grado" required>
+                    <select  name="grado" >
                         <option disabled>Grado actual:</option>
                         <option value="4">4°</option>
                         <option value="5">5°</option>
                         <option value="6">6°</option>
                     </select>
-            
+                    <label for="rol">Grado que cursas: </label>
+                    <select  name="rol">
+                        <option disabled>Estudiante/profesor</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="profesor">Profesor</option>
+                        <option value="Administracion">Personal administrativo</option>
+                    </select>
                     <input type="text" name="usuario" placeholder="Nombre de usuario" required>
                     <input type="password" name="contraseña" placeholder="Contraseña" required><br/><br/><br/>
                     <label for="foto">Foto: </label>
