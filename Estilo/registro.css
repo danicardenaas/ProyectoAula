@@ -1,0 +1,59 @@
+.boton{
+    background-color: #D1A11D;
+    color:aliceblue;
+    width:20%;
+    height: 28px;
+    border: #D1A11D;
+    border-radius: 20%;
+}
+.Etiquetas
+{
+    color:#FFFFFF;
+}
+.piedep{
+    background-color: #C5DCFF;
+    width:100%;
+    height: 25px;
+    line-height: 30px;
+    text-align: center;
+    color:#FFFFFF;
+}
+.escribir{
+    
+    height: 20px;
+    width:150;
+
+}
+#cuadroAmarillo
+{
+    background-color: #FABE2E;
+    width:75%;
+    height:230px;
+
+    position:absolute;
+    top:50%;
+    right:140px;
+    z-index: -1;
+}
+#contenedor
+{
+    width:100%;
+    height: 480px;;
+}
+#cuadroAzul
+{
+    background-color: #092473;
+    width:50%;
+    height:450px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+#TituloForm{
+    background-color: #D1A11D;
+    color:aliceblue;
+    text-align:center;
+    height:30px;
+}

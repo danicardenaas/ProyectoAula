@@ -4,56 +4,58 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../Estilo/registro.css">
         <title>Registro</title>
     </head>
     <body>
         <header>
-            <img src="../Imgs/ENP6.jpg" alt="Imagen prepa6" width="100" height="100"/>
+            <div>
+                 <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado"> 
+            </div>
+         </header>
+        <main id="contenedor">
         
-            <img src="../Imgs/UNAM.png" alt="Imagen UNAM" widht="90" height="100"/>
-            <h1>Aula virtual</h1> 
-        </header>
-        <main>
-            
-            <form action="..\dynamics\datosregistro.php" method="post" enctype="multipart/form-data">
-                <fieldset>
-                    <legend>Registro de usuario:</legend>
-                    <input type="text" name="nombre" placeholder="Nombre:" required>
-                    <input type="text" name="apellido" placeholder="Apellidos" required><br/><br/><br/>
-                    <label for="cumpleaños">Fecha de nacimiento: </label>
-                    <input type="date" name="cumpleaños" required><br/><br/><br/>
-                    <label for="cuenta"> No. de cuenta o RFC de trabajador:</label>
-                    <input type="number" name="cuenta" placeholder="No.de cuenta:000000000" required>
-                    <input type="email" name="correo" placeholder="Correo electónico" required><br/><br/><br/>
-                    <label for="grado">Grado que cursas: </label>
-                    <select  name="grado" >
-                        <option disabled>Grado actual:</option>
-                        <option value="4">4°</option>
-                        <option value="5">5°</option>
-                        <option value="6">6°</option>
-                    </select>
-                    <label for="rol">Grado que cursas: </label>
-                    <select  name="rol">
-                        <option disabled>Estudiante/profesor</option>
-                        <option value="estudiante">Estudiante</option>
-                        <option value="profesor">Profesor</option>
-                        <option value="Administracion">Personal administrativo</option>
-                    </select>
-                    <input type="text" name="usuario" placeholder="Nombre de usuario" required>
-                    <input type="password" name="contraseña" placeholder="Contraseña" required><br/><br/><br/>
-                    <label for="foto">Foto: </label>
-                    <input type="file" name="foto"><br/><br/>
-                    <button type="reset">Volver al inicio</button>
-                    <button type="submit">¡Registrarme! </button> 
-                
-                </fieldset>
-            </form>
-    
+                <div id="cuadroAmarillo"> </div>
+                    
+                        <form action="..\dynamics\datosregistro.php" method="post" enctype="multipart/form-data">
+                   
+                            <fieldset id="cuadroAzul">
+                                <h2 id="TituloForm">Registro de usuario:</h2>
+                                <input type="text" name="nombre" placeholder="Nombre:" required class="escribir">
+                                <input type="text" name="apellido" placeholder="Apellidos" required class="escribir"><br/><br/><br/>
+                                <label for="cumpleaños" class="Etiquetas">Fecha de nacimiento: </label>
+                                <input type="date" name="cumpleaños" required class="escribir"><br/><br/><br/>
+                                <input type="number" name="cuenta" placeholder="No.de cuenta o RFC" required class="escribir">
+                                <input type="email" name="correo" placeholder="Correo electónico" required class="escribir"><br/><br/><br/>
+                                <label for="grado" class="Etiquetas">Grado que cursas: </label>
+                                <select  name="grado" >
+                                    <option disabled>Grado actual:</option>
+                                    <option value="4">4°</option>
+                                    <option value="5">5°</option>
+                                    <option value="6">6°</option>
+                                </select>
+                                <label for="rol" class="Etiquetas">Rol: </label>
+                                <select  name="rol">
+                                    <option disabled>Estudiante/profesor</option>
+                                    <option value="estudiante">Estudiante</option>
+                                    <option value="profesor">Profesor</option>
+                                    <option value="Administracion">Personal administrativo</option>
+                                </select><br/><br/><br/>
+                                <input type="text" name="usuario" placeholder="Nombre de usuario" required class="escribir"/>
+                                <input type="password" name="contraseña" placeholder="Contraseña" required class="escribir"/><br/><br/><br/>
+                                <label for="foto" class="Etiquetas">Foto: </label>
+                                <input type="file" name="foto" class="escribir"><br/><br/><br/>
+                                <button type="reset" class="boton id="volver">Volver al inicio</button>
+                                <button type="submit" class="boton" id="registrarme">¡Registrarme! </button> 
+                            
+                            </fieldset>
+                        </form>
+                   
         </main>
-        <footer>
-            <p>
-                Información de contacto a la prepa
-            </p>
+
+        <footer class="piedep">
+                Aula virtual - Escuela Nacional Preparatoria Plantel 6 "Antonio Caso"
         </footer>
+   
     </body>
 </html>

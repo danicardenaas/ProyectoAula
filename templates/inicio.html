@@ -4,32 +4,36 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../Estilo/inicio.css">
         <title>Inicio</title>
     </head>
     <body>
         <header>
-            <img src="../Imgs/ENP6.jpg" alt="Imagen prepa6" width="100" height="100"/>
-        
-            <img src="../Imgs/UNAM.png" alt="Imagen UNAM" widht="90" height="100"/>
-            <h1>Aula virtual</h1> 
-        </header>
-        <main>
-            <div align="center">
-                <form action="..\dynamics\datosinicio.php" method="post">
-                    <fieldset>
-                        <legend>Inicio de sesión:</legend>
-                        <label for="usuario">Correo o número de cuenta: </label>
-                        <input type="text" name="usuario" placeholder="Correo electrónicoo no. de cuenta" required><br/><br/>
-                        <label for="contraseña">Contraseña: </label>
-                        <input type="password" name="contraseña" placeholder="  Contraseña" required><br/><br/>
-                        <a>¿Olvisdaste tu contraseña?</a><br><br>
-                        ¿Eres nuevo?<a href=".\FormRegistro.html">Registráte aquí</a><br><br>
-                        <button type="reset">Volver al inicio</button>
-                        <button type="submit">Siguiente</button> 
-
-                    </fieldset>
-                </form>
+            <div>
+                 <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado"> 
             </div>
+         </header>
+        <main class="contenedor">
+            <div id="cuadroAmarillo"> </div>
+            <form action="..\dynamics\datosinicio.php" method="post">
+                <fieldset id="cuadroAzul">
+                    <h2 id="titulo">Inicio de sesión:</h2>
+                    <label for="usuario" class="etiqueta">Correo o número de cuenta: </label>
+                    <input type="text" name="usuario" placeholder="Correo electrónicoo no. de cuenta" required><br/><br/>
+                    <label for="contraseña" class="etiqueta">Contraseña: </label>
+                    <input type="password" name="contraseña" placeholder="  Contraseña" required><br/><br/>
+                    <a class="etiqueta">¿Olvisdaste tu contraseña?</a><br><br>
+                    <p class="etiqueta">¿Eres nuevo?<a href=".\FormRegistro.html" class="etiqueta"> Registráte aquí</a></p><br>
+                    <button type="reset" class="boton">Volver al inicio</button>
+                    <button type="submit"class="boton">Siguiente</button> 
+
+                </fieldset>
+            </form>
+    
         </main>
+        <footer class="piedep">
+            Aula virtual - Escuela Nacional Preparatoria Plantel 6 "Antonio Caso"
+        </footer>
     </body>
+    
 </html> 

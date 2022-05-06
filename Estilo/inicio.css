@@ -1,0 +1,51 @@
+.piedep{
+    background-color: #C5DCFF;
+    width:100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color:#FFFFFF;
+}
+.contenedor
+{
+    width:100%;
+    height: 400px;;
+}
+.etiqueta
+{
+    color:#FFFFFF;
+}
+.boton{
+    background-color: #D1A11D;
+    color:aliceblue;
+    width:25%;
+    height: 30px;
+    border: #D1A11D;
+    border-radius: 20%;
+}
+#cuadroAmarillo
+{
+    background-color: #FABE2E;
+    width:40%;
+    height:200px;
+    position:absolute;
+    top:50%;
+    left:380px;
+    z-index: -1;
+}
+#cuadroAzul
+{
+    text-align: center;
+    background-color: #092473;
+    width:20%;
+    height:330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#titulo
+{
+    background-color: #D1A11D;
+    color:aliceblue;
+    text-align:center;
+    height:30px;
+}
