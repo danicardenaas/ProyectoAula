@@ -134,7 +134,9 @@ CREATE TABLE `juego` (
   `ID_juego` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` datetime DEFAULT NULL,
   `descripcion` text NOT NULL,
-  PRIMARY KEY (`ID_juego`)
+  `nombre` char(100) NOT NULL,
+  PRIMARY KEY (`ID_juego`),
+  UNIQUE KEY `nombre` (`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -358,4 +360,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-12  1:28:34
+-- Dump completed on 2022-05-12 15:18:48
