@@ -1,4 +1,11 @@
 <?php
+
+    include("./config.php"); 
+
+    $conexion = connect(); 
+
+    var_dump($conexion); 
+
     $nombre = (isset($_POST['nombre']) && $_POST["nombre"] != "")? $_POST['nombre'] : "no especifico";
     $apellido = (isset($_POST['apellido']) && $_POST["apellido"] != "")? $_POST['apellido'] : "no especifico";
     $cuenta = (isset($_POST['cuenta']) && $_POST["cuenta"] != "")? $_POST['cuenta'] : "no especifico";
@@ -7,8 +14,9 @@
     $grado= (isset($_POST['grado']) && $_POST["grado"] != "")? $_POST['grado'] : "no especifico";
     $usuario= (isset($_POST['usuario']) && $_POST["usuario"] != "")? $_POST['usuario'] : "no especifico";
     $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
-    
-    echo "<table border='1'>
+    $telefono = (isset($_POST['telefono']) && $_POST['telefono'] != "")? $_POST['telefono'] : "sin teléfono";
+    //echo $telefono; 
+    /*echo "<table border='1'>
                 <thead>
                     <tr>
                     <th colspan='2'>$nombre $apellido</th>  
@@ -29,5 +37,5 @@
                         <td>Contraseña: $contraseña</td>
                     </tr>
                 </tbody>
-            </table><br/><br/>";
+            </table><br/><br/>"; */
 ?>
