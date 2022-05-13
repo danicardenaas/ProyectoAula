@@ -1,0 +1,193 @@
+
+#encabezado{
+    position:relative;
+    width:98vw;
+    height: 28vh;
+    top:0px;
+    left:0px;
+    padding: 0;
+    z-index: 10;
+
+}
+/* columnas -
+------------------------------------------------------------------------------------------------*/
+#colIzquierdo, #colDerecho{
+    width: 10vw;
+    height:100vh;
+    background-color:#FABE2E;
+    top:26.5vh;
+    position:absolute;
+   
+
+}
+#colDerecho{
+    right:0vw;
+
+}
+
+/*Main
+---------------------------*/
+h4{
+    background-color: #FFFFFF;
+    color:#000000;
+    height:5vh;
+    border-radius: 5px;
+}
+.dorado{
+    background-color: #D1A11D;
+    height: 5vh;
+    position: absolute;
+    top: 55vh;
+    border-radius: 5px;
+    text-align: center;
+}
+#arch{
+    right:27vw;
+    width:14vw;
+}
+#retro{
+    right:9vw;
+    width:10vw;
+}
+#nombre{
+    position: absolute;
+    top:15vh;
+    left:1vw;
+    width: 51vw;
+}
+#puntaje{
+    position: absolute;
+    top:23vh;
+    left:1vw;
+    width: 15vw;
+}
+#tema{
+    position: absolute;
+    top:23vh;
+    left:17vw;
+    width: 35vw;
+}
+#fechaEntrega{
+    position: absolute;
+    top:23vh;
+    right:5vw;
+    width: 18vw;
+}
+#hora{
+    position: absolute;
+    top:35vh;
+    right:5vw;
+    width: 18vw;
+}
+#enviado{
+    position: absolute;
+    top:47vh;
+    right:5vw;
+    width: 18vw;
+}
+#indicaciones{
+    position: absolute;
+    top:35vh;
+    left:  1vw;
+    width: 51vw;
+    height: 20vh;
+    background-color:#FFFFFF;
+}
+#rubrica{
+    position: absolute;
+    top:55vh;
+    left:  17vw;
+    width: 7vw;
+    height: 6vh;
+    text-align: center;
+}
+#titulo{
+    background-color:#D1A11D;
+    color:#FFFFFF;
+    text-align: left;
+    width:200vw;
+    height:10vh;
+    position: absolute;
+    left: 2vw;
+    top:5vh;
+    border-radius: 5px;
+}
+#tabla{
+    position: absolute;
+    top:70vh;
+    left: 8vw;
+    background-color: #FFFFFF;
+}
+#main{
+    width:80vw;
+    height: 100vh;
+    background-color:#092473;
+    position:absolute;
+    left:10.6vw;
+    top:26.5vh;
+    padding: 0;
+}
+#titulo{
+    background-color:#D1A11D;
+    color:#FFFFFF;
+    text-align: left;
+    width:20vw;
+    height:7vh;
+    position: absolute;
+    left: 2vw;
+    top:5vh;
+    border-radius: 5px;
+}
+#submit{
+    position: absolute;
+    top:66vh;
+    right:  24.5vw;
+    width: 20vw;
+    height: 20vh;
+    background-color:#FFFFFF;
+}
+#retoalimentacion{
+    position: absolute;
+    top:66vh;
+    right:  4vw;
+    width: 20vw;
+    height: 20vh;
+    background-color:#FFFFFF;
+}
+#calif{
+    position: absolute;
+    bottom:0.5vh;
+    right: 10vw;
+    border-radius: 5px;
+
+    height: 5vh;
+    width: 15vw;
+}
+#boton{
+    position: absolute;
+    bottom:3vh;
+    right: 1vw;
+    border-radius: 5px;
+    background-color: #D1A11D;
+    border-color: #FABE2E;
+    height: 5vh;
+    width: 5vw;
+}
+#formato{
+    position: absolute;
+    top:85vh;
+    left:10.5vw;
+    width: 20vw;
+}
+/* pie de página
+--------------------------------*/
+#piedep{
+    background-color: #C5DCFF;
+    width:100vw;
+    height:2%;
+    line-height: 30px;
+    text-align: center;
+    color:#FFFFFF;
+    position:absolute;
+    top:125vh;
+}

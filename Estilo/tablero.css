@@ -1,0 +1,111 @@
+#encabezado{
+    position:relative;
+    width:98vw;
+    height: 25vh;
+    top:0px;
+    left:0px;
+    padding: 0;
+    z-index: 10;
+
+}
+/* columnas -
+------------------------------------------------------------------------------------------------*/
+#colIzquierdo, #colDerecho{
+    width: 10vw;
+    height:100vh;
+    background-color:#FABE2E;
+    top:26.5vh;
+    position:absolute;
+   
+
+}
+#colDerecho{
+    right:0vw;
+
+}
+/*Main
+---------------------------*/
+h4{
+    text-align: center;
+    
+}
+img{
+    position: absolute;
+    top:10vh;
+    left:2vw;
+}
+.materia{
+    position:absolute;
+    background-color: #FFFFFF;
+    width:20vw;
+    height: 50vh;
+    top:25vh;
+    left:10vw;
+}
+.tareas{
+    position: absolute;
+    width: 20vw;
+    height: 10vh;
+    top:45vh;
+    left:0vw;
+    background-color:#a1a1a1;
+    overflow: auto;
+}
+#mate{
+    top:30vh;
+    left:50vw;
+}
+#historia{
+    top:30vh;
+    left:20vw;
+}
+#main{
+    width:80vw;
+    height: 100vh;
+    background-color:#092473;
+    position:absolute;
+    left:10.6vw;
+    top:26.5vh;
+    padding: 0;
+}
+#titulo{
+    background-color:#D1A11D;
+    color:#FFFFFF;
+    text-align: left;
+    width:10vw;
+    height:7vh;
+    position: absolute;
+    left: 2vw;
+    top:5vh;
+    border-radius: 5px;
+}
+
+/* pie de página
+--------------------------------*/
+#piedep{
+    background-color: #C5DCFF;
+    width:100vw;
+    height:2%;
+    line-height: 30px;
+    text-align: center;
+    color:#FFFFFF;
+    position:absolute;
+    top:125vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
