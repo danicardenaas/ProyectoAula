@@ -11,10 +11,16 @@
     $cuenta = (isset($_POST['cuenta']) && $_POST["cuenta"] != "")? $_POST['cuenta'] : "no especifico";
     $cumpleaños= (isset($_POST['cumpleaños']) && $_POST["cumpleaños"] != "")? $_POST['cumpleaños'] : "no especifico";
     $correo= (isset($_POST['correo']) && $_POST["correo"] != "")? $_POST['correo'] : "no especifico";
-    $grado= (isset($_POST['grado']) && $_POST["grado"] != "")? $_POST['grado'] : "no especifico";
+    $grupo= (isset($_POST['grupo']) && $_POST["grupo"] != "")? $_POST['grupo'] : "no especifico";
     $usuario= (isset($_POST['usuario']) && $_POST["usuario"] != "")? $_POST['usuario'] : "no especifico";
     $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
     $telefono = (isset($_POST['telefono']) && $_POST['telefono'] != "")? $_POST['telefono'] : "sin teléfono";
+    $rol = (isset($_POST['rol']) && $_POST['rol'] != "")? $_POST['rol'] : "no especifico";
+    
+    $peticion = "INSERT INTO usuario VALUES ('$cuenta', '$nombre', '$apellido ', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', ' ', '$rol', '$grupo', ' ', ' ')"; 
+
+    $query = mysqli_query($conexion, $peticion); 
+    var_dump($query); 
     //echo $telefono; 
     /*echo "<table border='1'>
                 <thead>
