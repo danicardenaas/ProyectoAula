@@ -16,5 +16,4 @@
     }
 
     $con = connect(); //tienen que salir caracteres
-    var_dump($con); 
 ?>

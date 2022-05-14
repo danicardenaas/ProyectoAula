@@ -1,8 +1,183 @@
-.piedep{
-    background-color: #C5DCFF;
-    width:100%;
+#encabezado{
+    position:relative;
+    width:98vw;
+    height: 25vh;
+    top:0px;
+    left:0px;
+    padding: 0;
+    z-index: 10;
+
+}
+/*Main
+---------------------------*/
+#main{
+    width:80vw;
+    height: 100vh;
+    background-color:#FFFFFF;
+    position:absolute;
+    left:10.6vw;
+    top:26.5vh;
+    padding: 0;
+}
+#cuadroAzul{
+    position:absolute;
+    width: 80%;
+    height:85%;
+    top:7%;
+    left:11%;
+    background-color: #092473;
+}
+#bienvenida{
+    background-color:#D1A11D;
+    color:#FFFFFF;
+    text-align: center;
+    width:50%;
     height:40px;
+    position: absolute;
+    left: 25%;
+    top:5%;
+    border-radius: 15px;
+}
+#cuadroBlanco{
+    position:absolute;
+    left:5vw;
+    top:18vh;
+    width:55vw;
+    height:59vh;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}
+#ImagenPrepa{
+    position:absolute;
+    left:10vw;
+    top:2vh;
+    width:35vw;
+    height:55vh;
+
+}
+#fotos{
+    background-color: #D1A11D;
+    text-align: center;
+    color:#FFFFFF;
+    position: absolute;
+    width: 10vw;
+    height: 3.5vh;
+    top:76vh;
+    left:27vw;
+    border-radius: 10px;
+}
+/* Nav's -
+------------------------------------------------------------------------------------------------*/
+#navIzquierdo, #navDerecho{
+    width: 10vw;
+    height:100vh;
+    background-color:#FABE2E;
+    top:26.5vh;
+    position:absolute;
+   
+
+}
+#navDerecho{
+    right:0vw;
+
+}
+.botonAzul{
+    background-color: #092473;
+    color:#FABE2E;
+    border-radius: 5px;
+     width: 9vw;
+    height:5vh ;
+    line-height: 5vh;
+}
+#calendario{
+    position:absolute;
+    left: 0vw;
+    top: 10vh;
+    text-align:right;
+}
+
+#cuadroCalen{
+    position:absolute;
+    left: 0.5vw;
+    top: 18vh;
+    width: 9vw;
+    height: 30vh;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+#imgCalen{
+    position:absolute;
+    left: 0vw;
+    top: 0vh;
+    width:9vw ;
+    height: 10vh;
+    border-radius: 10px;
+}
+#anuncio{
+    position:absolute;
+    left: 0vw;
+    top: 70vh;
+    text-align:right;
+
+}
+
+
+#foro{
+    position:absolute;
+    left: 0vw;
+    top: 80vh;
+    text-align:right;
+
+}
+#juegos{
+    position:absolute;
+    left: 0vw;
+    top: 90vh;
+    text-align:right;
+
+}
+#registro{
+    position:absolute;
+    right:0vw;
+    top: 10vh;
+    text-align:left;
+
+}
+#alumno{
+    position:absolute;
+    right:0vw;
+    top: 17vh;
+    text-align:left;
+    width: 6vw ;
+
+}
+#profe{
+    position:absolute;
+    right:0vw;
+    top: 24vh;
+    text-align:left;
+    width: 6vw ;
+}
+#ingresa{
+    position:absolute;
+    right:0vw;
+    top: 31vh;
+    text-align:left;
+
+}
+
+
+
+
+/* pie de página
+--------------------------------*/
+#piedep{
+    background-color: #C5DCFF;
+    width:100vw;
+    height:20%;
     line-height: 30px;
     text-align: center;
     color:#FFFFFF;
+    position:absolute;
+    top:125vh;
 }
