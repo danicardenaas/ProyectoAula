@@ -14,6 +14,10 @@
     $peticion = 'SELECT * FROM actividad';
     $query = mysqli_query($conexion, $peticion);
     $datos= mysqli_fetch_array($query, MYSQLI_ASSOC);
+    $peticion2 = 'SELECT * FROM usuario';
+    $query2 = mysqli_query($conexion, $peticion2);
+    $datos2= mysqli_fetch_array($query2, MYSQLI_ASSOC);
+    var_dump($datos2);
     echo "<header>
         <div>
              <img src='../Imgs/encabezado.png' width='100%' height='12%' alt='encabezado' id='encabezado'> 
@@ -23,7 +27,7 @@
      <div id='colIzquierdo'></div>
      <main id='main'>
         <h2 id='titulo'>Titulo de la actividad</h2>
-        <h4 id='nombre'>Nombre del alumno: </h4>
+        <h4 id='nombre'>$datos2[nombre].''.$datos2[apellidos]. </h4>
         <h4 id='puntaje'>Puntaje máximo: 100 puntos </h4>
         <h4 id='tema'>$datos[tema]</h4>
         <h4 id='fechaEntrega'>Entrega:$datos[fecha_entr] </h4>

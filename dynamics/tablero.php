@@ -14,6 +14,9 @@
         $peticion = 'SELECT * FROM materia';
         $query = mysqli_query($conexion, $peticion);
         $datos= mysqli_fetch_array($query, MYSQLI_ASSOC);
+    
+   
+        
         echo "<header>
             <div>
                 <img src='../Imgs/encabezado.png' width='100%' height='12%' alt='encabezado' id='encabezado'> 
@@ -32,7 +35,7 @@
             <div class='tareas'>
             Tareas pendientes:
                 <ul>
-                    <a><li>$datos[actividad]</li></a>
+                    <a><li>$datos[ID_actividad]</li></a>
                     <a><li>Tarea 2</li></a>
                     <a><li>Tarea 3</li> </a>
                 </ul>
