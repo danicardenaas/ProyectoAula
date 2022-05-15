@@ -18,6 +18,7 @@
     $rol = (isset($_POST['rol']) && $_POST['rol'] != "")? $_POST['rol'] : "no especifico";
     
     $peticion = "INSERT INTO usuario VALUES ('$cuenta', '$nombre', '$apellido ', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', ' ', '$rol', '$grupo', ' ', ' ')"; 
+    $peticion = "INSERT INTO usuario (ID_usuario, nombre) VALUES ('$cuenta', '$nombre', '$apellido ', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', ' ', '$rol', '$grupo', ' ', ' ')"; 
 
     $query = mysqli_query($conexion, $peticion); 
     var_dump($query); 
