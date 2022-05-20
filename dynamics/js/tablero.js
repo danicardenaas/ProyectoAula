@@ -1,4 +1,6 @@
-const divContenedor = document.getElementById("contenedor")
+const divContenedor = document.getElementById("contenedor"); 
+const materia = document.getElementsByClassName("materia");
+const divtarea = document.getElementsByClassName("tareas"); 
 
 //si los datosJSON son true //para
 '<div class="materia" id="mate">'+'<div><h4>Aquí agregar nombre materia</h4><img src="../Imgs/AquíRutaDeImagen.ext" alt="Imagen de la materia" width="200" height="180" /> </div>';  
@@ -7,3 +9,11 @@ const divContenedor = document.getElementById("contenedor")
 //recepción de datos con fetch
 
 //estoy trabajando en este :) 
+
+divContenedor.addEventListener("mouseenter", (evento) =>{
+    divtarea.style.display = "flex"; 
+}); 
+
+divContenedor.addEventListener("mouseleave", (evento) =>{
+    divtarea.style.display = "none"; 
+}); 

@@ -2,7 +2,6 @@ const h1nombre = document.getElementById("bienvenida");
 const btn_prueba = document.getElementById("prueba"); 
 const aCalendario =document.getElementById("calendario"); 
 const divCalendario = document.getElementById("cuadroCalen"); 
-console.log("lol"); 
 
 //verificar si ya se inició sesión por lo mientras con un btn
 
