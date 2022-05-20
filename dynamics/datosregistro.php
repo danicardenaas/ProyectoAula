@@ -11,17 +11,27 @@
     $cuenta = (isset($_POST['cuenta']) && $_POST["cuenta"] != "")? $_POST['cuenta'] : "no especifico";
     $cumpleaños= (isset($_POST['cumpleaños']) && $_POST["cumpleaños"] != "")? $_POST['cumpleaños'] : "no especifico";
     $correo= (isset($_POST['correo']) && $_POST["correo"] != "")? $_POST['correo'] : "no especifico";
-    $grupo= (isset($_POST['grupo']) && $_POST["grupo"] != "")? $_POST['grupo'] : "no especifico";
+  //  $grupo= (isset($_POST['grupo']) && $_POST["grupo"] != "")? $_POST['grupo'] : "no especifico";
     $usuario= (isset($_POST['usuario']) && $_POST["usuario"] != "")? $_POST['usuario'] : "no especifico";
     $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
     $telefono = (isset($_POST['telefono']) && $_POST['telefono'] != "")? $_POST['telefono'] : "sin teléfono";
     $rol = (isset($_POST['rol']) && $_POST['rol'] != "")? $_POST['rol'] : "no especifico";
-    
-    $peticion = "INSERT INTO usuario VALUES ('$cuenta', '$nombre', '$apellido ', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', ' ', '$rol', '$grupo', ' ', ' ')"; 
-    $peticion = "INSERT INTO usuario (ID_usuario, nombre) VALUES ('$cuenta', '$nombre', '$apellido ', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', ' ', '$rol', '$grupo', ' ', ' ')"; 
+    if(isset($_FILES['foto']))
+    { 
+        $name=$_FILES['foto']['name'];
+        $ext=pathinfo($name, PATHINFO_EXTENSION);
+        $arch=$_FILES['foto']['tmp_name'];
+        $archivo=$usuario.$cuenta.$ext;
+        $ruta= "../imgs/$archivo";
+        rename($arch, $ruta);
+    }
 
+    $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
+    VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
     $query = mysqli_query($conexion, $peticion); 
-    var_dump($query); 
+  
+    $nuevaURL='../templates/inicio.html';
+    header('Location: '.$nuevaURL);
     //echo $telefono; 
     /*echo "<table border='1'>
                 <thead>

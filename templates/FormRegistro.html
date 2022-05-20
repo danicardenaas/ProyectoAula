@@ -142,9 +142,9 @@
                     <label for="rol" class="Etiquetas">Rol: </label>
                     <select  name="rol">
                         <option disabled>Estudiante/profesor</option>
-                        <option value="estudiante">Estudiante</option>
-                        <option value="profesor">Profesor</option>
-                        <!--<option value="Administracion">Personal administrativo</option>-->
+                        <option value=1>Estudiante</option>
+                        <option value=2>Profesor</option>
+                        <option value=3>Personal administrativo</option>
                     </select><br/><br/><br/>
                     <label for="usuario">
                         <input type="text" name="usuario" placeholder="Nombre de usuario" required class="escribir"/>
@@ -154,12 +154,18 @@
                     </label>
                     <label for="foto" class="Etiquetas">Foto: </label>
                     <input type="file" name="foto" class="escribir"><br/><br>
-                    <button type="reset" class="boton id="volver">Volver al inicio</button>
+                    
                     <button type="submit" class="boton" id="registrarme">¡Registrarme! </button> 
+                    <button type="reset" class="boton" id="registrarme">Borrar todo </button> 
                 
                 </fieldset>
             </form>
-                   
+            <form action="./inicio.html">
+                <button class="boton" id="volver">Volver al inicio</button>
+            </form> 
+            <form action="./PagInicio.html">
+                <button class="boton" id="volver">Iniciar sesión</button>
+            </form> 
         </main>
 
         <footer class="piedep">
