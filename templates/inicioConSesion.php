@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,41 +14,47 @@
              <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado" id="encabezado"> 
         </div>
      </header>
-     <div id="nombre-usuario" style="display:flex">
 
-     </div>
     <nav id="navIzquierdo">
         <a id="calendario" class="botonAzul">Calendario</a> <br/>
-        <div id="cuadroCalen" style="display:none">; 
+        <div id="cuadroCalen">
             <a><img src="../Imgs/calendario.jpg" alt="calendario" id="imgCalen"/></a><br/>
         </div>
-        <a id="anuncio" class="botonAzul">Anuncios</a><br/>
-        <a id="foro" class="botonAzul">Foro de dudas</a><br/>
-        <a id="juegos" class="botonAzul">Juegos educativos</a><br/>
+        <a href="./Tablero_tareas.html" id="anuncio" class="botonAzul">Clases</a><br/> 
+        <!-- <a id="anuncio" class="botonAzul">Anuncios</a><br/> -->
+        <a href="./foro.html" id="foro" class="botonAzul">Foro de dudas</a><br/>
+        <a href="./juegos_edu.html" id="juegos" class="botonAzul">Juegos educativos</a><br/>
     </nav>
 
     <main id="main">
         <div id="cuadroAzul">
-            <h1 id="bienvenida">¡Bienvenido a ENP 6! </h1>
+            <?php
+                session_name("SesionUsuario");
+                session_id("123456789");
+                session_start();
+                if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
+                {
+                    $nuevaURL='./inicio.php';
+                    header('Location: '.$nuevaURL);
+                }
+                $texto=$_SESSION['nombre'] ;
+                echo "<h1 id='bienvenida'>¡Bienvenido <strong>$texto </strong> aENP 6! </h1>";
+            ?>
             <div id="cuadroBlanco">
                 <img src="../Imgs/ImagenPrepa.jpg" alt="Prepa6" id="ImagenPrepa"/><br/>
             </div>
             
             <p id="fotos">Fotografías</p><br/> 
         </div>
+        
     </main>
     <nav id="navDerecho">
-        <p class="botonAzul" id="ingresa">Ingresa</p> <br/>
-        <a href="./Inicio.html" class="botonAzul" id="alumno">Alumno</a><br/>
-        <a href="./Inicio.html" class="botonAzul" id="profe" >Profesor</a><br/>
-        <a href="./FormRegistro.html" class="botonAzul" id="registro">Registro</a><br/>
-        <button class="botonAzul" id="prueba" style="margin-top: 300%">Boton Prueba</button>     <!-- Este btn es solo para verificar eventos -->
+         <!-- <a href="./inicio.html"><p class="botonAzul" id="ingresa">Ingresa</p> </a> <br/>
+        <a href="./FormRegistro.html" class="botonAzul" id="registro">Registro</a><br/> -->
     </nav>
     <footer id="piedep">
         <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
          Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
     </footer>
-    <script src="../dynamics/js/principal.js"></script>
-
 </body>
 </html>
