@@ -23,10 +23,12 @@
              <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado" id="encabezado"> 
         </div>
      </header>
+     <div id="nombre-usuario" style="display:flex">
 
+     </div>
     <nav id="navIzquierdo">
         <a id="calendario" class="botonAzul">Calendario</a> <br/>
-        <div id="cuadroCalen">
+        <div id="cuadroCalen" style="display:none">; 
             <a><img src="../Imgs/calendario.jpg" alt="calendario" id="imgCalen"/></a><br/>
         </div>
         <a  href="./inicio.php" id="anuncio" class="botonAzul">Anuncios</a><br/>
@@ -43,15 +45,17 @@
             
             <p id="fotos">Fotografías</p><br/> 
         </div>
-        
     </main>
     <nav id="navDerecho">
          <a href="./inicio.html"><p class="botonAzul" id="ingresa">Ingresa</p> </a> <br/>
         <a href="./FormRegistro.html" class="botonAzul" id="registro">Registro</a><br/>
+        <button class="botonAzul" id="prueba" style="margin-top: 300%">Boton Prueba</button>     <!-- Este btn es solo para verificar eventos -->
     </nav>
     <footer id="piedep">
         <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
          Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
     </footer>
+    <script src="../dynamics/js/principal.js"></script>
+
 </body>
 </html>
