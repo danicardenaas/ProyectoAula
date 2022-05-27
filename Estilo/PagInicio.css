@@ -166,7 +166,10 @@
 
 }
 
-
+#amarillo{
+    position: relative;
+    bottom: -10vh;
+}
 
 
 /* pie de página

@@ -16,43 +16,50 @@
     $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
     $telefono = (isset($_POST['telefono']) && $_POST['telefono'] != "")? $_POST['telefono'] : "sin teléfono";
     $rol = (isset($_POST['rol']) && $_POST['rol'] != "")? $_POST['rol'] : "no especifico";
-    if(isset($_FILES['foto']))
-    { 
-        $name=$_FILES['foto']['name'];
-        $ext=pathinfo($name, PATHINFO_EXTENSION);
-        $arch=$_FILES['foto']['tmp_name'];
-        $archivo=$usuario.$cuenta.$ext;
-        $ruta= "../imgs/$archivo";
-        rename($arch, $ruta);
-    }
+    $seccion = (isset($_POST['seccion']) && $_POST['seccion'] != "")? $_POST['seccion'] : "no especifico";
+    $peticion = "SELECT * FROM grupo WHERE id_grupo='$grupo'";
+    $query = mysqli_query( $conexion, $peticion); 
+    $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
+    if(!$datos)
+    {
+        $peticion = "INSERT INTO grupo VALUES ('$grupo', '$seccion')";
+        $query = mysqli_query( $conexion, $peticion); 
+        $peticion = "INSERT INTO grupo VALUES ('$grupo', '$seccion')";
+        $query = mysqli_query( $conexion, $peticion); 
+        
 
-    $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
-    VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
-    $query = mysqli_query($conexion, $peticion); 
-  
-    $nuevaURL='../templates/inicio.html';
-    header('Location: '.$nuevaURL);
-    //echo $telefono; 
-    /*echo "<table border='1'>
-                <thead>
-                    <tr>
-                    <th colspan='2'>$nombre $apellido</th>  
-                    </tr> 
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Correo: $correo</td>
-                        <td>Cuenta: $cuenta</td>
-                        <td rowspan='3'><img src='uploads\$fileName' alt='foto' width='500' height='300' />
-                    </tr>
-                    <tr>
-                        <td>Cumpleaños: $cumpleaños</td>
-                        <td>Grado: $grado</td>
-                    </tr>
-                     <tr>
-                        <td>Usuario: $usuario</td>
-                        <td>Contraseña: $contraseña</td>
-                    </tr>
-                </tbody>
-            </table><br/><br/>"; */
+    }
+    $peticion = "SELECT contrasena FROM usuario WHERE usuario='$usuario'";
+    $query = mysqli_query( $conexion, $peticion); 
+    $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
+    if($datos==NULL){
+
+      
+        if(isset($_FILES['foto']))
+        { 
+            $name=$_FILES['foto']['name'];
+            $ext=pathinfo($name, PATHINFO_EXTENSION);
+            $arch=$_FILES['foto']['tmp_name'];
+            $archivo=$usuario.$cuenta.".".$ext;
+            $ruta= "../imgs/usuario/$archivo";
+            rename($arch, $ruta);
+        }
+        
+        $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
+        VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
+        $query = mysqli_query($conexion, $peticion); 
+      
+        $peticion = "SELECT * FROM usuario WHERE usuario=$usuario";
+    
+        
+        $peticion = "INSERT INTO UHG (id_usuario, id_grupo) VALUES ($usuario, $grupo);
+    
+        $nuevaURL='../templates/inicio.html';
+         header('Location: '.$nuevaURL);
+    }
+    else
+    {
+        Usuario en uso
+        
+   }
 ?>

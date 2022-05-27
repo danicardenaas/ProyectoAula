@@ -19,7 +19,7 @@
             <form action="..\dynamics\datosinicio.php" method="post">
                 <fieldset id="cuadroAzul">
                     <h2 id="titulo">Inicio de sesión</h2>
-                    <label for="usuario" class="etiqueta" id="usuario">Correo o número de cuenta: </label>
+                    <label for="usuario" class="etiqueta" id="usuario">Usuario: </label>
                     <input type="text" name="usuario" placeholder="Correo electrónicoo no. de cuenta" required><br/><br/>
                     <label for="contraseña" class="etiqueta" id="pass">Contraseña: </label>
                     <input type="password" name="contraseña" placeholder="  Contraseña" required><br/><br/>
@@ -37,7 +37,7 @@
                 session_id("123456789");
                 session_start();
                 
-                if( $_SESSION["nombre"]==false )
+                if( isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false )
                 {
                     $texto=$_SESSION['mensaje'];
                     echo "<p style='align-center'> $texto</p>";
