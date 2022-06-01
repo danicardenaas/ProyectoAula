@@ -17,8 +17,8 @@
 
     <nav id="navIzquierdo">
         <a id="calendario" class="botonAzul">Calendario</a> <br/>
-        <div id="cuadroCalen">
-            <a><img src="../Imgs/calendario.jpg" alt="calendario" id="imgCalen"/></a><br/>
+        <div id="x">
+
         </div>
         <a href="./Tablero_tareas.html" id="anuncio" class="botonAzul">Clases</a><br/> 
         <!-- <a id="anuncio" class="botonAzul">Anuncios</a><br/> -->
@@ -38,7 +38,7 @@
                     header('Location: '.$nuevaURL);
                 }
                 $texto=$_SESSION['nombre'] ;
-                echo "<h1 id='bienvenida'>¡Bienvenido <strong>$texto </strong> aENP 6! </h1>";
+                echo "<h1 id='bienvenida'>¡Bienvenido <strong>$texto </strong> a ENP 6! </h1>";
             ?>
             <div id="cuadroBlanco">
                 <img src="../Imgs/ImagenPrepa.jpg" alt="Prepa6" id="ImagenPrepa"/><br/>
@@ -51,10 +51,13 @@
     <nav id="navDerecho">
          <!-- <a href="./inicio.html"><p class="botonAzul" id="ingresa">Ingresa</p> </a> <br/>
         <a href="./FormRegistro.html" class="botonAzul" id="registro">Registro</a><br/> -->
+        <a href="../dynamics/cerrar.php" class="botonAzul" id="registro">cerrar</a><br/>
     </nav>
     <footer id="piedep">
         <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
          Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
     </footer>
+    <script src="../dynamics/js/principal.js"></script>
+
 </body>
 </html>

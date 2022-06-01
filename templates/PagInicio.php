@@ -47,9 +47,9 @@
         </div>
     </main>
     <nav id="navDerecho">
-         <a href="./inicio.html"><p class="botonAzul" id="ingresa">Ingresa</p> </a> <br/>
+         <a href="./inicio.php"><p class="botonAzul" id="ingresa">Ingresa</p> </a> <br/>
         <a href="./FormRegistro.html" class="botonAzul" id="registro">Registro</a><br/>
-        <button class="botonAzul" id="prueba" style="margin-top: 300%">Boton Prueba</button>     <!-- Este btn es solo para verificar eventos -->
+        <!-- <button class="botonAzul" id="prueba" style="margin-top: 300%">Boton Prueba</button>     Este btn es solo para verificar eventos -->
     </nav>
     <footer id="piedep">
         <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>

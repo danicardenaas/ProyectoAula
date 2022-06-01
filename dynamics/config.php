@@ -3,7 +3,7 @@
     define ("DBHOST", "localhost");
     define ("DBUSER", "root");  
     define ("PASSWORD", ""); 
-    define ("DB", "proyecto_aula" ); 
+    define ("DB", "proyectoaula" ); 
 
     function connect(){
         $conexion = mysqli_connect(DBHOST, DBUSER, PASSWORD, DB); 

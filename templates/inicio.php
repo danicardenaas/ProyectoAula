@@ -19,25 +19,25 @@
             <form action="..\dynamics\datosinicio.php" method="post">
                 <fieldset id="cuadroAzul">
                     <h2 id="titulo">Inicio de sesión</h2>
-                    <label for="usuario" class="etiqueta" id="usuario">Correo o número de cuenta: </label>
+                    <label for="usuario" class="etiqueta" id="usuario">Usuario: </label>
                     <input type="text" name="usuario" placeholder="Correo electrónicoo no. de cuenta" required><br/><br/>
                     <label for="contraseña" class="etiqueta" id="pass">Contraseña: </label>
                     <input type="password" name="contraseña" placeholder="  Contraseña" required><br/><br/>
                     <!--<a class="etiqueta">¿Olvisdaste tu contraseña?</a><br><br>-->
                     <p class="etiqueta">¿Eres nuevo?<a href=".\FormRegistro.html" class="etiqueta"> Registráte aquí</a></p><br>
                     <button type="submit"class="boton">Siguiente</button> 
-                    <form action="./PagInicio.html">
-                        <button  class="boton" id="enviar">Volver al inicio</button>
-                    </form>
+                    
                 </fieldset>
             </form>
-            
+            <form action="./PagInicio.php">
+                        <button  class="boton" id="enviar">Volver al inicio</button>
+                    </form>
            <?php
                 session_name("SesionUsuario");
                 session_id("123456789");
                 session_start();
                 
-                if( $_SESSION["nombre"]==false )
+                if( isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false )
                 {
                     $texto=$_SESSION['mensaje'];
                     echo "<p style='align-center'> $texto</p>";

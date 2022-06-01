@@ -25,39 +25,33 @@
 }
 /*Main
 ---------------------------*/
+#contenedor{
+    display: flex;
+    align-items: center;
+}
 h4{
     text-align: center;
-    
 }
 img{
-    position: absolute;
-    top:10vh;
-    left:2vw;
+    position: relative;
+    top:2vh;
+    left:3vw;
 }
 .materia{
-    position:absolute;
+    
     background-color: #FFFFFF;
     width:20vw;
     height: 50vh;
-    top:25vh;
-    left:10vw;
+    margin: 14px;
+    align-self: center;
 }
 .tareas{
-    position: absolute;
+    position: relative;
     width: 20vw;
-    height: 10vh;
-    top:45vh;
-    left:0vw;
+    height: 12vh;
+    bottom:-3vh;
     background-color:#a1a1a1;
     overflow: auto;
-}
-#mate{
-    top:30vh;
-    left:50vw;
-}
-#historia{
-    top:30vh;
-    left:20vw;
 }
 #main{
     width:80vw;
@@ -67,6 +61,7 @@ img{
     left:10.6vw;
     top:26.5vh;
     padding: 0;
+    display: flex;
 }
 #titulo{
     background-color:#D1A11D;
