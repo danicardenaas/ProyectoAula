@@ -54,7 +54,7 @@
                             $grupo= (isset($_POST['grupo']) && $_POST["grupo"] != "")? $_POST['grupo'] : false;
                             $seccion = (isset($_POST['seccion']) && $_POST['seccion'] != "")? $_POST['seccion'] : false;
                             if($grupo && $seccion){
-                                $peticion = "SELECT * FROM grupo WHERE id_grupo=$grupo"; 
+                                $peticion = "SELECT * FROM grupo WHERE grupo=$grupo"; 
                                 $query = mysqli_query( $conexion, $peticion); 
                                 $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
                                 if($datos == NULL)
@@ -124,7 +124,7 @@
                             $query = mysqli_query($conexion, $peticion); 
                             $datos= mysqli_fetch_array($query);
                             $id_grupo=$datos['ID_grupo'];
-                            $peticion = "INSERT INTO UHG (ID_usuario, ID_grupo) VALUES ($id_usuario, '$grupo')";
+                            $peticion = "INSERT INTO UHG (ID_usuario, ID_grupo) VALUES ($id_usuario, $id_grupo)";
                             $query = mysqli_query($conexion, $peticion); 
                             
                         }
