@@ -9,11 +9,6 @@
     $usuario = (isset($_POST['usuario']) && $_POST["usuario"] != "")? $_POST['usuario'] : "no especifico";
     $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
    
-    $peticion = "INSERT INTO usuario VALUES ('$usuario', '$contraseña')"; 
-
-
-    $query = mysqli_query($conexion, $peticion); 
-    var_dump($query); 
 
     $peticion = "SELECT contrasena FROM usuario WHERE usuario='$usuario'";
     $query = mysqli_query( $conexion, $peticion); 

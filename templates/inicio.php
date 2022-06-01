@@ -26,12 +26,12 @@
                     <!--<a class="etiqueta">¿Olvisdaste tu contraseña?</a><br><br>-->
                     <p class="etiqueta">¿Eres nuevo?<a href=".\FormRegistro.html" class="etiqueta"> Registráte aquí</a></p><br>
                     <button type="submit"class="boton">Siguiente</button> 
-                    <form action="./PagInicio.html">
-                        <button  class="boton" id="enviar">Volver al inicio</button>
-                    </form>
+                    
                 </fieldset>
             </form>
-            
+            <form action="./PagInicio.php">
+                        <button  class="boton" id="enviar">Volver al inicio</button>
+                    </form>
            <?php
                 session_name("SesionUsuario");
                 session_id("123456789");
