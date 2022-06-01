@@ -1,6 +1,9 @@
 const divCuadro = document.getElementById(contenedor); 
+const inicio = document.getElementById("inicio");
 
-
+inicio.addEventListener("click", ()=>{
+    window.location.href = "./inicioConSesion.php";
+})
 
 
 //hasta tener el html funcional
