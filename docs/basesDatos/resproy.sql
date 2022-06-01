@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: proyecto_aula
+-- Host: localhost    Database: proyectoaula
 -- ------------------------------------------------------
 -- Server version	10.4.24-MariaDB
 
@@ -236,9 +236,8 @@ DROP TABLE IF EXISTS `grupo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `grupo` (
   `ID_grupo` int(11) NOT NULL,
-  `seccion` char(5) NOT NULL,
-  PRIMARY KEY (`ID_grupo`),
-  UNIQUE KEY `seccion` (`seccion`)
+  `seccion` char(5) DEFAULT NULL,
+  PRIMARY KEY (`ID_grupo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -248,6 +247,7 @@ CREATE TABLE `grupo` (
 
 LOCK TABLES `grupo` WRITE;
 /*!40000 ALTER TABLE `grupo` DISABLE KEYS */;
+INSERT INTO `grupo` VALUES (401,NULL),(409,NULL);
 /*!40000 ALTER TABLE `grupo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -360,7 +360,7 @@ CREATE TABLE `tipousuario` (
   `tipo_usuario` varchar(50) NOT NULL,
   PRIMARY KEY (`ID_tipousuario`),
   UNIQUE KEY `tipo_usuario` (`tipo_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -369,6 +369,7 @@ CREATE TABLE `tipousuario` (
 
 LOCK TABLES `tipousuario` WRITE;
 /*!40000 ALTER TABLE `tipousuario` DISABLE KEYS */;
+INSERT INTO `tipousuario` VALUES (1,'estudiante'),(2,'profesor');
 /*!40000 ALTER TABLE `tipousuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -409,7 +410,7 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
-  `ID_usuario` varchar(20) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` char(100) NOT NULL,
   `apellidos` char(100) NOT NULL,
   `correo` varchar(100) NOT NULL,
@@ -419,13 +420,14 @@ CREATE TABLE `usuario` (
   `telefono` bigint(20) NOT NULL,
   `ID_tipousuario` tinyint(4) NOT NULL,
   `Archivo` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`ID_usuario`),
+  `cuenta` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `correo` (`correo`),
   UNIQUE KEY `usuario` (`usuario`),
   UNIQUE KEY `telefono` (`telefono`),
   KEY `ID_tipousuario` (`ID_tipousuario`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`ID_tipousuario`) REFERENCES `tipousuario` (`ID_tipousuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -474,4 +476,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-14 15:40:00
+-- Dump completed on 2022-06-01  9:38:36
