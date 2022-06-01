@@ -54,14 +54,14 @@
                             $grupo= (isset($_POST['grupo']) && $_POST["grupo"] != "")? $_POST['grupo'] : false;
                             $seccion = (isset($_POST['seccion']) && $_POST['seccion'] != "")? $_POST['seccion'] : false;
                             if($grupo && $seccion){
-                                $peticion = "SELECT * FROM grupo WHERE id_grupo='$grupo'"; 
+                                $peticion = "SELECT * FROM grupo WHERE id_grupo=$grupo"; 
                                 $query = mysqli_query( $conexion, $peticion); 
                                 $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
                                 if($datos == NULL)
                                 {
-                                    $peticion = "INSERT INTO grupo VALUES ('$grupo', 'A')";
+                                    $peticion = "INSERT INTO grupo(grupo, seccion) VALUES ('$grupo', 'A')";
                                     $query = mysqli_query( $conexion, $peticion); 
-                                    $peticion = "INSERT INTO grupo VALUES ('$grupo', 'B')";
+                                    $peticion = "INSERT INTO grupo (grupo, seccion) VALUES ('$grupo', 'B')";
                                     $query = mysqli_query( $conexion, $peticion); 
                                 }
                             }
@@ -111,13 +111,19 @@
                         $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
                         VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
                         $query = mysqli_query($conexion, $peticion); 
-                        // $id_usuario = mysqli_insert_id ($conexion);
-                        $peticion = "SELECT id_usuario FROM usuario WHERE usuario = '$usuario'";
-                        $query = mysqli_query($conexion, $peticion); 
-                        $datos= mysqli_fetch_array($query);
-                        $id_usuario=$datos['id_usuario'];
+                       
+                        
+                       
                         if($rol==1)
                         {
+                            $peticion = "SELECT ID_usuario FROM usuario WHERE usuario = '$usuario'";
+                            $query = mysqli_query($conexion, $peticion); 
+                            $datos= mysqli_fetch_array($query);
+                            $id_usuario=$datos['ID_usuario'];
+                            $peticion = "SELECT ID_grupo FROM grupo WHERE grupo = '$grupo' AND seccion= '$seccion'";
+                            $query = mysqli_query($conexion, $peticion); 
+                            $datos= mysqli_fetch_array($query);
+                            $id_grupo=$datos['ID_grupo'];
                             $peticion = "INSERT INTO UHG (ID_usuario, ID_grupo) VALUES ($id_usuario, '$grupo')";
                             $query = mysqli_query($conexion, $peticion); 
                             

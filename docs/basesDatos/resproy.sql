@@ -235,7 +235,8 @@ DROP TABLE IF EXISTS `grupo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `grupo` (
-  `ID_grupo` int(11) NOT NULL,
+  `ID_grupo` int(11) NOT NULL AUTO_INCREMENT,
+  `grupo` int(11) NOT NULL,
   `seccion` char(5) DEFAULT NULL,
   PRIMARY KEY (`ID_grupo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -410,7 +411,7 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` char(100) NOT NULL,
   `apellidos` char(100) NOT NULL,
   `correo` varchar(100) NOT NULL,
@@ -428,11 +429,6 @@ CREATE TABLE `usuario` (
   KEY `ID_tipousuario` (`ID_tipousuario`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`ID_tipousuario`) REFERENCES `tipousuario` (`ID_tipousuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
