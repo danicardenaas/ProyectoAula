@@ -24,12 +24,8 @@
     {
         $peticion = "INSERT INTO grupo VALUES ('$grupo', '$seccion')";
         $query = mysqli_query( $conexion, $peticion); 
-        $peticion = "INSERT INTO grupo VALUES ('$grupo', '$seccion')";
-        $query = mysqli_query( $conexion, $peticion); 
-        
-
     }
-    $peticion = "SELECT contrasena FROM usuario WHERE usuario='$usuario'";
+    $peticion = "SELECT * FROM usuario WHERE usuario='$usuario'";
     $query = mysqli_query( $conexion, $peticion); 
     $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
     if($datos==NULL){
@@ -45,21 +41,20 @@
             rename($arch, $ruta);
         }
         
-        $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
+        $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta);
         VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
         $query = mysqli_query($conexion, $peticion); 
       
         $peticion = "SELECT * FROM usuario WHERE usuario=$usuario";
     
         
-        $peticion = "INSERT INTO UHG (id_usuario, id_grupo) VALUES ($usuario, $grupo);
+        $peticion = "INSERT INTO UHG (id_usuario, id_grupo) VALUES ($usuario, $grupo)";
     
         $nuevaURL='../templates/inicio.html';
-         header('Location: '.$nuevaURL);
+        header('Location: '.$nuevaURL);
     }
     else
     {
-        Usuario en uso
-        
+        echo "usuario en uso";      
    }
 ?>
