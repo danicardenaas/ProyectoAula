@@ -15,12 +15,12 @@
     $seguir=true;
     if($nombre && $apellido && $cumpleaños && $correo && $usuario && $contraseña && $telefono && $rol)
     {
-        $peticion = "SELECT * FROM correo WHERE correo='$correo'";
+        $peticion = "SELECT * FROM usuario WHERE correo='$correo'";
         $query = mysqli_query( $conexion, $peticion ); 
         $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
         if($datos==NULL){
 
-            $peticion = "SELECT * FROM telefono WHERE telefono='$telefono'";
+            $peticion = "SELECT * FROM usuario WHERE telefono='$telefono'";
             $query = mysqli_query( $conexion, $peticion ); 
             $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
 
@@ -118,7 +118,7 @@
                         $id_usuario=$datos['id_usuario'];
                         if($rol==1)
                         {
-                            $peticion = "INSERT INTO UHG (id_usuario, id_grupo) VALUES ($id_usuario, '$grupo')";
+                            $peticion = "INSERT INTO UHG (ID_usuario, ID_grupo) VALUES ($id_usuario, '$grupo')";
                             $query = mysqli_query($conexion, $peticion); 
                             
                         }
