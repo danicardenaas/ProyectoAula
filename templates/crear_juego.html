@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea un juego</title>
+</head>
+<body>
+    <header>Crea tu juego</header>
+    <div id="contenedor-juego">
+        <form id="form-pregunta" action="../dynamics/datosJuego.php" method="post">
+            <div id="pregunta1">
+                <h1>Pregunta 1</h1>
+                <div class="campo-form">
+                    <label>Pregunta</label> 
+                    <input type="text" name="pregunta" id="pregunta" placeholder="Pregunta">
+                </div>
+                <div class="campo-form">
+                    <label>Respuesta correcta</label> 
+                    <input type="text" name="res1" id="res1" placeholder="Respuesta correcta">
+                </div>
+                <div class="campo-form">
+                    <label>Respuesta incorrecta</label> 
+                    <input type="text" name="res2" id="res2" placeholder="Respuesta incorrecta">
+                </div>
+                <div class="campo-form">
+                    <label>Respuesta incorrecta</label> 
+                    <input type="text" name="res3" id="res3" placeholder="Respuesta incorrecta">
+                </div>
+            </div>
+            <!-- Estas van al final de las preguntas -->
+            <label id="nota"> ¿Está listo tu juego? </label>
+            <button id="btn-enviar"> Juego terminado </button>
+        </form>
+        <button id="btn-agregar"> Agregar pregunta </button>
+    </div>
+    <footer class="piedep">
+                Aula virtual - Escuela Nacional Preparatoria Plantel 6 "Antonio Caso"
+        </footer>
+    <script src="../dynamics/js/crear_juego.js"></script>
+
+</body>
+</html>
