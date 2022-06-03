@@ -3,12 +3,16 @@
     include("./config.php"); 
 
     $conexion = connect(); 
-
-    for($i=1; $i<2; $i++)
+    $preguntas= array ("pregunta");
+    $num=2;
+    for($i=0; $i<10; $i++)
     {
-        $pregunta[$i] = [(isset($_POST['pregunta']) && $_POST["pregunta"] != "")? $_POST['pregunta'] : false]; 
-        echo 'pregunta :  '.$pregunta; 
+        $pregunta[$i]= (isset($_POST[$preguntas[$i]]) && $_POST[$preguntas[$i]] != "")? $_POST[$preguntas[$i]] : false; 
+        var_dump($pregunta[$i]);
+        echo "<br>";
+        $preguntas[$i+1]="pregunta".$num;
+        $num++;
     }
-
+  
     // echo json_encode($respuesta);    
 ?>

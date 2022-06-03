@@ -312,12 +312,12 @@ DROP TABLE IF EXISTS `materia`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `materia` (
   `ID_materia` int(11) NOT NULL,
-  `nombre` char(100) NOT NULL,
+  `nombreMateria` char(100) NOT NULL,
   `ruta_imagen` varchar(1000) DEFAULT NULL,
   `publica` tinyint(1) DEFAULT NULL,
   `contrasena` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ID_materia`),
-  UNIQUE KEY `nombre` (`nombre`)
+  UNIQUE KEY `nombreMateria` (`nombreMateria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

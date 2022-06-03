@@ -18,8 +18,22 @@
     <div id="colIzquierdo"></div>
     <main id="main">
         <h1 id='titulo'>Clases:</h1>
+        <form action="./BuscadorDeClases.php" method="POST">
+            <button id="btn-verClases"> Ver más clases</button>
+        </form>
+        
         <div id='contenedor' style='display: flex'>
         </div>
+         <?php
+                session_name("SesionUsuario");
+                session_id("123456789");
+                session_start();
+                if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
+                {
+                    $nuevaURL='./inicio.php';
+                    header('Location: '.$nuevaURL);
+                }
+        ?>
     
     </main>
     <footer id="piedep">

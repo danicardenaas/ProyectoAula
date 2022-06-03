@@ -20,7 +20,7 @@
         <div id="x">
 
         </div>
-        <a href="./Tablero_tareas.html" id="anuncio" class="botonAzul">Clases</a><br/> 
+        <a href="./Tablero_tareas.php" id="anuncio" class="botonAzul">Clases</a><br/> 
         <!-- <a id="anuncio" class="botonAzul">Anuncios</a><br/> -->
         <a href="./foro.html" id="foro" class="botonAzul">Foro de dudas</a><br/>
         <a href="./juegos_edu.html" id="juegos" class="botonAzul">Juegos educativos</a><br/>

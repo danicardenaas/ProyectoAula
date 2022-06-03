@@ -10,7 +10,7 @@
     $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
    
 
-    $peticion = "SELECT contrasena FROM usuario WHERE usuario='$usuario'";
+    $peticion = "SELECT * FROM usuario WHERE usuario='$usuario'";
     $query = mysqli_query( $conexion, $peticion); 
     $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
     if($datos!=NULL)
@@ -48,7 +48,10 @@
     if(isset($_SESSION["nombre"]) && $_SESSION["nombre"]!=false)
     {
         $nuevaURL='../templates/inicioConSesion.php';
+
+        $_SESSION["ID_usuario"]=$datos['ID_usuario'];
         header('Location: '.$nuevaURL);
+        
     }
    
 

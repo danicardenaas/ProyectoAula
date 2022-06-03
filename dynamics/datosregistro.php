@@ -94,41 +94,66 @@
                     }
                     if($seguir)
                     {
-                        if(isset($_FILES['foto']) && $_FILES['foto']['tmp_name'] != "" )
-                        { 
-                            //detener si no suben pic o que no importe
-                            $name=$_FILES['foto']['name'];
-                            $ext=pathinfo($name, PATHINFO_EXTENSION);
-                            $arch=$_FILES['foto']['tmp_name'];
-                            $archivo=$usuario.$cuenta.".".$ext;
-            
-                            $ruta= "../Imgs/usuario/$archivo";
-                            rename($arch, $ruta);
+                        $peticion = "SELECT * FROM usuario WHERE cuenta='$cuenta'";
+                        $query = mysqli_query( $conexion, $peticion ); 
+                        $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
+                        if($datos==NULL)
+                        {
+                            if(isset($_FILES['foto']) && $_FILES['foto']['tmp_name'] != "" )
+                            { 
+                                //detener si no suben pic o que no importe
+                                $name=$_FILES['foto']['name'];
+                                $ext=pathinfo($name, PATHINFO_EXTENSION);
+                                $arch=$_FILES['foto']['tmp_name'];
+                                $archivo=$usuario.$cuenta.".".$ext;
+                
+                                $ruta= "../Imgs/usuario/$archivo";
+                                rename($arch, $ruta);
+                            }
+                            else{
+                                $ruta="Desconocido";
+                            }
+                            $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
+                            VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
+                            $query = mysqli_query($conexion, $peticion); 
+                        
+                            
+                        
+                            if($rol==1)
+                            {
+                                $peticion = "SELECT ID_usuario FROM usuario WHERE usuario = '$usuario'";
+                                $query = mysqli_query($conexion, $peticion); 
+                                $datos= mysqli_fetch_array($query);
+                                $id_usuario=$datos['ID_usuario'];
+                                $peticion = "SELECT ID_grupo FROM grupo WHERE grupo = '$grupo' AND seccion= '$seccion'";
+                                $query = mysqli_query($conexion, $peticion); 
+                                $datos= mysqli_fetch_array($query);
+                                $id_grupo=$datos['ID_grupo'];
+                                $peticion = "INSERT INTO UHG (ID_usuario, ID_grupo) VALUES ($id_usuario, $id_grupo)";
+                                $query = mysqli_query($conexion, $peticion);
+                                
+                                $peticion = "SELECT * FROM materia NATURAL JOIN ghm NATURAL JOIN grupo WHERE grupo='$grupo' AND (seccion='$seccion' OR seccion=NULL)";
+                                $query = mysqli_query($conexion, $peticion);
+                                
+                                if($query!=false)
+                                {
+                                    while($row = mysqli_fetch_assoc($query)){
+                                
+                                    $id_materia=$row['ID_materia'];
+                                    $peticion = "INSERT INTO UHM (ID_usuario, ID_materia) VALUES ($id_usuario, $id_materia)";
+                                    $res = mysqli_query($conexion, $peticion);
+                                    }
+                                }
+                                
+                                
+                            }
+                        $respuesta = array ("ok" => true, "texto" => "Todo bien") ;
                         }
                         else{
-                            $ruta="Desconocido";
+                            $respuesta= array ("ok" => false, "texto" => "Esta cuenta ya fue registrada")   ;
                         }
-                        $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
-                        VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
-                        $query = mysqli_query($conexion, $peticion); 
-                       
+
                         
-                       
-                        if($rol==1)
-                        {
-                            $peticion = "SELECT ID_usuario FROM usuario WHERE usuario = '$usuario'";
-                            $query = mysqli_query($conexion, $peticion); 
-                            $datos= mysqli_fetch_array($query);
-                            $id_usuario=$datos['ID_usuario'];
-                            $peticion = "SELECT ID_grupo FROM grupo WHERE grupo = '$grupo' AND seccion= '$seccion'";
-                            $query = mysqli_query($conexion, $peticion); 
-                            $datos= mysqli_fetch_array($query);
-                            $id_grupo=$datos['ID_grupo'];
-                            $peticion = "INSERT INTO UHG (ID_usuario, ID_grupo) VALUES ($id_usuario, $id_grupo)";
-                            $query = mysqli_query($conexion, $peticion); 
-                            
-                        }
-                        $respuesta = array ("ok" => true, "texto" => "Todo bien") ;
                 
                     }
                     
