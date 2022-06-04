@@ -48,7 +48,7 @@ divtarea.addEventListener("click", (evento)=>{
       const datosForm2= new FormData();
     
       datosForm2.append("id_materia", materia);
- 	datosForm2.append("fetch", 1);
+ 	    datosForm2.append("fetch", 1);
       fetch("../dynamics/clase.php", {
         method:"POST", 
         body: datosForm2,
@@ -58,8 +58,18 @@ divtarea.addEventListener("click", (evento)=>{
         if(datosJSON.inscrito)
         {
           //redireccionar a la pestaña
-          window.location= "./clase.php";
+          
+          if(datosJSON.rol == null)
+          {
+            window.location= "./clase.php";
+          }    
+          else{
+            console.log(datosJSON.rol);
+            //tiene vista de profesor
+            window.location= "./claseProf.php";
+          }     
           document.cookie = "id_materia ="+ materia;
+          //rol, y que vaya a otra vista
          
         }
         else if(!datosJSON.inscrito)

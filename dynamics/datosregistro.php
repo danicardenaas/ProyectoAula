@@ -13,8 +13,18 @@
     $telefono = (isset($_POST['telefono']) && $_POST['telefono'] != "")? $_POST['telefono'] : "sin teléfono";
     $rol = (isset($_POST['rol']) && $_POST['rol'] != "")? $_POST['rol'] : false;
     $seguir=true;
+    function pimientaG (){
+        $char = str_split("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+        $Ppimienta =  array_rand($char, 2);
+        $pimienta = $char [$Ppimienta[0]].$char[$Ppimienta[1]];
+        return $pimienta;
+       
+    }
     if($nombre && $apellido && $cumpleaños && $correo && $usuario && $contraseña && $telefono && $rol)
     {
+
+        
+
         $peticion = "SELECT * FROM usuario WHERE correo='$correo'";
         $query = mysqli_query( $conexion, $peticion ); 
         $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
@@ -113,8 +123,13 @@
                             else{
                                 $ruta="../Imgs/usuario/desconocido.png";
                             }
-                            $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
-                            VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
+                            //Seguridad--contraseña--
+                            $sal = uniqid();
+                            $pimienta = pimientaG();
+                            $contraseña = $contraseña.$pimienta.$sal;
+                            $contraseña = hash("sha256", $contraseña);
+                            $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta, sal)
+                            VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', '$cuenta', '$sal')"; 
                             $query = mysqli_query($conexion, $peticion); 
                         
                             

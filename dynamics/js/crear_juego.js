@@ -14,8 +14,8 @@ btnAgregar.addEventListener("click", (evento)=>{
         alert("El número máximo de preguntas es 10"); 
         btnAgregar.style.display = "none"; 
     }
-        
     else{
+       
         const nueva = document.createElement("div"); 
         formPregunta.insertBefore(nueva, confirmacion); 
         nueva.id = "pregunta"+ pregunta; 
@@ -33,4 +33,7 @@ btnAgregar.addEventListener("click", (evento)=>{
         nueva.innerHTML += '<label>Respuesta incorrecta</label>';  
         nueva.innerHTML += '<input type="text" name="res3" id="res3" placeholder="Respuesta incorrecta"></div>'; 
     }  
-});
+
+   
+}); 
+

@@ -57,8 +57,15 @@ divResultados.addEventListener("click", (evento) => {
             if(datosJSON.inscrito)
             {
             //redireccionar a la pestaña
-     
+        
+                if(datosJSON.rol == null)
+                {
                 window.location= "./clase.php";
+                }    
+                else{
+                //tiene vista de profesor
+                window.location= "./claseProf.php";
+                }   
                 document.cookie = "id_materia ="+ materia;
             }
             else if(!datosJSON.inscrito)
@@ -81,23 +88,3 @@ divResultados.addEventListener("click", (evento) => {
     }
   });
 
-  registrar.addEventListener("click", (evento)=>{
-      if(input.value == contra || desbloquear){
-        const datosForm2= new FormData();
-        
-        datosForm2.append("id_materia", materia);
-        datosForm2.append("fetch", 2);
-
-        fetch("../dynamics/clase.php", {
-            method:"POST", 
-            body: datosForm2,
-        }).then ((response) =>{
-            return response.json();
-        }).then ((datosJSON)=>{
-            window.location="./clase.php";
-            document.cookie = "id_materia ="+ materia;
-      
-        });
-
-      }
-  });

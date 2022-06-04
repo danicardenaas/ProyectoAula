@@ -23,8 +23,11 @@
         $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
         if($datos != NULL)
         {
+            $peticion = "SELECT * FROM phc WHERE id_usuario = $id_usuario AND id_materia = $id_materia";
+            $query = mysqli_query( $conexion, $peticion); 
+            $usuario=mysqli_fetch_array($query, MYSQLI_ASSOC);
             //dejar entrar a la pestaña principal
-            $resultados = array ("inscrito" => true);
+            $resultados = array ("inscrito" => true, "rol" =>$usuario);
     
         }
         else{
@@ -32,7 +35,7 @@
             $peticion = "SELECT * FROM materia WHERE id_materia = $id_materia ";
             $query = mysqli_query( $conexion, $peticion); 
             $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
-            $resultados = array ("inscrito" => false, "datosMat" => $datos );
+            $resultados = array ("inscrito" => false, "datosMat" => $datos);
         }
        
     }
