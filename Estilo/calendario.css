@@ -1,8 +1,12 @@
-.salir1:hover{
+.salir:hover{
     background-color: #ac820f;
     padding: 15px;
     font-size: 5%;
 }
 .salir{
     background-color: aqua;
+}
+td{
+    height: 8vh;
+    width: 5vw;
 }
