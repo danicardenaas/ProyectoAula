@@ -16,7 +16,7 @@
      </header>
 
     <nav id="navIzquierdo">
-        <a id="calendario" class="botonAzul">Calendario</a> <br/>
+        <a id="calendario" class="botonAzul" >Calendario</a> <br/>
         <div id="x">
 
         </div>

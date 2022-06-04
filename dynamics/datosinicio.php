@@ -7,15 +7,38 @@
     session_start();
     $conexion = connect(); 
     $usuario = (isset($_POST['usuario']) && $_POST["usuario"] != "")? $_POST['usuario'] : "no especifico";
-    $contraseña= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
-   
+    $contrasena= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
 
+    function verificar_contra ($contrasena, $original, $sal)
+    {
+        $char = str_split("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+        for($i = 0;$i<count($char);$i++)
+        {
+            for($j = 0;$j<count($char);$j++)
+            {
+                $pimienta = $char[$i].$char[$j];
+                if (hash("sha256", $contrasena.$pimienta.$sal) === $original){
+                    $txt=hash("sha256", $contrasena.$pimienta.$sal);
+                    var_dump($txt);
+                    echo "<br>";
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     $peticion = "SELECT * FROM usuario WHERE usuario='$usuario'";
     $query = mysqli_query( $conexion, $peticion); 
     $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
+    
     if($datos!=NULL)
-    {
-        if($datos['contrasena']==$contraseña)
+    {   
+        
+       $original = $datos['contrasena'];
+     
+        $sal = $datos["sal"];
+        $bool=verificar_contra($contrasena, $original, $sal);
+        if($bool)
         {
             
             $mensaje[1]=true;

@@ -37,6 +37,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#" id="asignaciones">Asignaciones</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="asignaciones">Calificar</a>
+        </li>
        
       </ul>
     </div>
@@ -46,7 +49,11 @@
     <form action="./Tablero_tareas.php" method="post">
         <button>Regresar a tablón</button>
     </form>
+    <!-- //una peticion de js para saber que clase con la cookie -->
+
+    <button id="btn-borrar">Borrar clase</button>
+ 
     
-   <script src="../dynamics/js/clase.js"></script>
+   <script src="../dynamics/js/claseProf.js"></script>
 </body>
 </html>

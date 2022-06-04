@@ -463,7 +463,7 @@
     height: 769px; 
     border: 3px solid #555;
     float: left;
-
+    top:-10vh;
     background: #D1A11D;
 }
 
@@ -481,15 +481,15 @@
     height: 119%;
     position: absolute;
 }
-
+/* calendario */
 .cuad{
     position: absolute;
 
     background-color: #C4C4C4;
     position: absolute;
 
-    width: 70%;
-    height: 50%;
+    width: 70vw;
+    height: 50vh;
 
     top: 35%;
     left: 15%;
@@ -497,10 +497,14 @@
 }
 
 #cuad1{
-    width: 28%;
-    height: 50%; 
+    position: relative;
+    top: 30vh;
+    left: 10vw;
+    width: 42vw;
+    height: 80vh;  
+    border-radius: 10px;
     background: #D1A11D;
-    left: 18%;
+   
 }
 
 #cuad2{
@@ -514,24 +518,25 @@
     top: 5%;
     left: 5%;
     position: absolute;
-    width: 40%;
-    height: 30%;   
+    width: 70%;
+    height: 40%;   
     background-color: #FFFFFF;
 }
 
 #cc{
-    top: 25%;
-    left: 5%;
-    width: 90%;
-    height: 70%;  
+    position: relative;
+    top: 15vh;
+    left: 2vw;
+    width: 38vw;
+    height: 60vh;  
     border-radius: 10px;
 }
 
-#cca{
+#cca{ 
     background: #092473;
     left: 25%;
-    width: 45%;
-    height: 15%;
+    width: 20vw;
+    height: 5vh;
 }
 
 #ccb{
@@ -544,10 +549,10 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 800;
-    font-size: 25px;
+    font-size: 1.5em;
     color: white;
-    position: absolute;
-    left: 30%;
+
+    text-align: center;
 }
 
 .c2{
@@ -578,10 +583,8 @@
 .salir{
     background-color: #d1a11d;
     position: absolute;
-
     width: 12%;
     height: 5%;
-
     top: 10%;
     left: 15%;
 
