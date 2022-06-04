@@ -1,11 +1,14 @@
 const buscador = document.getElementById("input-buscador");
 const divResultados = document.getElementById("resultados");
 const registrar = document.getElementById("registro");
-
+const btn_reg = document.getElementById('btn-registrar');;
+const input = document.getElementById("contrasena");;
+var desbloquear;
+var materia;
+var contra = null;
 function resultados(evento) {
 
     let termino = buscador.value;
-    console.log(termino);
     divResultados.innerHTML = "";
     if (termino.length >= 2) {
         fetch("../dynamics/BuscarClase.php?clase=" + termino)
@@ -39,11 +42,12 @@ buscador.addEventListener("click", resultados);
 divResultados.addEventListener("click", (evento) => {
     divResultados.innerHTML = "";
     if (evento.target.classList.contains("Coincidencia")) {
-        let materia=evento.target.id;
+         materia=evento.target.id;
         
         const datosForm= new FormData();
         
         datosForm.append("id_materia", materia);
+        datosForm.append("fetch", 1);
         fetch("../dynamics/clase.php", {
             method:"POST", 
             body: datosForm,
@@ -53,17 +57,47 @@ divResultados.addEventListener("click", (evento) => {
             if(datosJSON.inscrito)
             {
             //redireccionar a la pestaña
-                console.log("si");
+     
                 window.location= "./clase.php";
+                document.cookie = "id_materia ="+ materia;
             }
             else if(!datosJSON.inscrito)
             {
-                console.log("no");
-                
-                registrar.style.display = "";
-                cuadroRegistro.id="Form registro";
+      
+                registrar.style.display = "block";
     
+                contra = datosJSON.datosMat.contrasena ;
+                if(datosJSON.datosMat.contrasena != null)
+                {  
+                    input.style.display = "block";
+                    desbloquear=false;
+                }
+                else{
+                    desbloquear =true;
+                }
+                
             }
         });
     }
+  });
+
+  registrar.addEventListener("click", (evento)=>{
+      if(input.value == contra || desbloquear){
+        const datosForm2= new FormData();
+        
+        datosForm2.append("id_materia", materia);
+        datosForm2.append("fetch", 2);
+
+        fetch("../dynamics/clase.php", {
+            method:"POST", 
+            body: datosForm2,
+        }).then ((response) =>{
+            return response.json();
+        }).then ((datosJSON)=>{
+            window.location="./clase.php";
+            document.cookie = "id_materia ="+ materia;
+      
+        });
+
+      }
   });

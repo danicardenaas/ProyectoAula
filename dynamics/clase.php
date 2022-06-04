@@ -13,20 +13,38 @@
     }
     $id_materia = (isset($_POST['id_materia']) && $_POST["id_materia"] != "")? $_POST['id_materia'] : false;
     $id_usuario= $_SESSION["ID_usuario"];
-    
-    $peticion = "SELECT * FROM uhm WHERE id_usuario = $id_usuario AND id_materia = $id_materia ";
-  
-    $query = mysqli_query( $conexion, $peticion); 
-    $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
-    if($datos != NULL)
+    $procedimiento = (isset($_POST['fetch']) && $_POST["fetch"] != "")? $_POST['fetch'] : false;
+   
+    if($procedimiento ==1)
     {
-        //dejar entrar a la pestaña principal
-        $resultados = array ("inscrito" => true);
-
+        $peticion = "SELECT * FROM uhm WHERE id_usuario = $id_usuario AND id_materia = $id_materia ";
+  
+        $query = mysqli_query( $conexion, $peticion); 
+        $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
+        if($datos != NULL)
+        {
+            //dejar entrar a la pestaña principal
+            $resultados = array ("inscrito" => true);
+    
+        }
+        else{
+            //Si no esta ya inscrito mostrarle una pestaña para inscribirse
+            $peticion = "SELECT * FROM materia WHERE id_materia = $id_materia ";
+            $query = mysqli_query( $conexion, $peticion); 
+            $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
+            $resultados = array ("inscrito" => false, "datosMat" => $datos );
+        }
+       
     }
-    else{
-        //Si no esta ya inscrito mostrarle una pestaña para inscribirse
-        $resultados = array ("inscrito" => false );
+    else if($procedimiento == 2)
+    {
+        $peticion = "INSERT INTO UHM (ID_usuario, ID_materia) VALUES ($id_usuario, $id_materia)";
+        $res = mysqli_query($conexion, $peticion);
+        if($res)
+        {
+            $resultados = array ("inscrito" => true );
+        }
+        
     }
    
    echo json_encode($resultados);

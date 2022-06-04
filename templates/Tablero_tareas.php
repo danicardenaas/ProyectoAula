@@ -21,6 +21,12 @@
         <form action="./BuscadorDeClases.php" method="POST">
             <button id="btn-verClases"> Ver más clases</button>
         </form>
+        <form action="./CrearClase.php" method="POST">
+             <button id="btn-CrearClase"> Crear clase</button>
+        </form>
+        <form action="./inicioConSesion.php" method="post">
+        <button>Regresar a inicio</button>
+        </form>
         
         <div id='contenedor' style='display: flex'>
         </div>

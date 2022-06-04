@@ -13,23 +13,31 @@ var inscrito;
 // divContenedor.addEventListener('mouseleave', (evento) =>{
 //     divtarea.style.display = 'none'; 
 // }); 
-const datosForm = new FormData();
+
 
 fetch("../dynamics/tablero.php", {
     method:"POST", 
-    body: datosForm,
   }).then ((response) =>{
     return response.json();
   }).then ((datosJSON)=>{
    
     i=1;
+    
     for (let materia of datosJSON)
     {
-        const cuadroTarea = document.createElement('div');
+      const cuadroTarea = document.createElement('div');
+      if (materia != "no")
+      {
+        
         cuadroTarea.innerHTML=" <div class='materia' id='"+materia.ID_materia+"'><div id='nom"+materia.nombreMateria+"'><h4>"+materia.nombreMateria+"</h4><img src='"+materia.ruta_imagen+"' alt='Imagen de la materia' width='200vw' height='200vh' /></div><div class='tareas' id='tarea"+i+"'> Tareas pendientes:<ul> <a><li>Tarea 2</li></a><a><li>Tarea 3</li> </a> </ul></div></div>";
        
         i++;
         divtarea.appendChild(cuadroTarea);
+      }
+ 	else{
+        cuadroTarea.innerHTML="No tienes clases";
+      }
+        
     }
   });
 divtarea.addEventListener("click", (evento)=>{
@@ -40,6 +48,7 @@ divtarea.addEventListener("click", (evento)=>{
       const datosForm2= new FormData();
     
       datosForm2.append("id_materia", materia);
+ 	datosForm2.append("fetch", 1);
       fetch("../dynamics/clase.php", {
         method:"POST", 
         body: datosForm2,
@@ -49,7 +58,9 @@ divtarea.addEventListener("click", (evento)=>{
         if(datosJSON.inscrito)
         {
           //redireccionar a la pestaña
-           console.log("si");
+          window.location= "./clase.php";
+          document.cookie = "id_materia ="+ materia;
+         
         }
         else if(!datosJSON.inscrito)
         {

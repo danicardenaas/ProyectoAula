@@ -111,7 +111,7 @@
                                 rename($arch, $ruta);
                             }
                             else{
-                                $ruta="Desconocido";
+                                $ruta="../Imgs/usuario/desconocido.png";
                             }
                             $peticion = "INSERT INTO usuario (nombre, apellidos, correo, contrasena, usuario, fecha_nacimiento,telefono, ID_tipousuario, Archivo, cuenta)
                             VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$usuario', '$cumpleaños', '$telefono', '$rol', '$ruta', $cuenta)"; 
