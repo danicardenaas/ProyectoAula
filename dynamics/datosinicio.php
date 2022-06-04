@@ -7,13 +7,9 @@
     session_start();
     $conexion = connect(); 
     $usuario = (isset($_POST['usuario']) && $_POST["usuario"] != "")? $_POST['usuario'] : "no especifico";
-    $con= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
-    const $contraseña = $con;
-    var_dump($contraseña);
-//    $contraseña="july";
-//    $sal="629b0422b9c61";
-//    $usuario="micontraesjuly";
-    function verificar_contra ()
+    $contrasena= (isset($_POST['contraseña']) && $_POST["contraseña"] != "")? $_POST['contraseña'] : "no especifico";
+
+    function verificar_contra ($contrasena, $original, $sal)
     {
         $char = str_split("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
         for($i = 0;$i<count($char);$i++)
@@ -21,8 +17,8 @@
             for($j = 0;$j<count($char);$j++)
             {
                 $pimienta = $char[$i].$char[$j];
-                if (hash("sha256", $contraseña.$pimienta.$sal) === $original){
-                    $txt=hash("sha256", $contraseña.$pimienta.$sal);
+                if (hash("sha256", $contrasena.$pimienta.$sal) === $original){
+                    $txt=hash("sha256", $contrasena.$pimienta.$sal);
                     var_dump($txt);
                     echo "<br>";
                     return true;
@@ -37,10 +33,11 @@
     
     if($datos!=NULL)
     {   
-       const $original = $datos['contrasena'];
-      
-       const $sal = $datos["sal"];
-        $bool=verificar_contra();
+        
+       $original = $datos['contrasena'];
+     
+        $sal = $datos["sal"];
+        $bool=verificar_contra($contrasena, $original, $sal);
         if($bool)
         {
             
@@ -65,20 +62,20 @@
     }
 
  
-    // if($mensaje[1]==false)
-    // {
-    //      $nuevaURL='../templates/inicio.php';
-    //        header('Location: '.$nuevaURL);
-    // }
+    if($mensaje[1]==false)
+    {
+         $nuevaURL='../templates/inicio.php';
+           header('Location: '.$nuevaURL);
+    }
 
-    // if(isset($_SESSION["nombre"]) && $_SESSION["nombre"]!=false)
-    // {
-    //     $nuevaURL='../templates/inicioConSesion.php';
+    if(isset($_SESSION["nombre"]) && $_SESSION["nombre"]!=false)
+    {
+        $nuevaURL='../templates/inicioConSesion.php';
 
-    //     $_SESSION["ID_usuario"]=$datos['ID_usuario'];
-    //     header('Location: '.$nuevaURL);
+        $_SESSION["ID_usuario"]=$datos['ID_usuario'];
+        header('Location: '.$nuevaURL);
         
-    // }
+    }
    
 
 ?>
