@@ -64,7 +64,7 @@
     top: 25%;
     width: 200px;
     height: 40px;
-    background: #D1A11D;S
+    background: #D1A11D;
     border-radius: 10%;
 }
 
@@ -740,4 +740,9 @@ body{
 #cubito3{
     left: 80%;
     top: 63%;
+}
+
+.encabezado{
+    color: white;
+    padding-left: 6em;
 }
