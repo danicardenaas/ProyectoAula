@@ -137,7 +137,7 @@
                                     $query = mysqli_query($conexion, $peticion); 
                                 
                                     
-                                
+                                    //asignarle sus clases a los alumnos respecto a sus grupos
                                     if($rol==1)
                                     {
                                         $peticion = "SELECT ID_usuario FROM usuario WHERE usuario = '$usuario'";
@@ -167,6 +167,7 @@
                                         
                                     }
                                 $respuesta = array ("ok" => true, "texto" => "Todo bien") ;
+                                
                                 }
                                 else{
                                     $respuesta= array ("ok" => false, "texto" => "Esta cuenta ya fue registrada")   ;

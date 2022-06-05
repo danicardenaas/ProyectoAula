@@ -44,6 +44,7 @@
             $mensaje[1]=true;
             $mensaje[0]=$usuario;
             $_SESSION["nombre"]=$usuario;
+            $_SESSION["rol"]=$datos["ID_tipousuario"];
             $_SESSION["mensaje"]=" ";
         }
         else{

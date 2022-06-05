@@ -12,6 +12,9 @@
 
     $id_usuario= $_SESSION["ID_usuario"];
     
+    
+    $rol= $_SESSION["rol"];
+    
     $mes = $hoy["mon"];
     
     $año = $hoy["year"];
@@ -70,7 +73,7 @@
          $i++;
          
     }
-    $respuesta = array ("mes" => $mes, "año"=>$año, "primero" => $diaUno, "ultimo" =>$ultimo, "todos" =>$eventosTodos);
+    $respuesta = array ("mes" => $mes, "año"=>$año, "primero" => $diaUno, "ultimo" =>$ultimo, "todos" =>$eventosTodos, "rol"  =>$rol);
     echo json_encode($respuesta);
 
     //Sacar los datos de la fecha
