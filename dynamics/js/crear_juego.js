@@ -14,8 +14,8 @@ btnAgregar.addEventListener("click", (evento)=>{
         alert("El número máximo de preguntas es 10"); 
         btnAgregar.style.display = "none"; 
     }
-    else{
-       
+    else
+    {
         const nueva = document.createElement("div"); 
         formPregunta.insertBefore(nueva, confirmacion); 
         nueva.id = "pregunta"+ pregunta; 
@@ -25,13 +25,15 @@ btnAgregar.addEventListener("click", (evento)=>{
         nueva.innerHTML += '<input type="text" name="pregunta'+pregunta+'" id="pregunta" placeholder="Pregunta"> </div>'; 
         nueva.innerHTML += '<div class="campo-form">'; 
         nueva.innerHTML += '<label>Respuesta correcta</label>'; 
-        nueva.innerHTML += '<input type="text" name="res1" id="res1" placeholder="Respuesta correcta"></div>'; 
+        nueva.innerHTML += '<input type="text" name="res1-'+pregunta+'" id="res1" placeholder="Respuesta correcta"></div>'; 
         nueva.innerHTML += '<div class="campo-form">'; 
         nueva.innerHTML += '<label>Respuesta incorrecta</label>';  
-        nueva.innerHTML += '<input type="text" name="res2" id="res2" placeholder="Respuesta incorrecta"></div>'; 
+        nueva.innerHTML += '<input type="text" name="res2-'+pregunta+'" id="res2" placeholder="Respuesta incorrecta"></div>'; 
         nueva.innerHTML += '<div class="campo-form">'; 
         nueva.innerHTML += '<label>Respuesta incorrecta</label>';  
-        nueva.innerHTML += '<input type="text" name="res3" id="res3" placeholder="Respuesta incorrecta"></div>'; 
+        nueva.innerHTML += '<input type="text" name="res3-'+pregunta+'" id="res3" placeholder="Respuesta incorrecta"></div>'; 
+        nueva.innerHTML += '<div class="campo-form"><label>Imagen pregunta</label>'; 
+        nueva.innerHTML += '<input type="file" name="img'+pregunta+'" id="imagen"></div>'; 
     }  
 
    
