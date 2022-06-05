@@ -1,5 +1,7 @@
 const titulo = document.getElementById("titulo2");
 const mes = document.getElementById("cuad1");
+const cuadradoDatos = document.getElementById("cuad2");
+const imagen = document.getElementById("ccb");
 const anuncios = document.getElementById("salir1");
 const inicio = document.getElementById("volver_inicio");
 const asistir = document.getElementById("boton3");
@@ -8,6 +10,8 @@ const dias = document.getElementsByTagName("td");
 const mes1 = document.getElementById("mes");
 const btn_prox = document.createElement("button");
 const btn_anterior = document.createElement("button");
+const calendario = document.getElementById("calendario");
+
 btn_prox.innerHTML="siguiente";
 btn_anterior.innerHTML="anterior";
 titulo.append(btn_prox);
@@ -28,7 +32,6 @@ function peticion()
     }).then ((datosJSON)=>{
     
         ultimo=datosJSON.ultimo;
-    
         dia1=datosJSON.primero;
         mesAct=datosJSON.mes;
         año=datosJSON.año;
@@ -95,8 +98,8 @@ function peticion()
                     break;
                 }
         }
-        var num=1;
-        var dia=dia1;
+        var num = 1;
+        var dia = dia1;
         
         while (num<=ultimo)
         {
@@ -104,12 +107,42 @@ function peticion()
             dias[dia].innerHTML=num;
             num++;
             dia++;
-            dias[dia].id=num+"/"+mesAct+"/"+año;
+            if(num<10)
+            {
+                numImp="0"+num;
+            }
+            else{
+                numImp=num;
+            }
+            if(mesAct<10)
+            {
+                dias[dia].id=año+"-"+"0"+mesAct+"-"+numImp;
+            }
+            else{
+                dias[dia].id=año+"-"+mesAct+"-"+numImp;
+            }
             
+            if(datosJSON.todos.includes(dias[dia].id)){
+                console.log(datosJSON.todos);
+                dias[dia].style.background="pink";
+                console.log(dias[dia]);
+            }
+            else{
+                dias[dia].style.background="white";
+            }
+            // for(dia of dias)
+            // {
+            //      if(datosJSON.Todos.contains("fecha"))
+            //      var cuadrito = document.getElementById(fecha);
+              
+            //      cuadrito.style.background="pink";
+            //      x++;
+            // }
         }
     })
 
 }
+
 const datosForm= new FormData();
 peticion();
 btn_prox.addEventListener("click", ()=>{
@@ -145,3 +178,30 @@ asistir.addEventListener("click", ()=>{
 rechazar.addEventListener("click", ()=>{
     alert("Has marcado que rechazas asistir a este evento");
 })
+calendario.addEventListener("click", (evento) => {
+   var fecha=evento.target.id;
+   datosForm.append ("fecha", fecha);
+   fetch("../dynamics/calendarioEvento.php", {
+       method:"POST", 
+       body: datosForm,
+   }).then ((response) =>{
+       return response.json();
+   }).then ((datosJSON)=>{
+    cuadradoDatos.innerHTML ="";
+       if(datosJSON.eventos[0] == "no")
+       {
+            cuadradoDatos.innerHTML = "No hay eventos :)";
+       }
+       else{
+           var evento = datosJSON.eventos;
+            for(suceso of evento)
+            {
+                cuadradoDatos.innerHTML += "<br><br><br>"+suceso.fecha + "<br>" + suceso.descripcion;
+                cuadradoDatos.innerHTML += "<br><br><img src =' "+suceso.ruta_imagen+"' height='40vh'>";
+            }
+          
+       }
+
+   });
+    
+});
