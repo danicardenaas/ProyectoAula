@@ -17,8 +17,8 @@
         array ('res1-10', 'res2-10', 'res3-10'), 
     ); 
     $img1= array ("img1");
-    $juego = "nombrejuego"; 
-    $ID_juego=2; 
+    $juego = "prueba"; 
+    $ID_juego=3; 
     $respre = array (
         array ("")
     ); 

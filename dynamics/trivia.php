@@ -2,12 +2,19 @@
     include("./config.php"); 
     $conexion = connect(); 
 
-    $ID_juego=2; 
+    $ID_juego=3; 
+
+
+    $peticion= "SELECT ruta_imagen FROM juego WHERE ID_juego = '$ID_juego'"; 
+    $query = mysqli_query($conexion, $peticion); 
+    $fondo = mysqli_fetch_assoc($query); 
+
 
     $peticion= "SELECT * FROM preguntas WHERE ID_juego = '$ID_juego'"; 
     $query = mysqli_query($conexion, $peticion); 
     $preguntas = array ("pregunta"); 
 
+    $imagenes= array ("ruta_imagen"); 
     $id = array (""); 
 
     $i=0; 
@@ -15,8 +22,12 @@
     {
         $id[$i]=$row["ID_pregunta"]; //se guarda el id
         $preguntas[$i]=$row["pregunta"]; 
+        $imagenes[$i]=$row["ruta_imagen"]; 
         $i++; 
     }
+
+    //agregando las rutas de imagen 
+    
 
     // var_dump($id); 
     $respuesta = array (); 
@@ -38,7 +49,7 @@
         
     }
     
-    $respuestas = array("pregunta"=>$preguntas, "respuesta"=>$respuesta); 
+    $respuestas = array("pregunta"=>$preguntas, "ruta_imagen" => $imagenes, "respuesta"=>$respuesta, "fondo"=>$fondo); 
     // var_dump($respuesta); 
     echo json_encode($respuestas); 
     // var_dump($preguntas); 
