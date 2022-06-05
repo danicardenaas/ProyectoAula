@@ -6,7 +6,7 @@ const divCalendario = document.getElementById("x");
 var calendarioAbierto=false;
 const cuadroCalen = document.createElement("div");
 
-cuadroCalen.innerHTML="<a><img src='../Imgs/calendario.jpg' alt='calendario' id='imgCalen'/></a><br/><button id='amarillo'>Ver</button>";
+cuadroCalen.innerHTML="<a><img src='../Imgs/calendario.jpg' alt='calendario' id='imgCalen'/></a><br/><a href='./calendario.html'><button id='amarillo'>Ver</button></a>";
 
 
 
