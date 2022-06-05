@@ -463,7 +463,7 @@
     height: 769px; 
     border: 3px solid #555;
     float: left;
-    top:-10vh;
+
     background: #D1A11D;
 }
 
@@ -475,21 +475,16 @@
     background: #D1A11D;
    float: right;
 }
-.fondo{
-    background-color: #092473;
-    width: 100%;
-    height: 119%;
-    position: absolute;
-}
-/* calendario */
+
+
 .cuad{
     position: absolute;
 
     background-color: #C4C4C4;
     position: absolute;
 
-    width: 70vw;
-    height: 50vh;
+    width: 70%;
+    height: 50%;
 
     top: 35%;
     left: 15%;
@@ -497,14 +492,10 @@
 }
 
 #cuad1{
-    position: relative;
-    top: 30vh;
-    left: 10vw;
-    width: 42vw;
-    height: 80vh;  
-    border-radius: 10px;
+    width: 28%;
+    height: 50%; 
     background: #D1A11D;
-   
+    left: 18%;
 }
 
 #cuad2{
@@ -518,25 +509,24 @@
     top: 5%;
     left: 5%;
     position: absolute;
-    width: 70%;
-    height: 40%;   
+    width: 40%;
+    height: 30%;   
     background-color: #FFFFFF;
 }
 
 #cc{
-    position: relative;
-    top: 15vh;
-    left: 2vw;
-    width: 38vw;
-    height: 60vh;  
+    top: 25%;
+    left: 5%;
+    width: 90%;
+    height: 70%;  
     border-radius: 10px;
 }
 
-#cca{ 
+#cca{
     background: #092473;
     left: 25%;
-    width: 20vw;
-    height: 5vh;
+    width: 45%;
+    height: 15%;
 }
 
 #ccb{
@@ -549,10 +539,10 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 800;
-    font-size: 1.5em;
+    font-size: 25px;
     color: white;
-
-    text-align: center;
+    position: absolute;
+    left: 30%;
 }
 
 .c2{
@@ -583,8 +573,10 @@
 .salir{
     background-color: #d1a11d;
     position: absolute;
+
     width: 12%;
     height: 5%;
+
     top: 10%;
     left: 15%;
 
@@ -748,4 +740,15 @@ body{
 .encabezado{
     color: white;
     padding-left: 6em;
+}
+
+#piedep{
+    background-color: #C5DCFF;
+    width:100vw;
+    height:20%;
+    line-height: 30px;
+    text-align: center;
+    color:#FFFFFF;
+    position:absolute;
+    top:125vh;
 }
