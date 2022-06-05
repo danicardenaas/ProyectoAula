@@ -16,8 +16,9 @@
         array ('res1-9', 'res2-9', 'res3-9'),
         array ('res1-10', 'res2-10', 'res3-10'), 
     ); 
-    $img= array ("img");
+    $img1= array ("img1");
     $juego = "nombrejuego"; 
+    $ID_juego=2; 
     $respre = array (
         array ("")
     ); 
@@ -33,12 +34,15 @@
         }
         else
         {
-            $peticion = "INSERT INTO preguntas (pregunta) VALUES ('$pregunta[$i]')";
+            $peticion = "INSERT INTO preguntas (pregunta, ID_juego) VALUES ('$pregunta[$i]', '$ID_juego')";
             $query = mysqli_query($conexion, $peticion); 
             $pk_pregunta=  mysqli_insert_id($conexion); //esta obteniendo el último id pregunta
 
-            if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ""){
-                $name=$_FILES['img']['name'];
+            $imagen  = 'img'.($i+1); 
+            echo "imagen".$imagen . ' <br>'; 
+            echo "files <br> <br>".$_FILES[$imagen ]['tmp_name']; 
+            if(isset($_FILES[$imagen ]) && $_FILES[$imagen ]['tmp_name'] != ""){
+                $name=$_FILES[$imagen ]['name'];
         
                 $ext=pathinfo($name,PATHINFO_EXTENSION);
                 $ext=strtolower($ext);
@@ -46,12 +50,11 @@
                 echo $ruta. '<br>'; 
                 // $ext=strtolower($ext);
                 if($ext=="png" || $ext=="jpg" || $ext=="jpeg"){
-                    $arch=$_FILES['img']['tmp_name'];
+                    $arch=$_FILES[$imagen]['tmp_name'];
                     echo "arch   ".$arch; 
                     rename($arch,$ruta);
                 
-                    $peticion = "UPDATE preguntas SET ruta_imagen ='$ruta' WHERE ID_pregunta=$pk_pregunta"; 
-                    $query = mysqli_query( $conexion, $peticion);
+       
                     echo "se actualizó"; 
                 }
                 else{
@@ -59,15 +62,17 @@
                 }
             }
             else 
+            {
                 echo "no entra"; 
+                $ruta="../Imgs/juegos/predeterminada.$ext"; //predeterminada
+            }
+            $peticion = "UPDATE preguntas SET ruta_imagen ='$ruta' WHERE ID_pregunta=$pk_pregunta"; 
+            $query = mysqli_query( $conexion, $peticion);
         }
         
         echo $pk_pregunta .'<br>';
         $preguntas[$i+1]="pregunta".$num;
         $num++;
-
-
-
 
         // $numres = array ("1", "2", "3"); 
         // for ($numres as $x)
@@ -91,18 +96,46 @@
             // $respre[$i][2] = (isset($_POST[$respuestas[$i][2]]) && $_POST[$respuestas[$i][2]] != "")? $_POST[$respuestas[$i][2]] : false; 
 
             // INSERT INTO respuestas (ID_pregunta, verificador, respuesta) VALUES ("2", "1", "prueb2");
-            $peticion = "INSERT INTO respuestas (ID_pregunta, verificador, respuesta) VALUES ('5', '1', '$res1[$i] ')"; //esta es la respuesta correcta
+            $peticion = "INSERT INTO respuestas (ID_pregunta, verificador, respuesta) VALUES ('$pk_pregunta', '1', '$res1[$i] ')"; //esta es la respuesta correcta
             $query = mysqli_query($conexion, $peticion); 
 
-            $peticion = "INSERT INTO respuestas (ID_pregunta, verificador, respuesta) VALUES ('5', '0', '$res2[$i]')"; //verificador 0 
+            $peticion = "INSERT INTO respuestas (ID_pregunta, verificador, respuesta) VALUES ('$pk_pregunta', '0', '$res2[$i]')"; //verificador 0 
             $query = mysqli_query($conexion, $peticion); 
 
-            $peticion = "INSERT INTO respuestas (ID_pregunta, verificador, respuesta) VALUES ('5', '0', '$res3[$i] ')"; //verificador 0
+            $peticion = "INSERT INTO respuestas (ID_pregunta, verificador, respuesta) VALUES ('$pk_pregunta', '0', '$res3[$i] ')"; //verificador 0
             $query = mysqli_query($conexion, $peticion); 
             
         }
 
     }
+
+    if(isset($_FILES['fondo']) && $_FILES['fondo']['tmp_name'] != ""){
+        $name=$_FILES['fondo']['name'];
+
+        $ext=pathinfo($name,PATHINFO_EXTENSION);
+        $ext=strtolower($ext);
+        $ruta="../Imgs/juegos/$juego"."_"."fondo.".$ext;
+        echo $ruta. '<br>'; 
+        // $ext=strtolower($ext);
+        if($ext=="png" || $ext=="jpg" || $ext=="jpeg"){
+            $arch=$_FILES['fondo']['tmp_name'];
+            echo "arch   ".$arch; 
+            rename($arch,$ruta);
+        
+
+            echo "se actualizó"; 
+        }
+        else{
+            echo"$name.  No se puede subir";
+        }
+    }
+    else 
+    {
+        echo "no entra"; 
+        $ruta="../Imgs/juegos/fondo.".$ext;
+    }
+    $peticion = "INSERT INTO juego (ruta_imagen) VALUES ('$ruta')"; 
+    $query = mysqli_query( $conexion, $peticion);
 
     // $respuesta[0] = (isset($_POST['res1-1']) && $_POST['res1-1'] != "")? $_POST['res1-1'] : false; 
     // $respuesta[1] = (isset($_POST['res2-1']) && $_POST['res2-1'] != "")? $_POST['res2-1'] : false; 
