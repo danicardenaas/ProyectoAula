@@ -27,7 +27,7 @@
 
      </div>
     <nav id="navIzquierdo">
-        <a id="calendario" class="botonAzul">Calendario</a> <br/>
+        <a id="calendario" class="botonAzul" href="./inicio.php">Calendario</a> <br/>
         <div id="cuadroCalen" style="display:none">; 
             <a><img src="../Imgs/calendario.jpg" alt="calendario" id="imgCalen"/></a><br/>
         </div>

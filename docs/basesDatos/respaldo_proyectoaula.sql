@@ -234,7 +234,7 @@ DROP TABLE IF EXISTS `ghm`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ghm` (
-  `ID_GHM` tinyint(4) NOT NULL,
+  `ID_GHM` int(11) NOT NULL AUTO_INCREMENT,
   `ID_grupo` int(11) NOT NULL,
   `ID_materia` int(11) NOT NULL,
   PRIMARY KEY (`ID_GHM`),

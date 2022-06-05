@@ -68,11 +68,27 @@
                 $query = mysqli_query($conexion, $peticion); 
                 while($row=mysqli_fetch_assoc($query))
                 {
-                    $id_grupo= $row['ID_grupo'];
-                    $peticion = "INSERT INTO ghm (id_grupo, id_materia) VALUES ('$id_grupo', '$id_materia')";
+                    $id_grupoIn= $row['ID_grupo'];
+                    $peticion = "INSERT INTO ghm (id_grupo, id_materia) VALUES ('$id_grupoIn', '$id_materia')";
                     $res = mysqli_query($conexion, $peticion);
+                    $peticion="SELECT * from uhg WHERE id_grupo = $id_grupoIn";
+                    $res2 = mysqli_query($conexion, $peticion);
+                    while($row2=mysqli_fetch_assoc($res2))
+                    {   
+                        $usuario_ingreso=$row2["ID_usuario"];
+                        $peticion="SELECT * from uhm WHERE id_usuario =  $usuario_ingreso AND id_materia = $id_materia";
+                        $res3 = mysqli_query($conexion, $peticion);
+                        $registros =mysqli_fetch_assoc($res3);
+                        if($registros == null)
+                        {
+                            $peticion="INSERT INTO uhm (id_usuario, id_materia) VALUES (' $usuario_ingreso', '$id_materia') ";
+                            $res3 = mysqli_query($conexion, $peticion);
+                        }
+                    }
+
                 } 
-                //incribir a todos los pertenecientes a dicho grupo
+         
+
         
             }
              

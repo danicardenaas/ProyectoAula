@@ -10,6 +10,16 @@
 }
 /*Main
 ---------------------------*/
+table{
+    width: 2vh;
+}
+th{
+    font-size: 9px;
+}
+td{
+
+    font-size: 5px;
+}
 #main{
     width:80vw;
     height: 100vh;
@@ -66,6 +76,7 @@
     left:27vw;
     border-radius: 10px;
 }
+
 /* Nav's -
 ------------------------------------------------------------------------------------------------*/
 #navIzquierdo, #navDerecho{
