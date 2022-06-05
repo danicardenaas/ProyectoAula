@@ -3,7 +3,10 @@
     define ("DBHOST", "localhost");
     define ("DBUSER", "root");  
     define ("PASSWORD", ""); 
-    define ("DB", "prueba1" ); 
+    define ("DB", "proyectoaula" ); 
+
+    // En crear juego esta como proyectoaula 
+    // la que estaba es "prueba1"
 
     function connect(){
         $conexion = mysqli_connect(DBHOST, DBUSER, PASSWORD, DB); 

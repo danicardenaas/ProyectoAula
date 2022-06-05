@@ -9,7 +9,7 @@
 <body>
     <header>Crea tu juego</header>
     <div id="contenedor-juego">
-        <form id="form-pregunta" action="../dynamics/datosJuego.php" method="post">
+        <form id="form-pregunta" action="../dynamics/datosJuego.php" method="post" enctype="multipart/form-data" >
             <div id="pregunta1">
                 <h1>Pregunta 1</h1>
                 <div class="campo-form">
@@ -18,26 +18,34 @@
                 </div>
                 <div class="campo-form">
                     <label>Respuesta correcta</label> 
-                    <input type="text" name="res1" id="res1" placeholder="Respuesta correcta">
+                    <input type="text" name="res1-1" id="res1" placeholder="Respuesta correcta">
                 </div>
                 <div class="campo-form">
                     <label>Respuesta incorrecta</label> 
-                    <input type="text" name="res2" id="res2" placeholder="Respuesta incorrecta">
+                    <input type="text" name="res2-1" id="res2" placeholder="Respuesta incorrecta">
                 </div>
                 <div class="campo-form">
                     <label>Respuesta incorrecta</label> 
-                    <input type="text" name="res3" id="res3" placeholder="Respuesta incorrecta">
-                </div>
+                    <input type="text" name="res3-1" id="res3" placeholder="Respuesta incorrecta">
+                </div> <br> 
+                <div class="campo-form">
+                    <label>Imagen pregunta</label> 
+                    <input type="file" name="img1" id="imagen">
+                </div> <br> 
+                
             </div>
             <!-- Estas van al final de las preguntas -->
             <label id="nota"> ¿Está listo tu juego? </label>
-            <button id="btn-enviar"> Juego terminado </button>
+            <button id="btn-enviar"> Juego terminado </button> <br> <br> 
+            <label for="fondo">Cambiar la imagen de fondo </label>
+                <input type="file" name="fondo" id="imagen-fondo">
+            <br> <br>
         </form>
         <button id="btn-agregar"> Agregar pregunta </button>
     </div>
     <footer class="piedep">
                 Aula virtual - Escuela Nacional Preparatoria Plantel 6 "Antonio Caso"
-        </footer>
+    </footer>
     <script src="../dynamics/js/crear_juego.js"></script>
 
 </body>
