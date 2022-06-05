@@ -5,15 +5,28 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Material estudio</title>
+        <link rel="stylesheet" href="../Estilo/statics/styles/estilo.css">
+        <link rel="stylesheet" href="../Estilo/Material Estudio.css">
     </head>
     <body>
-        <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Escudo_enp_6.svg/1200px-Escudo_enp_6.svg.png" alt="logotipo de la preparatoria 6" width="150" height="150" align="left">
-            <img src="https://arquitectura.unam.mx/uploads/8/1/1/0/8110907/_2634443.png" alt="logotipo de la UNAM" width="150" height="150" align="right">
-            <br><br><br><br><br><br><br><br>
-        </figure>
-        <header><strong>Tablón para compartir material de estudio</strong></header>
-        <main>
+        <header>
+            <div>
+                 <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado" id="img-encabezado"> 
+            </div>
+         </header>
+        <div class="fondo">
+            <aside>
+                <div class="rec">
+                </div>
+            </aside>
+                <div class="rec2">
+                </div> 
+           <div id="contenedor-encabezado">
+               <div id="encabezado">
+                   Tablón para compartir material de estudio
+               </div>
+           </div>
+           <main>
             <section>
                 <label for="nombre">Nombre:
                     <input type="text">
@@ -82,12 +95,12 @@
                         <option value="1607">Inglés II</option>
                         <option value="1608">Francés II</option>
                         <option value="1609">Psicología</option>
-                        <!-- faltan agregar todas las estéticas específicas y las de área-->
+                         faltan agregar todas las estéticas específicas y las de área-->
                     </select>
                 </label><br/><br/>
 
                 <label for="noCuenta_RFC"> No. de cuenta o RFC
-                    <input name="no.Cuenta o RFC" type="text">  <!-- dos diferentes para num de cuenta o RFC? no pueden compartir type-->
+                    <input name="no.Cuenta o RFC" type="text">  
                 </label> <br/><br/>
 
                 <label for="archivo">Subir archivo:
@@ -106,10 +119,18 @@
                 <button type="submit">Subir archivo</button>
             </section>
         </main>
-        <footer>
-            <p>
-                Información de contacto.
-            </p>
-        </footer>
+   
+            <div>
+                <form action="../templates/PagInicio.php">
+                    <button class="salir">Volver al Inicio</button>
+                </form>
+            </div> 
+        
+        </div> 
+        <footer id="piedep">
+           <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
+            Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
+       </footer>
+        
     </body>
 </html>

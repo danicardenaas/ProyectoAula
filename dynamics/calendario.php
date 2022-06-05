@@ -5,6 +5,12 @@
     $conexion = connect(); 
     $masMes = (isset($_POST['masMes']) && $_POST["masMes"] != "")? $_POST['masMes'] : false;
     $hoy = getdate();
+
+    session_name("SesionUsuario");
+    session_id("123456789");
+    session_start();
+
+    $id_usuario= $_SESSION["ID_usuario"];
     
     $mes = $hoy["mon"];
     
@@ -25,9 +31,10 @@
     }
     else{
         $mes = $mes + $masMes;
-        if($mes<1)
+        if($mes<1)    
         {
             $mes=12;
+            $año--;
         }
     }
 
@@ -52,7 +59,18 @@
     else if((checkdate($mes, 28, $año))){
         $ultimo = 28;
     }
-    $respuesta = array ("mes" => $mes, "año"=>$año, "primero" => $diaUno, "ultimo" =>$ultimo);
+    $i=0;
+    $eventosTodos[$i]="no";
+    $peticion = "SELECT * FROM usuariohasevento NATURAL JOIN evento WHERE id_usuario = $id_usuario";
+    $query = mysqli_query( $conexion, $peticion); 
+ 
+    while($datos2=mysqli_fetch_assoc($query))
+    {
+         $eventosTodos[$i]=$datos2["fecha"];
+         $i++;
+         
+    }
+    $respuesta = array ("mes" => $mes, "año"=>$año, "primero" => $diaUno, "ultimo" =>$ultimo, "todos" =>$eventosTodos);
     echo json_encode($respuesta);
 
     //Sacar los datos de la fecha
