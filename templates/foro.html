@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Estilo/statics/styles/estilos.css">
+    <link rel="stylesheet" href="../Estilo/statics/styles/estilo.css">
+    <link rel="stylesheet" href="../Estilo/foro.css">
     <title>Foro</title>
 </head>
 <body>
-    <!-- Andrés también corrige estos nombres y css, porfi -Dani -->
-    <!-- Debe tener etiquetas para tener las dudas y respuestas -->
     <header>
        <div class="img-encabezado">
             <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado"> 
        </div>
     </header>
-    <div class="contenedor">
-
-        <div class="Franja-amarilla" id="Franja1"></div>
-        <div class="Franja-amarilla" id="Franja2"></div>
-
-        <div id="inicio">
+    <div class="fondo">
+        <aside>
+            <div class="rec">
+            </div>
+        </aside>
+            <div class="rec2">
+            </div> 
+       <div id="contenedor-encabezado">
+           <div id="encabezado">
+               <p>Foro de preguntas comunes respecto a cuestiones administrativasl</p>
+           </div>
+       </div>
+        <div>
             <form action="../templates/PagInicio.php">
                 <button class="salir">Volver al Inicio</button>
             </form>
         </div>
-
-        <div class="titulo" id="titulo">
-            <p>Foro de preguntas comunes respecto a cuestiones administrativas</p>
-        </div>
-
-        <!-- Agregué id  -->
         <div class="Cuadro-blanco" >
             <div class="indice" >
                 <center><h1 id="indice" style="background-color: #092473">ÍNDICE</h1></center>
@@ -41,8 +41,11 @@
                 <p>-</p>
             </div>
         </div>
-
     </div>
+    <footer id="piedep">
+       <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
+        Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
+   </footer>
     <script src="../dynamics/js/foro.js"></script>
 </body>
 </html>

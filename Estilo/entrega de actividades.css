@@ -1,0 +1,210 @@
+.etiqueta{
+    border-radius: 10px;
+    position: absolute;
+    width: 385px;
+    height: 131px;
+    background-color: #FFFFFF;
+
+}
+
+#contenedor-contenido{
+    top: 25%;
+}
+
+.ind{
+    position: absolute;
+    width:440px;
+    height: 289px;
+    left: 116px;
+    top: 192px;
+
+    background: #FFFFFF;
+}
+
+#ind2{
+    position: absolute;
+    width:280px;
+    height: 339px;
+    left: 60%;
+    top: 30%;
+
+    background: #FFFFFF;
+}
+
+#inda{
+    background: #5A78E6DE;
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    top: 5%;
+    left: 5%;
+}
+
+#inda1{
+    left: 10%;
+    top: 10%;
+    width: 200px;
+    height: 40px;
+    background: #D1A11D;
+    border-radius: 10%;
+}
+
+#inda2{
+    left: 10%;
+    top: 25%;
+    width: 200px;
+    height: 40px;
+    background: #D1A11D;
+    border-radius: 10%;
+}
+
+#inda3{
+    left: 10%;
+    top: 40%;
+    width: 200px;
+    height: 40px;
+    background: #D1A11D;
+    border-radius: 10%;
+}
+
+#inda4{
+    left: 5%;
+    top: 55%;
+    width: 90%;
+    height: 90px;
+    background: #5A78E6;
+
+}
+
+#inda5{
+    position: absolute;
+    width: 560px;
+    height: 131px;
+    left: 110px;
+    top: 180px;
+    background-color: #FFFFFF;
+
+}
+
+#inda6{
+    position: absolute;
+    width: 380px;
+    height: 121px;
+    left: 105px;
+    top: 421px;
+
+    background: #FFFFFF;
+    border-radius: 7px;
+}
+
+#inda4 p{
+    color: #FFFFFF;
+    padding: 10%;
+}
+
+#inda1 p{
+    color: #FFFFFF;
+    position: absolute;
+    left: 30%;
+}
+
+#inda2 p{
+    color: #FFFFFF;
+    position: absolute;
+    left: 30%;
+}
+
+#inda3 p{
+    color: #FFFFFF;
+    position: absolute;
+    left: 30%;
+}
+
+#ee{
+    left: 12%;
+    top: 15%;
+    width: 180px;
+    height: 40px;
+}
+
+#ee2{
+    left: 32%;
+    top: 15%;
+    width: 230px;
+    height: 40px;
+}
+
+#ee3{
+    left: 60%;
+    top: 15%;
+    width: 230px;
+    height: 40px;
+}
+
+#ee4{
+    left: 60%;
+    top: 19.60%;
+    width: 230px;
+    height: 30px;
+    background: #5A78E6DE;
+}
+
+#ee4 p{
+    color: #FFFFFFFF;
+}
+
+#ee5{
+    left: 116px;
+    top: 70%;
+    width:440px;
+    height: 40px;
+    border-radius: 0%;
+
+}
+
+#ee6{
+    left: 116px;
+    top: 80%;
+    width: 76%;
+    height: 50px;
+    border-radius: 0%;
+}
+
+.boton{
+    background-color: #d1a11d;
+    position: absolute;
+    border-radius: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    color: white;
+}
+#boton5{
+    top: 88%;
+    left: 20%;
+    width: 20%;
+    height: 10%;
+    font-size: 13px;
+}
+
+#boton6{
+    top: 88%;
+    left: 60%;
+    width: 20%;
+    height: 10%;
+    font-size: 13px;
+}
+
+#piedep{
+    top: 138vh;
+}
+
+#encabezado{
+    top: 3% !important;
+}
+
+.salir{
+    top: 2% !important;
+}
