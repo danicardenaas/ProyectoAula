@@ -26,5 +26,12 @@
     font-weight: bold;
 }
 #piedep{
-    top: 138vh !important;
+    position: relative;
+    bottom: 0% !important;
+}
+#preguntaNueva{
+    background-color: #C4C4C4;
+}
+#foro{
+    overflow-y: scroll;
 }

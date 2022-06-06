@@ -32,7 +32,7 @@ window.addEventListener("load", (evento) =>{
         .then ((response) =>{
             return response.json();
     }).then ((datosJSON)=>{
-            console.log(datosJSON);
+            // console.log(datosJSON);
             preguntita = datosJSON.pregunta; 
             // console.log(datosJSON.pregunta[2]);
             // console.log(datosJSON.respuesta[2][0].respuesta); 
@@ -81,7 +81,7 @@ window.addEventListener("load", (evento) =>{
     btn.addEventListener("click", (evento) =>{
         botones.style.display = "block";
         correcta = respuesta[i][0].respuesta; 
-        console.log(correcta); 
+        // console.log(correcta); 
 
         if(i==0)
         {
@@ -101,7 +101,7 @@ window.addEventListener("load", (evento) =>{
         {
             tiempo.innerHTML = 'Tiempo restante: ' +(tiempoMaximo-cont) + ' sec';
             cont++;
-            console.log(cont); 
+            // console.log(cont); 
             if(cont==15)
             {
                 correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
@@ -126,36 +126,42 @@ window.addEventListener("load", (evento) =>{
             cont =0;
             tiempoMaximo=15; 
             //se debe de dar click en otra respuesta, porque sino el juego no termina
+            console.log(totalPreguntas);
             if(i<totalPreguntas) //el error está aquí, porque  hace otra consulta a los datos, pero si le pongo totalPreguntas-1 no registra si la última pregunta tiene respuesta correcta
             {
+                
                 // los || son por si al final de la respuesta se dejó algún espacio
                 if((correcta == (evento.target.innerText+" ")) || correcta == (evento.target.innerText)  || correcta == (evento.target.innerText+"  ")) 
                 {
-                    console.log("respuesta correcta    "+correcta); 
+                    // console.log("respuesta correcta    "+correcta); 
                    
                     puntaje++; 
                   
                 }
                 else
                 {
-                    console.log("incorrecta");
+                    // console.log("incorrecta");
                     alert("Respuesta correcta=> " + correcta); 
                 } 
                 correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
                 i++; 
-                actualizar(); //tiene que ir al final 
+                if(i==totalPreguntas)
+                {
+                        tiempo.style.display="none"; 
+                    header.innerHTML = ""; 
+                    header.innerHTML += "<h1>Juego terminado</h1>"; 
+                    clearInterval(tiempoRestante); 
+            
+                    divJuego.style.display = "none"; 
+                    correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
+                    terminar.style.display = "block"; 
+                }
+                else{
+                      actualizar(); //tiene que ir al final 
+                }
+              
             }
-            else 
-            {
-                tiempo.style.display="none"; 
-                header.innerHTML = ""; 
-                header.innerHTML += "<h1>Juego terminado</h1>"; 
-                clearInterval(tiempoRestante); 
-                console.log(i); 
-                divJuego.style.display = "none"; 
-                correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
-                terminar.style.display = "block"; 
-            }
+           
             // console.log(btnR1.innerText); 
             // console.log(btnR2.innerText); 
             // console.log(btnR3.innerText); 
