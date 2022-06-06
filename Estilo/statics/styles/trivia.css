@@ -38,33 +38,16 @@
   }
 .btn{
     padding-top: 500px;
-    background-color: #092473;;
+    background-color: #092473;
     color: #FFFFFF;
     width: 50%;
     padding: 10px;
     margin: 10px;
     margin-left: 24%;
+    font-size: 30px;
 }
 .btn:hover{
+    color: #092473; 
     background-color: #FFFFFF;
+   
 }
-
-/*
-#contenedor{
-    width: 95vw;
-    height: 95vh;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:flex-start;
-}
-
-#pregunta{
-    background-color: #092473;
-    color: #FFFFFF;
-    font-weight: bolder;
-    font-size: 30px;
-    min-width: 40vw; 
-    width: 80%;
-    /* padding: 15px; 
-}*/
