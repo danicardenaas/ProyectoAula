@@ -38,21 +38,30 @@
                     header('Location: '.$nuevaURL);
                 }
                 $texto=$_SESSION['nombre'] ;
+                $rol=$_SESSION['rol'] ;
                 echo "<h1 id='bienvenida'>¡Bienvenido <strong>$texto </strong> a ENP 6! </h1>";
-            ?>
-            <div id="cuadroBlanco">
-                <img src="../Imgs/ImagenPrepa.jpg" alt="Prepa6" id="ImagenPrepa"/><br/>
+               
+          
+           
+           echo" <div id='cuadroBlanco'>
+                <img src='../Imgs/ImagenPrepa.jpg' alt='Prepa6' id='ImagenPrepa'/><br/>
             </div>
             
-            <p id="fotos">Fotografías</p><br/> 
+            <p id='fotos'>Fotografías</p><br/> 
         </div>
         
     </main>
-    <nav id="navDerecho">
-         <!-- <a href="./inicio.html"><p class="botonAzul" id="ingresa">Ingresa</p> </a> <br/>
-        <a href="./FormRegistro.html" class="botonAzul" id="registro">Registro</a><br/> -->
-        <a href="../dynamics/cerrar.php" class="botonAzul" id="registro">cerrar</a><br/>
-    </nav>
+    <nav id='navDerecho'>
+
+        <a href='../dynamics/cerrar.php' class='botonAzul' id='registro'>cerrar</a><br/>";
+        if($rol==3)
+        {
+           echo" <a href='../dynamics/crearUser.php' class='botonAzul' id='crearUsuario' >Crear usuario</a><br/>";
+        }
+   
+      
+   echo" </nav>";
+     ?>
     <footer id="piedep">
         <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
          Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>

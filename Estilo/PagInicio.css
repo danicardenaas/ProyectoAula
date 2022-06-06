@@ -154,6 +154,13 @@ td{
     text-align:left;
 
 }
+#crearUsuario{
+    position:absolute;
+    right:0vw;
+    top: 20vh;
+    text-align:left;
+
+}
 #alumno{
     position:absolute;
     right:0vw;
