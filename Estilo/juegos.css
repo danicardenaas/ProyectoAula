@@ -1,0 +1,55 @@
+.contenedor{
+    margin: auto;
+    position: absolute;
+    background: #001B85;
+    width: 100%;
+    height: 100%;
+}
+
+.cuad{
+    position: absolute;
+
+    background-color: #C4C4C4;
+    position: absolute;
+
+    width: 70%;
+    height: 50%;
+
+    top: 35%;
+    left: 15%;
+    
+}
+
+.c1{
+    top: 5%;
+    left: 5%;
+    position: absolute;
+    width: 40%;
+    height: 30%;   
+    background-color: #FFFFFF;
+}
+
+.c2{
+    top: 60%;
+    left: 5%;
+    position: absolute;
+    width: 40%;
+    height: 30%;    
+    background-color: #FFFFFF;
+}
+.c3{
+    top: 5%;
+    left: 55%;
+    position: absolute;
+    width: 40%;
+    height: 30%;    
+    background-color: #FFFFFF;
+}
+.c4{
+    top: 60%;
+    left: 55%;
+    position: absolute;
+    width: 40%;
+    height: 30%;   
+    background-color: #FFFFFF;
+}

@@ -71,7 +71,9 @@ body{
 #encabezado{
     display: flex;
     justify-content: center;
+    justify-self: center;
     align-items: center;
+    text-align: center;
     background-color: #D1A11D;
     position: absolute;
     border-radius: 10px;
@@ -84,7 +86,7 @@ body{
 
     top: 15%;
 
-    font-size: 1em;
+    font-size: 100%;
 
     font-family: "titulos";
 }
