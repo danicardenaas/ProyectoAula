@@ -125,7 +125,7 @@ window.addEventListener("load", (evento) =>{
          
             cont =0;
             tiempoMaximo=15; 
-
+            //se debe de dar click en otra respuesta, porque sino el juego no termina
             if(i<totalPreguntas) //el error está aquí, porque  hace otra consulta a los datos, pero si le pongo totalPreguntas-1 no registra si la última pregunta tiene respuesta correcta
             {
                 // los || son por si al final de la respuesta se dejó algún espacio
