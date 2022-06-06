@@ -39,7 +39,7 @@
                 }
                 $texto=$_SESSION['nombre'] ;
                 $rol=$_SESSION['rol'] ;
-                echo "<h1 id='bienvenida'>¡Bienvenido <strong>$texto </strong> a ENP 6! </h1>";
+                echo "<div id='bienvenida'>¡Bienvenido <strong>$texto </strong> a ENP 6! </div>";
                
           
            
@@ -53,7 +53,8 @@
     </main>
     <nav id='navDerecho'>
 
-        <a href='../dynamics/cerrar.php' class='botonAzul' id='registro'>cerrar</a><br/>";
+        <a href='../dynamics/cerrar.php' class='botonAzul' id='registro'>cerrar</a><br/>
+        <a href='../dynamics/perfil.php' class='botonAzul' id='perfil'>perfil</a><br/>";
         if($rol==3)
         {
            echo" <a href='../dynamics/crearUser.php' class='botonAzul' id='crearUsuario' >Crear usuario</a><br/>";
