@@ -13,7 +13,12 @@
             <div>
                  <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado"> 
             </div>
-         </header>
+        </header>
+        <div id="boton">
+            <form action="./PagInicio.php">
+                            <button  class="boton" id="enviar">Volver al inicio</button>
+            </form>
+        </div>
         <main class="contenedor">
             <div id="cuadroAmarillo"> </div>
             <form action="..\dynamics\datosinicio.php" method="post">
@@ -29,9 +34,6 @@
                     
                 </fieldset>
             </form>
-            <form action="./PagInicio.php">
-                        <button  class="boton" id="enviar">Volver al inicio</button>
-                    </form>
            <?php
                 session_name("SesionUsuario");
                 session_id("123456789");
