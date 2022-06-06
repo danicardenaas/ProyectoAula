@@ -32,13 +32,13 @@
           <a class="nav-link active" aria-current="page" href="#" id="anuncios">Anuncios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="materiales">Materiales</a>
+          <a class="nav-link" id="materiales">Materiales</a>
+        </li>
+        <li id="asignacion" class="nav-item">
+          <a class="nav-link" >Asignaciones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="asignaciones">Asignaciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="asignaciones">Calificar</a>
+          <a class="nav-link" id="calificar">Calificar</a>
         </li>
        
       </ul>

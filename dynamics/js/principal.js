@@ -61,14 +61,7 @@ function peticion()
             else{
                 dias[dia].style.background="white";
             }
-            // for(dia of dias)
-            // {
-            //      if(datosJSON.Todos.contains("fecha"))
-            //      var cuadrito = document.getElementById(fecha);
-              
-            //      cuadrito.style.background="pink";
-            //      x++;
-            // }
+          
         }
     })
 
@@ -76,16 +69,6 @@ function peticion()
 
 
 
-// //verificar si ya se inició sesión por lo mientras con un btn
-
-// // btn_prueba.addEventListener("click", (evento) => {
-// //     console.log("click"); 
-// //     h1nombre.innerHTML += "Nombre usuario: ---- sesión"; 
-// // }); 
-
-// aCalendario.addEventListener("mouseenter", (evento) =>{
-//     divCalendario.style.display = "flex"; 
-// }); 
 
 aCalendario.addEventListener("click", (evento) =>{
     if(calendarioAbierto==false){

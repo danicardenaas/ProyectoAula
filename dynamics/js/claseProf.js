@@ -1,6 +1,7 @@
 const navbar = document.getElementById ("BarraDeNavegacion");
 const nomClase = document.getElementById ("nombreClase");
 const btn_borrar = document.getElementById ("btn-borrar");
+const asignacionC = document.getElementById ("asignacion");
 
 cookies= document.cookie;
 cookies = cookies.split(";");
@@ -82,4 +83,8 @@ btn_borrar.addEventListener("click", (evento)=>{
         }
         
       });
+});
+asignacionC.addEventListener("click", ()=>
+{
+  window.location="./AsignacionActs.html";
 });
