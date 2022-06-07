@@ -17,6 +17,7 @@ window.addEventListener("load", (evento) =>{
     const divJuego = document.getElementById("juego"); 
     const divIniciar = document.getElementById("iniciar"); 
     const teclado = document.getElementById("teclado"); 
+    const dibujo = document.getElementById("dibujo"); 
 
     var preguntita; //arreglo que recibe todas las preguntas
     var imagen; 
@@ -36,6 +37,7 @@ window.addEventListener("load", (evento) =>{
     var copiaRes; 
     var copiaResMayus; 
     var resGuiones= []; 
+    var guiones; 
 
     fetch("../dynamics/ahorcado.php")
     .then ((response) =>{
@@ -81,6 +83,8 @@ window.addEventListener("load", (evento) =>{
         pregunta.innerHTML = ""; //borra los datos de la pregunta anterior 
         imagenPregunta.innerHTML = ""; 
         ahorcado.innerHTML = ""; 
+        pruebaHTML.innerHTML = ""; 
+        dibujo.innerHTML= ""; 
 
         pregunta.innerHTML += preguntita[i]; 
         // console.log(preguntita); 
@@ -95,20 +99,24 @@ window.addEventListener("load", (evento) =>{
         console.log("mayus=  " + copiaResMayus); 
         longitudRes = respuestaVerificada[i].length; 
 
-        var guiones; 
+        
         for(guiones=0; guiones<longitudRes; guiones++)
         {
             const nueva = document.createElement("div"); 
             botones.insertBefore(nueva, ahorcado); 
             nueva.id = "guion"+guiones; 
-            ahorcado.innerHTML += "_ "; 
+            // ahorcado.innerHTML += resGuiones[guiones] ; 
+     
             resGuiones[guiones] = "_"; 
+            ahorcado.innerHTML += resGuiones[guiones] + " "; 
+            
+            console.log(resGuiones[guiones]); 
         }
 
         console.log(resGuiones); 
         
-
-        ahorcado.innerHTML += respuestaVerificada[i];  
+        //se debe de quitar en el juego final 
+        pruebaHTML.innerHTML += respuestaVerificada[i];  
     }
 
     btn.addEventListener("click", (evento) =>{
@@ -169,6 +177,19 @@ window.addEventListener("load", (evento) =>{
                         resGuiones[verificador] = respuestaVerificada[i][verificador];
                         console.log(resGuiones); 
                         existe=1; 
+                        ahorcado.innerHTML = ""; 
+                        for(guiones=0; guiones<longitudRes; guiones++)
+                        {
+                           //imprime las letras nuevas
+                            const nueva = document.createElement("div"); 
+                            botones.insertBefore(nueva, ahorcado); 
+                            nueva.id = "guion"+guiones; 
+                            // ahorcado.innerHTML += resGuiones[guiones] ; 
+                    
+                            ahorcado.innerHTML += resGuiones[guiones] + " "; 
+                            
+                            console.log(resGuiones[guiones]); 
+                        }
                     }
                    
                 }
@@ -206,8 +227,26 @@ window.addEventListener("load", (evento) =>{
                 if(existe==0) //para verificar vidas y cambiar de nivel 
                 {
                     vidas--; 
+                    if(vidas==3)
+                    {
+                        dibujo.innerHTML= ""; 
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado0.png" alt="dibujo ahorcado" height="200" width="200px">'
+                    }
+                    if(vidas==2)
+                    {
+                        dibujo.innerHTML= ""; 
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado1.png" alt="dibujo ahorcado" height="200px" width="200px">'
+                    }
+                    if(vidas==1)
+                    {
+                        dibujo.innerHTML= ""; 
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado2.png" alt="dibujo ahorcado" height="200px" width="200px">'
+                    }
                     if(vidas == 0)
                     {
+                        dibujo.innerHTML= ""; 
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado3.png" alt="dibujo ahorcado" height="200px" width="200px">'
+
                         alert("Respuesta correcta=> " + correcta); 
                         i++; 
                         if(i==totalPreguntas)
