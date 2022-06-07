@@ -12,8 +12,8 @@
   }
 
   #contenedor {
-    width: 90vw;
-    height: 90vh;
+    width: 80vw;
+    height: 76vh;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -51,3 +51,20 @@
     background-color: #FFFFFF;
    
 }
+
+.piedep{
+    background-color: #C5DCFF;
+    max-width:100%;
+    max-height: 10%;
+    line-height: 30px;
+    text-align:center;
+    color:#FFFFFF;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* .botones{
+    flex-direction: row !important; 
+} */
