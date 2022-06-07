@@ -13,22 +13,12 @@
             <div class="rec" id="rec1"></div>
             <div class="rec" id="rec2"></div>
     
-            <div class="titulo" id="titulo3">
-                <label for="titulo">Titulo:
-                    <input type="text" name="titulo">
-                </label> <br/><br/>
-            </div>
-            <div class="etiqueta" id="ee">
-                <label>
-                    Puntaje: 
-                    <input name="puntaje" type="number" min="1" max="100">
-                </label>
-            </div>
-            <div class="etiqueta" id="ee7">
-                <label for="Tema">Tema:
-                    <input type="text" name="tema" >
-                </label> <br/><br/>
-            </div>
+          
+                
+            <input type="text" name="titulo" class="titulo" id="titulo3" placeholder="Titulo:">
+            <input name="puntaje" type="number" min="1" max="100" class="etiqueta" id="ee" placeholder="Puntaje">
+            <input type="text" name="tema" class="etiqueta" id="ee7" placeholder="Tema:">
+        
           
             <div class="etiqueta" id="ee9">
                
@@ -44,10 +34,9 @@
                 </label><br><br>
     
             </div>
-            <div class="etiqueta" id="eeA2">
-               
-                <label for="rubrica">Rúbrica:
-                    <textarea name="rubrica" rows="5" cols="50"></textarea>
+            <div class="etiqueta"  id="eeA2">
+                    Rubrica
+                    <input name="rubricaArch"  type="file"></textarea>
                 </label> <br/><br/>
             </div>
 
@@ -66,25 +55,31 @@
                 </label><br/><br/>
             </div>
             <div class="etiqueta" id="eeA5">
-                <label for="linkConsulta">Subir link:
-                    <input type="text" name="link">
+                <label for="linkConsulta" id="etiqLink">Subir link:
+                    <input type="text" name="link1">
+                    <div id="linkExtra"></div>
+                    <button id="agregarLink">Agregar</button>
                 </label> <br/><br/>
+               
             </div>
             <div class="etiqueta" id="eeA6">
-                <label for="linkConsulta">Subir archivo:
-                    <input type="file">
+                <label for="linkConsulta" id="etiqArch">Subir archivo:
+                    <input type="file"name="arch1">
+                    <div id="archExtra"></div>
+                    <button id="agregarArch">Agregar</button>
                 </label> <br/><br/>
+                
             </div>
-            <div class="ind" id="inda5">
-                   <label for="texto" name="arch">Indicaciones:
-                    <textarea name="indicaciones" rows="5" cols="50"></textarea>
-                </label> <br/><br/>
+            <div >
+                 
+                    <textarea name="indicaciones" rows="5" cols="50" class="ind" id="inda5" placeholder="Indicaciones"></textarea>
+        
             </div>
-            <div class="ind" id="inda6"></div>
-            <div class="cubito" id="cubito1"></div>
+            <textarea class="ind" id="inda6" name="rubricatxt" placeholder="rubrica"></textarea>
+            <!-- <div class="cubito" id="cubito1"></div>
             <div class="cubito" id="cubito2"></div>
-            <div class="cubito" id="cubito3"></div>
-            <div class="boton" id="boton8"> <button id="btn_enviar" type="submit">Asignar</button></div>
+            <div class="cubito" id="cubito3"></div> -->
+            <div class="boton" id="boton8"> <button id="btn_enviar"  class="boton" type="submit">Asignar</button></div>
     
         </form>
     <script src="../dynamics/js/crearAct.js"></script>

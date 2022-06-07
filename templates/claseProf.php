@@ -29,29 +29,42 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" id="anuncios">Anuncios</a>
+          <a class="nav-link active" aria-current="page" href="#" id="asignacionVer">Asignaciones</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="materiales">Materiales</a>
-        </li>
+        
         <li id="asignacion" class="nav-item">
-          <a class="nav-link" >Asignaciones</a>
+          <a class="nav-link" >Crear una asignación</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="calificar">Calificar</a>
-        </li>
+      
        
       </ul>
     </div>
   </div>
 </nav>
+<div id="asignaciones">
     <h1>Bienvenido a tu clase :))</h1>
-    <form action="./Tablero_tareas.php" method="post">
-        <button>Regresar a tablón</button>
-    </form>
-    <!-- //una peticion de js para saber que clase con la cookie -->
+    </div>
+    <div id="entregas">
 
-    <button id="btn-borrar">Borrar clase</button>
+    </div>
+
+    <div id="divCal"  style="display: none;">
+    <form id="calificar" method="post" action="./insertarCalif" >
+          Calificación: 
+            <input id="calif" type="number" /><br>
+          <textarea  id="coment" ></textarea>
+       </form>
+        <button id="enviar">Enviar</button>
+    </div>
+      
+
+    <div id="botones" >
+      <form action="./Tablero_tareas.php" method="post">
+          <button>Regresar a tablón</button>
+      </form>
+      <button id="btn-borrar">Borrar clase</button>
+    </div>
+    
  
     
    <script src="../dynamics/js/claseProf.js"></script>

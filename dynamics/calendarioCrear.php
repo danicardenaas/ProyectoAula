@@ -56,7 +56,7 @@
                 case "1":
                     {
                         //a todos
-                        $peticion = "SELECT * FROM usuario";
+                        $peticion = "SELECT * FROM usuario  WHERE id_tipousuario =1 OR id_tipousuario =2";
                         $query = mysqli_query($conexion, $peticion); 
                         while($row=mysqli_fetch_assoc($query))
                         {
