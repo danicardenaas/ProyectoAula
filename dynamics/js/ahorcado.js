@@ -9,6 +9,7 @@ window.addEventListener("load", (evento) =>{
     const pregunta = document.getElementById("pregunta"); 
     const imagenPregunta = document.getElementById("imagen"); 
     const ahorcado = document.getElementById("ahorcado"); 
+    const pruebaHTML = document.getElementById("prueba"); 
     const btnR2 = document.getElementById("btn2"); 
     const btnR3 = document.getElementById("btn3"); 
     const header = document.getElementById("header"); 
@@ -33,6 +34,7 @@ window.addEventListener("load", (evento) =>{
     var respuestaVerificada= []; 
     var longitudRes; 
     var copiaRes; 
+    var copiaResMayus; 
     var resGuiones= []; 
 
     fetch("../dynamics/ahorcado.php")
@@ -74,6 +76,7 @@ window.addEventListener("load", (evento) =>{
 
    
     function actualizar(){ 
+        vidas=3; 
         correcta = respuestaVerificada[i];  
         pregunta.innerHTML = ""; //borra los datos de la pregunta anterior 
         imagenPregunta.innerHTML = ""; 
@@ -87,17 +90,21 @@ window.addEventListener("load", (evento) =>{
         n = Math.floor(Math.random()*(totalPreguntas-1)+1);
         
         copiaRes = respuestaVerificada[i].toLowerCase();
+        copiaResMayus = respuestaVerificada[i].toUpperCase();
         console.log("minus "+copiaRes);  
+        console.log("mayus=  " + copiaResMayus); 
         longitudRes = respuestaVerificada[i].length; 
 
         var guiones; 
         for(guiones=0; guiones<longitudRes; guiones++)
         {
+            const nueva = document.createElement("div"); 
+            botones.insertBefore(nueva, ahorcado); 
+            nueva.id = "guion"+guiones; 
             ahorcado.innerHTML += "_ "; 
             resGuiones[guiones] = "_"; 
         }
 
-        console.log(copiaRes.split()); 
         console.log(resGuiones); 
         
 
@@ -151,47 +158,77 @@ window.addEventListener("load", (evento) =>{
 
         teclado.addEventListener("keyup", (evento) =>{
             console.log(evento.key); 
-            if(evento.key == "a")
-                console.log("es a"); 
-            else 
-                console.log("no es a"); 
-        }); 
-
-        botones.addEventListener("click", (evento) =>{
-            console.log(evento.target.innerText); 
-            cont =0;
-            tiempoMaximo=20; 
-            if(i<totalPreguntas) 
+            verificador=0; 
+            existe =0; 
+            if(i<totalPreguntas)
             {
-                
-                // los || son por si al final de la respuesta se dejó algún espacio
-                if((correcta == (evento.target.innerText+" ")) || correcta == (evento.target.innerText)  || correcta == (evento.target.innerText+"  ")) 
-                    puntaje++; 
-                else
-                    alert("Respuesta correcta=> " + correcta); 
-        
-                correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
-                i++; 
-                if(i==totalPreguntas)
+                for(verificador=0; verificador<respuestaVerificada[i].length; verificador++)
                 {
-                    tiempo.style.display="none"; 
-                    header.innerHTML = ""; 
-                    header.innerHTML += "<h1>Juego terminado</h1>"; 
-                    clearInterval(tiempoRestante); 
-            
-                    divJuego.style.display = "none"; 
-                    correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
-                    terminar.style.display = "block"; 
+                    if((evento.key == copiaRes[verificador]) || (evento.key == copiaResMayus[verificador]))
+                    {
+                        resGuiones[verificador] = respuestaVerificada[i][verificador];
+                        console.log(resGuiones); 
+                        existe=1; 
+                    }
+                   
                 }
-                else{
-                      actualizar(); //tiene que ir al final 
-                }
-              
-            }
-          
-           
-        });
 
+                comprobacion=0; 
+                for(verificador=0; verificador<respuestaVerificada[i].length; verificador++)
+                {
+                    if(resGuiones[verificador] == respuestaVerificada[i][verificador])
+                    {
+                        comprobacion++; 
+                    }
+                    if(comprobacion == respuestaVerificada[i].length)
+                    {
+                        puntaje++
+                        console.log("ganaste"); 
+                        i++; 
+                        if(i==totalPreguntas)
+                        {
+                            tiempo.style.display="none"; 
+                            header.innerHTML = ""; 
+                            header.innerHTML += "<h1>Juego terminado</h1>"; 
+                            clearInterval(tiempoRestante); 
+                    
+                            divJuego.style.display = "none"; 
+                            correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
+                            terminar.style.display = "block"; 
+                        }
+                        else{
+                            actualizar(); //tiene que ir al final 
+                        }
+                    }
+                
+                }
+
+                if(existe==0) //para verificar vidas y cambiar de nivel 
+                {
+                    vidas--; 
+                    if(vidas == 0)
+                    {
+                        alert("Respuesta correcta=> " + correcta); 
+                        i++; 
+                        if(i==totalPreguntas)
+                        {
+                            tiempo.style.display="none"; 
+                            header.innerHTML = ""; 
+                            header.innerHTML += "<h1>Juego terminado</h1>"; 
+                            clearInterval(tiempoRestante); 
+                    
+                            divJuego.style.display = "none"; 
+                            correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
+                            terminar.style.display = "block"; 
+                        }
+                        else{
+                            actualizar(); //tiene que ir al final 
+                        }
+                    }
+                }
+                correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;
+            }
+        }); 
        
     }); 
  
