@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trivia</title>
+    <title>Ahorcado</title>
     <link rel="stylesheet" href="../Estilo/statics/styles/trivia.css">
 </head>
-<body>
+<body id="teclado">
     <div id="contenedor">
-        <header id="header">Esta es tu trivia</header>
+        <header id="header">Esta es tu ahorcado</header>
         <div id="correctas">
 
         </div>
@@ -25,21 +25,14 @@
             </div>
     
            <div id="botones" style="display:none">
-                <div class="btn" id="btn1"">
+                <div class="btn" id="ahorcado"">
     
                 </div>
     
-                <div class="btn" id="btn2"> 
-    
-                </div>
-    
-                <div class="btn" id="btn3"> 
-    
-                </div>
             </div>
         </div>
         <div id="iniciar">
-            <button  class="btn" id="iniciar">Iniciar juego</button>
+            <button id="iniciar">Jugar</button>
         </div>
         <div id="terminar" style="display:none">
             <form action="./PagInicio.php">
@@ -48,6 +41,6 @@
         </div>
     </div>
 
-    <script src="../dynamics/js/trivia.js"></script>
+    <script src="../dynamics/js/ahorcado.js"></script>
 </body>
 </html>
