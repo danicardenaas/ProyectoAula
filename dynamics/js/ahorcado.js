@@ -9,7 +9,7 @@ window.addEventListener("load", (evento) =>{
     const pregunta = document.getElementById("pregunta"); 
     const imagenPregunta = document.getElementById("imagen"); 
     const ahorcado = document.getElementById("ahorcado"); 
-    const pruebaHTML = document.getElementById("prueba"); 
+    // const pruebaHTML = document.getElementById("prueba"); 
     const btnR2 = document.getElementById("btn2"); 
     const btnR3 = document.getElementById("btn3"); 
     const header = document.getElementById("header"); 
@@ -83,7 +83,7 @@ window.addEventListener("load", (evento) =>{
         pregunta.innerHTML = ""; //borra los datos de la pregunta anterior 
         imagenPregunta.innerHTML = ""; 
         ahorcado.innerHTML = ""; 
-        pruebaHTML.innerHTML = ""; 
+        // pruebaHTML.innerHTML = ""; 
         dibujo.innerHTML= ""; 
 
         pregunta.innerHTML += preguntita[i]; 
@@ -116,7 +116,7 @@ window.addEventListener("load", (evento) =>{
         console.log(resGuiones); 
         
         //se debe de quitar en el juego final 
-        pruebaHTML.innerHTML += respuestaVerificada[i];  
+        // pruebaHTML.innerHTML += respuestaVerificada[i];  
     }
 
     btn.addEventListener("click", (evento) =>{
@@ -227,23 +227,20 @@ window.addEventListener("load", (evento) =>{
                 if(existe==0) //para verificar vidas y cambiar de nivel 
                 {
                     vidas--; 
+                    dibujo.innerHTML= ""; 
                     if(vidas==3)
-                    {
-                        dibujo.innerHTML= ""; 
-                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado0.png" alt="dibujo ahorcado" height="200" width="200px">'
-                    }
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado0.png" alt="dibujo ahorcado" height="200" width="200px">';
+                    
                     if(vidas==2)
-                    {
-                        dibujo.innerHTML= ""; 
-                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado1.png" alt="dibujo ahorcado" height="200px" width="200px">'
-                    }
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado1.png" alt="dibujo ahorcado" height="200px" width="200px">';
+                    
                     if(vidas==1)
-                    {
-                        dibujo.innerHTML= ""; 
-                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado2.png" alt="dibujo ahorcado" height="200px" width="200px">'
-                    }
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado2.png" alt="dibujo ahorcado" height="200px" width="200px">';
+
                     if(vidas == 0)
                     {
+                        cont =0;
+                        tiempoMaximo=20;    
                         dibujo.innerHTML= ""; 
                         dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado3.png" alt="dibujo ahorcado" height="200px" width="200px">'
 

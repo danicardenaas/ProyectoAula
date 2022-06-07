@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crea un juego</title>
+    <link rel="stylesheet" href="../Estilo/statics/styles/crear_juego.css">
 </head>
-<body>
+<body #fondo>
     <header>Crea tu juego</header>
     <div> ¡Recuerda no dejar espacios en blanco después de anotar las respuestas! </div>
     <div id="contenedor-juego">
@@ -31,21 +32,26 @@
                 </div> <br> 
                 <div class="campo-form">
                     <label>Imagen pregunta</label> 
-                    <input type="file" name="img1" id="imagen">
+                    <input class="archivo" type="file" name="img1" id="imagen">
                 </div> <br> 
                 
             </div>
             <!-- Estas van al final de las preguntas -->
             <label id="nota"> ¿Está listo tu juego? </label>
-            <button id="btn-enviar"> Juego terminado </button> <br> <br> 
+            <button class="boton" id="btn-enviar"> Juego terminado </button> <br> <br> 
             <label for="fondo">Cambiar la imagen de fondo </label>
                 <input type="file" name="fondo" id="imagen-fondo">
             <br> <br>
         </form>
-        <button id="btn-agregar"> Agregar pregunta </button>
+        
+        <button class="boton" id="btn-agregar"> Agregar pregunta </button>
     </div>
+    <form action="./PagInicio.php">
+        <button class="salir" class="boton" class="btn" id="enviar">Volver al inicio</button>
+    </form>
     <footer class="piedep">
-                Aula virtual - Escuela Nacional Preparatoria Plantel 6 "Antonio Caso"
+        <p>Ubicación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>
+         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
     </footer>
     <script src="../dynamics/js/crear_juego.js"></script>
 
