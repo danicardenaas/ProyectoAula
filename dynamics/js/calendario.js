@@ -183,12 +183,6 @@ btn_anterior.addEventListener("click", ()=>{
     }
     peticion();
 });
-anuncios.addEventListener("click", ()=>{
-    window.location = "./anuncios.html";
-})
-// anuncios.addEventListener("mouseover", () =>{
-//     anuncios.style.backgroundColor = "#D1A11F"
-// })
 inicio.addEventListener("click", ()=>{
     window.location = "./inicioConSesion.php";
 })

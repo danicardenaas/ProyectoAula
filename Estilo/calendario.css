@@ -1,12 +1,79 @@
 .salir:hover{
     background-color: #ac820f;
-    padding: 15px;
-    font-size: 5%;
+    padding: 10px;
+    font-size: 90%;
 }
 .salir{
-    background-color: aqua;
+    background-color: rgb(63, 47, 156);
 }
 td{
-    height: 8vh;
-    width: 5vw;
+    height: 5vh;
+    width: 1vw;
+}
+#piedep{
+    background-color: #C5DCFF;
+    width:100vw;
+    height:20%;
+    line-height: 30px;
+    text-align: center;
+    color:#4f89c0;
+    position:absolute;
+    top: 140vh;
+}
+.th{
+    font-size: 60%;
+}
+
+.c1{
+    top: 5%;
+    left: 30%; 
+    justify-content: center;
+    justify-self: center;
+    position: absolute;
+    width: 40%;
+    height: 30%;   
+    background-color: #FFFFFF;
+}
+.c1 p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 100%;
+    color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    left: 15%;
+    top: -15%;
+}
+
+#cca{
+    background: #092473;
+    justify-content: center;
+    width: 45%;
+    height: 15%;
+}
+
+#titulo2 {
+    top: 10%;
+    left: 47%;
+    width: 12%;
+    height: 7%;
+    border-radius: 10px;
+    justify-content: center;
+    text-justify: center;
+}
+.titulo p {
+    margin: 0;
+    vertical-align: middle;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 130%;
+    text-align: center;
+    padding: 2%;
+    font-weight: bold;
+
+    color: #FFFFFF;
 }

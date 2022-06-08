@@ -54,7 +54,7 @@
     <nav id='navDerecho'>
 
         <a href='../dynamics/cerrar.php' class='botonAzul' id='registro'>cerrar</a><br/>
-        <a href='../dynamics/perfil.php' class='botonAzul' id='perfil'>perfil</a><br/>";
+        <a href='./perfil.php' class='botonAzul' id='perfil'>perfil</a><br/>";
         if($rol==3)
         {
            echo" <a href='../dynamics/crearUser.php' class='botonAzul' id='crearUsuario' >Crear usuario</a><br/>";

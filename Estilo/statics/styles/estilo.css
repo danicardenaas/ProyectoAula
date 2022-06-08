@@ -8,21 +8,24 @@ body{
 } 
 
 .rec{
-    width: 92px; 
-    height: 769px; 
+    position: absolute;
+    width: 10%; 
+    height: 100%; 
     border: 3px solid #555;
     float: left;
 
     background: #D1A11D;
+    z-index: -1;
 }
 
 .rec2{
-    position: relative;
-    width: 92px; 
-    height: 769px; 
+    position: absolute;
+    width: 10%; 
+    height: 100%; 
     border: 3px solid #555;
     background: #D1A11D;
-   float: right;
+    right: 0;
+    z-index: -1;
 }
 
 .fondo{
@@ -30,6 +33,7 @@ body{
     width: 100%;
     height: 122%;
     position: absolute;
+    z-index: -2;
 }
 
 
@@ -50,6 +54,11 @@ body{
     /* font-weight: 800; */
     font-size: 0.8em;
     color: white;
+}
+.salir:hover{
+    background-color: #ac820f;
+    padding: 10px;
+    font-size: 90%;
 }
 
 #piedep{
