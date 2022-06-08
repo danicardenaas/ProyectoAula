@@ -3,7 +3,7 @@
     define ("DBHOST", "localhost");
     define ("DBUSER", "root");  
     define ("PASSWORD", ""); 
-    define ("DB", "proyectoaula" ); 
+    define ("DB", "pruebaforo" ); 
 
     // En crear juego esta como proyectoaula 
     // la que estaba es "prueba1"

@@ -54,15 +54,15 @@ function tareaf()
         comentario.innerHTML += "Entregado:"+datosJSON.Info.fecha_entr+"<br>";
         if(datosJSON.Info.coment_alumno != null)
         {
-          comentario.innerHTML += "Comentarios añadidos:"+datosJSON.Info.coment_alumno +"<br>";
+          comentario.innerHTML += "Comentarios añadidos por el alumno:"+datosJSON.Info.coment_alumno +"<br>";
         }
         if(datosJSON.Info.coment_profe != null)
         {
-          comentario.innerHTML += "Comentarios añadidos:"+datosJSON.Info.coment_profe +"<br>";
+          comentario.innerHTML += "Comentarios añadidos por el profesor:"+datosJSON.Info.coment_profe +"<br>";
         }
         if(datosJSON.Info.calif != null)
         {
-          comentario.innerHTML += "Calif:"+datosJSON.Info.calif +"<br>";
+          comentario.innerHTML += "Calificación:"+datosJSON.Info.calif +"<br>";
         }
         adjuntos.innerHTML += "<ol>";
         for (archivo of datosJSON.archivos)
@@ -111,8 +111,7 @@ function muestraAsignaciones()
     }).then ((datosJSON)=>{
         for(tarea of datosJSON)
         {
-        
-        asignaciones.innerHTML+="<div class='actividad' id='"+tarea.ID_actividad+"'>"+tarea.nombre+"<br>"+tarea.fecha_limite+"<br></div><br>"
+          asignaciones.innerHTML+="<div class='actividad' id='"+tarea.ID_actividad+"'>"+tarea.nombre+"<br>"+tarea.fecha_limite+"<br></div><br>"
         }
     
   });
@@ -144,6 +143,7 @@ asignaciones.addEventListener("click", (evento)=>{
           asignaciones.innerHTML +="Fecha limite de entrega: "+datosJSON.datos.fecha_limite +"<br>";
           asignaciones.innerHTML +="<h1>"+datosJSON.datos.nombre+"</h1>"+"Puntaje máximo: "+datosJSON.datos.puntaje+" <br>Tema: "+datosJSON.datos.tema+"<br>";
           asignaciones.innerHTML += "<strong>Indicaciones:</strong> <br>"+datosJSON.datos.indicaciones+"<br>"; 
+          asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
           
           if(datosJSON.datos.rubrica != null && datosJSON.datos.rubrica != "")
           {
@@ -172,7 +172,7 @@ asignaciones.addEventListener("click", (evento)=>{
           }
        
           asignaciones.innerHTML += "</div>"; 
-          botones.style.display="none";
+          // botones.style.display="none";
         }
       });
      
@@ -182,10 +182,15 @@ asignaciones.addEventListener("click", (evento)=>{
      
       tareaf();
   }
+
+  if(evento.target.classList.contains("juego")){
+    document.cookie = "id_juego ="+ evento.target.id;      
+  }
 });
 
 asignacion.addEventListener("click", ()=>{
     muestraAsignaciones();
+
 });
 addArch.addEventListener("click",(evento)=>{
   evento.preventDefault();

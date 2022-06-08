@@ -27,28 +27,45 @@
            </div>
        </div>
        <div>
-           <form id="preguntaNueva">
-               <h3>Ingresa tu pregunta</h3>
-               <input type="text" name="pregunta">
-               <input type="file" name="arch">
-               
-               <button id="enviar">Enviar</button>
-           </form>
-       </div>
+        <form id="preguntaNueva">
+            <h3>Ingresa tu pregunta</h3>
+            <input type="text" name="pregunta">
+            <input type="file" name="arch">
+            
+             <select  name="tipoduda" id="tipoduda"   > 
+                 <!-- style="display:none" -->
+                 <option disabled>Tipo de duda</option>
+                 <option value=1>Normal</option>
+                 <option value=2>Frecuente</option>
+             </select>
+            <button id="enviar">Enviar</button>
+         </form>                 
+    </div>
         <div>
             <form action="../templates/PagInicio.php">
                 <button class="salir">Volver al Inicio</button>
             </form>
+            <div>
+                <button class="salir" id="frecuente">Preguntas frecuentes</button>
+            </div>
+            <div>
+                <button class="salir" id="normal" style="display: none">Preguntas normales</button>
+            </div>
         </div>
         <div class="Cuadro-blanco" >
             <div class="indice" style="display: none;" >
                 <center><h1 id="indice" style="background-color: #092473">ÍNDICE</h1></center>
             </div>
             <div id="foro" >
-                <p>Foro dudas</p>
+                <!-- <p>Foro dudas</p>
                 <p>-</p>
+                <p>-</p> -->
+            </div>
+
+            <div id="foroFrecuente" >
+                <!-- <p>Foro dudas</p>
                 <p>-</p>
-                
+                <p>-</p> -->
             </div>
             <form id="resp" style="display: none;">
                 <h3>Ingresa tu respuesta</h3>

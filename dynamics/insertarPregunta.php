@@ -2,6 +2,8 @@
     session_name("SesionUsuario");
     session_id("123456789");
     session_start();
+    $tipoduda = (isset($_POST['tipoduda']) && $_POST['tipoduda'] != "")? $_POST['tipoduda'] : false;
+
     if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
     {
         $nuevaURL='./inicio.php';
@@ -41,7 +43,7 @@
         else{
             $ruta="";
         }
-        $peticion = "INSERT INTO duda (descripcion, fecha_pub, ruta_img,id_usuario) VALUES ('$pregunta','$fecha','$ruta', $user )";
+        $peticion = "INSERT INTO duda (descripcion, fecha_pub, ruta_img,id_usuario, id_tipoduda) VALUES ('$pregunta','$fecha','$ruta', $user, $tipoduda )";
         $query = mysqli_query($conexion, $peticion);
         
         if($query)

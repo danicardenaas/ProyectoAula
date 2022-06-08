@@ -6,6 +6,19 @@ const confirmacion = document.getElementById("nota");
 const pregunta1 = document.getElementById("pregunta1"); 
 var pregunta = 1; 
 
+cookies= document.cookie;
+cookies = cookies.split(";");
+
+var cookieArray = new Array();
+for (cookie of cookies)
+{
+   
+    if(cookie.includes("id_materia"))
+    {
+        elemento = cookie.split("=");
+    }
+}
+var materia = elemento[1];
 
 btnAgregar.addEventListener("click", (evento)=>{
     pregunta ++; 
@@ -36,6 +49,24 @@ btnAgregar.addEventListener("click", (evento)=>{
         nueva.innerHTML += '<input type="file" name="img'+pregunta+'" id="imagen"></div>'; 
     }  
 
+ 
    
 }); 
 
+btnEnviar.addEventListener("click", (evento) =>
+{{
+    evento.preventDefault(); 
+    const datosForm = new FormData(formPregunta);
+    datosForm.append("ID_materia", materia); 
+    fetch("../dynamics/datosJuego.php", {
+        method:"POST", 
+        body: datosForm,
+    }).then ((response) =>{
+        return response.json();
+    }).then ((datosJSON)=>{
+        if(datosJSON.ok==false)
+            alert(datosJSON.texto); 
+        console.log("lol"); 
+    })
+     
+}});

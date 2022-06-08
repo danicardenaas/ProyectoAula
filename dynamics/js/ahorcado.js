@@ -43,7 +43,7 @@ window.addEventListener("load", (evento) =>{
     .then ((response) =>{
         return response.json();
     }).then ((datosJSON)=>{
-        // console.log(datosJSON); 
+        console.log(datosJSON); 
         preguntita = datosJSON.pregunta; 
         imagen = datosJSON.ruta_imagen; 
         respuesta = datosJSON.respuesta; 
@@ -51,7 +51,7 @@ window.addEventListener("load", (evento) =>{
         var i=0; 
         
         totalPreguntas = (preguntita.length)-1; //para diferenciar los índices 
-        prueba=datosJSON.respuesta[1].respuesta; 
+        // prueba=datosJSON.respuesta[1].respuesta; 
         // console.log("total preguntas: " + totalPreguntas); 
         
         for(i=0; i<=totalPreguntas; i++) //sirve para quitar los espacios

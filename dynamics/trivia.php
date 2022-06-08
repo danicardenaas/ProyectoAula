@@ -2,7 +2,8 @@
     include("./config.php"); 
     $conexion = connect(); 
 
-    $ID_juego=3; 
+    $ID_juego  = (isset($_POST['id_juego']) && $_POST["id_juego"] != "")? $_POST['id_juego'] : false;
+    // $ID_juego=3; 
 
 
     $peticion= "SELECT ruta_imagen FROM juego WHERE ID_juego = '$ID_juego'"; 

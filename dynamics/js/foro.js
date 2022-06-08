@@ -1,13 +1,19 @@
 const index = document.getElementById("indice");; 
 const divForo = document.getElementById("foro");
+const divFrecuente = document.getElementById("foroFrecuente"); 
 const  enviar= document.getElementById("enviar");
 const  resp= document.getElementById("resp");
 const  preguntaNueva= document.getElementById("preguntaNueva");
 const  enviar_res= document.getElementById("enviar_res");
+const btnFrecuente = document.getElementById("frecuente")
+const btnNormal = document.getElementById("normal")
+const selectDuda = document.getElementById("tipoduda"); 
 //Petición para mostrar todas las preguntas en la base
 divForo.innerHTML="";
 var id_preg;
 var duda;
+var tipoduda; 
+var rol; 
 const datosForm2= new FormData();
 function despliegue(){
   divForo.innerHTML="";
@@ -18,22 +24,53 @@ function despliegue(){
     return response.json();
   }).then ((datosJSON)=>{
     console.log(datosJSON);
+    // console.log(selectDuda.value); 
+    // console.log(datosJSON.preguntas[3].ID_tipoduda); //da el valor del tipo
+    // if(rol==4){
+    //   console.log("eres un moderador"); 
+    //   selectDuda.style.display="block";
+    // }
      for (pregunta of datosJSON.preguntas){
-      duda = pregunta.ID_duda
-      divForo.innerHTML += "<div id='"+pregunta.ID_duda+"'>"+pregunta.descripcion+"<br>";
-      divForo.innerHTML += pregunta.fecha_pub+"  ";
-      divForo.innerHTML += pregunta.usuario+"<button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div><br><br><br>";
-      for(respuesta of datosJSON.respuestas)
+      console.log(pregunta.ID_tipoduda); 
+      tipoduda = pregunta.ID_tipoduda; 
+      if(tipoduda == 1) //normal
       {
-        for (respuestita of respuesta)
+        duda = pregunta.ID_duda
+        divForo.innerHTML += "<div id='"+pregunta.ID_duda+"'>"+pregunta.descripcion+"<br>";
+        divForo.innerHTML += pregunta.fecha_pub+"  ";
+        divForo.innerHTML += pregunta.usuario+"<button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div><br><br><br>";
+        for(respuesta of datosJSON.respuestas)
         {
-          if(respuestita.ID_duda == duda )
+          for (respuestita of respuesta)
           {
-            console.log(respuestita.ID_duda+" =="+ duda );
-            divForo.innerHTML += "<div style='margin-left:5vw ' id='"+respuestita.ID_dudaresp+"'>"+respuestita.descripcion+"<br>"+respuestita.fecha_pub+"  "+respuestita.usuario+"</div><br><br><br>";
-          }
-        }
+            if(respuestita.ID_duda == duda )
+            {
         
+              console.log(respuestita.ID_duda+" =="+ duda );
+              divForo.innerHTML += "<div style='margin-left:5vw ' id='"+respuestita.ID_dudaresp+"'>"+respuestita.descripcion+"<br>"+respuestita.fecha_pub+"  "+respuestita.usuario+"</div><br><br><br>";
+            }
+          }
+          
+        }
+      }
+      if(tipoduda == 2) //normal
+      {
+        duda = pregunta.ID_duda
+        divFrecuente.innerHTML += "<div id='"+pregunta.ID_duda+"'>"+pregunta.descripcion+"<br>";
+        divFrecuente.innerHTML += pregunta.fecha_pub+"  ";
+        divFrecuente.innerHTML += pregunta.usuario+"<button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div><br><br><br>";
+        for(respuesta of datosJSON.respuestas)
+        {
+          for (respuestita of respuesta)
+          {
+            if(respuestita.ID_duda == duda )
+            {
+              console.log(respuestita.ID_duda+" =="+ duda );
+              divFrecuente.innerHTML += "<div style='margin-left:5vw ' id='"+respuestita.ID_dudaresp+"'>"+respuestita.descripcion+"<br>"+respuestita.fecha_pub+"  "+respuestita.usuario+"</div><br><br><br>";
+            }
+          }
+          
+        }
       }
      }
   })
@@ -96,3 +133,20 @@ enviar_res.addEventListener("click", (evento)=>{
     })
     resp.style.display="none";
 });
+
+btnFrecuente.addEventListener("click", (evento) =>{
+  divForo.style.display="none"; 
+  divFrecuente.style.display="block"; 
+  divFrecuente.innerHTML = "looooooooooooooooooool"; 
+  despliegue(); 
+  btnNormal.style.display="block"; 
+  btnFrecuente.style.display="none"; 
+}); 
+
+btnNormal.addEventListener("click", (evento) =>{
+  despliegue(); 
+  divFrecuente.style.display="none"; 
+  divForo.style.display="block"; 
+  btnNormal.style.display="none"; 
+  btnFrecuente.style.display="block"; 
+}); 

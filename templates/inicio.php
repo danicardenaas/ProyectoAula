@@ -25,7 +25,7 @@
                 <fieldset id="cuadroAzul">
                     <h2 id="titulo">Inicio de sesión</h2>
                     <label for="usuario" class="etiqueta" id="usuario">Usuario: </label>
-                    <input type="text" name="usuario" placeholder="Correo electrónicoo no. de cuenta" required><br/><br/>
+                    <input type="text" name="usuario" placeholder="Correo electrónico no. de cuenta" required><br/><br/>
                     <label for="contraseña" class="etiqueta" id="pass">Contraseña: </label>
                     <input type="password" name="contraseña" placeholder="  Contraseña" required><br/><br/>
                     <!--<a class="etiqueta">¿Olvisdaste tu contraseña?</a><br><br>-->
