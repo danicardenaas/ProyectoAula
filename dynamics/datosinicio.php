@@ -46,6 +46,8 @@
             $_SESSION["nombre"]=$usuario;
             $_SESSION["rol"]=$datos["ID_tipousuario"];
             $_SESSION["mensaje"]=" ";
+            $_SESSION["apellido"]=$datos["apellidos"];
+            $_SESSION["nombre_real"]=$datos["nombre"];
         }
         else{
             $mensaje[0]="Contaseña incorrecta.";
