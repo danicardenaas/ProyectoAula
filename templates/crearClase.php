@@ -18,20 +18,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crea una clase</title>
+    <link rel="stylesheet" href="../Estilo/statics/styles/estilo.css">
+    <link rel="stylesheet" href="../Estilo/statics/styles/crear_clase.css">
 </head>
 <body>
-
-        <form action="./crearClase.php" id="formularioCrear" method="post" enctype="multipart/form-data" >
-          
+    <form action="./crearClase.php" id="formularioCrear" method="post" enctype="multipart/form-data" >
+    </form>
+    <header>
+        <div >
+             <img src="../Imgs/encabezado.png" width="100%" height="12%" alt=""> 
+        </div>
+     </header>
+     <div class="fondo">
+         <aside>
+             <div class="rec">
+             </div>
+         </aside>
+             <div class="rec2">
+             </div> 
+        <div id="contenedor-encabezado">
+            <div id="encabezado">
+                <p>Creador de clases</p>
+            </div>
+        </div>
+        <div>
+                <form action="../templates/PagInicio.php">
+                    <button class="salir">Volver al Inicio</button>
+                </form>
+            </div>
+        <div id="contenedor">
             <label for="nombre">Nombre 
                 <input name="nombre" id="nombre" type="text">
-            </label><br><br>
+            </label><br>
             <h3>Clasificación</h3>
 
             <label for="LenguaEspanola">Lengua Española
                 <input type="radio" name="materia" id="LenguaEspanola" value=1 checked>
             </label><br>
-           
+            
             <label for="LiteraturaUn">Literatura Universal
                 <input type="radio" name="materia" id="LiteraturaUn" value=2 >
             </label><br>
@@ -43,10 +67,10 @@
             </label><br>
             <label for="HistoriaUni">Historia Universal
                 <input type="radio" name="materia" id="HistoriaUni" value=5>
-            </label><br><br>
+            </label><br>
             <label for="imagen">Imagen: 
                 <input name="imagen" id="imagen" type="file">
-            </label><br><br>
+            </label><br>
                 <h4>Esta clase es:</h4>
             <label for="publica">Publica 
                 <input type="radio" name="publica" id="publica" value=1 checked>
@@ -57,7 +81,7 @@
             <label for="contrasena" style="display:none;" id="contrasena">Contraseña
                 <input id="contrasena" type="text" id="contrasena" name="contrasena">
             </label>
-                <br><br>
+                <br>
             <label for="grupo" id="grupo">Grupo al que se le asiganara:
                     <select name="grupo" id="grupo">
                         <option value="">No específico</option>
@@ -169,7 +193,14 @@
                     </select>
                 </label> <br>
             <button id="btn-enviar"> Crear clase</button>
-            </form>
-        <script src="../dynamics/js/crearClase.js"></script>
+
+        </div>
+     </div>
+     <footer id="piedep">
+        <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
+         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
+    </footer>
+    </form>
+    <script src="../dynamics/js/crearClase.js"></script>
 </body>
 </html>
