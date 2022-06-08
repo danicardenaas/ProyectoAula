@@ -46,7 +46,7 @@
     <h1>Bienvenido a tu clase :))</h1>
 </div>
     <br><br>  
-    <form id='formEntrega' style="display:none">
+    <form id='formEntrega' style="display:none" method="post" enctype="multipart/form-data">
      <h3> Haz tu entrega</h3>
      <label id="archivos">
         <input type='file' name='arch1'><br>
