@@ -2,9 +2,9 @@
 
 
     include("./config.php"); 
+    $conexion= connect();
     session_name("SesionUsuario");
     session_id("123456789");
-    $conexion= connect();
     session_start();
 
     $rol= $_SESSION["rol"];
@@ -34,7 +34,8 @@
         
        $i++; 
     }
-    $mandar= array("preguntas" => $preguntas, "respuestas" => $respuesta, "rol" => $rol);
+    // Agrego rol
+    $mandar= array("preguntas" => $preguntas, "respuestas" => $respuesta, "rol"=> $rol);
     echo json_encode($mandar);
 
 ?>
