@@ -1,14 +1,21 @@
 const index = document.getElementById("indice");; 
 const divForo = document.getElementById("foro");
+const divFrecuente = document.getElementById("foroFrecuente"); 
 const  enviar= document.getElementById("enviar");
 const  resp= document.getElementById("resp");
 const  preguntaNueva= document.getElementById("preguntaNueva");
 const  enviar_res= document.getElementById("enviar_res");
+const btnFrecuente = document.getElementById("frecuente")
+const btnNormal = document.getElementById("normal")
+const selectDuda = document.getElementById("tipoduda"); 
 //Petición para mostrar todas las preguntas en la base
 divForo.innerHTML="";
 var id_preg;
 var duda;
+var tipoduda; 
+var rol; 
 const datosForm2= new FormData();
+
 function despliegue(){
   divForo.innerHTML="";
   fetch("../dynamics/preguntas.php", {
@@ -19,6 +26,12 @@ function despliegue(){
   }).then ((datosJSON)=>{
     console.log(datosJSON);
      for (pregunta of datosJSON.preguntas){
+       console.log(datosJSON.rol); 
+      rol=datosJSON.rol;
+      if(rol==4){
+        console.log("eres un moderador"); 
+        selectDuda.style.display="block";
+      }
       duda = pregunta.ID_duda
       divForo.innerHTML += "<div id='"+pregunta.ID_duda+"'>"+pregunta.descripcion+"<br>";
       divForo.innerHTML += pregunta.fecha_pub+"  ";
@@ -48,15 +61,19 @@ index.addEventListener("mouseenter", (evento) =>{
 index.addEventListener("mouseleave", (evento) =>{
     divForo.style.display = "none"; 
 }); 
+
 enviar.addEventListener("click", (evento)=>{
     evento.preventDefault();
     const datosForm= new FormData(preguntaNueva);
+    // datosForm.append ("tipoduda", selectDuda);
     fetch("../dynamics/InsertarPregunta.php", {
       method:"POST", 
       body: datosForm,
     }).then ((response) =>{
       return response.json();
     }).then ((datosJSON)=>{
+      
+      
       if(datosJSON.OK==false)
       {
         alert(datosJSON.texto);
@@ -67,6 +84,8 @@ enviar.addEventListener("click", (evento)=>{
        
     })
 });
+
+
 divForo.addEventListener("click", (evento)=>{
   if(evento.target.classList.contains("resp"))
   {
@@ -75,6 +94,7 @@ divForo.addEventListener("click", (evento)=>{
   }
   id_preg=evento.target.id;
 });
+
 enviar_res.addEventListener("click", (evento)=>{
   evento.preventDefault();
   console.log();
@@ -96,3 +116,20 @@ enviar_res.addEventListener("click", (evento)=>{
     })
     resp.style.display="none";
 });
+
+btnFrecuente.addEventListener("click", (evento) =>{
+    divForo.style.display="none"; 
+    divFrecuente.style.display="block"; 
+    divFrecuente.innerHTML = "looooooooooooooooooool"; 
+    btnNormal.style.display="block"; 
+    btnFrecuente.style.display="none"; 
+}); 
+
+btnNormal.addEventListener("click", (evento) =>{
+  divFrecuente.style.display="none"; 
+  divForo.style.display="block"; 
+  btnNormal.style.display="none"; 
+  btnFrecuente.style.display="block"; 
+}); 
+
+

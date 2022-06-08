@@ -32,19 +32,38 @@
                <input type="text" name="pregunta">
                <input type="file" name="arch">
                
+                <select  name="tipoduda" id="tipoduda"  style="display:none" > 
+                    <!-- style="display:none" -->
+                    <option disabled>Tipo de duda</option>
+                    <option value=1>Normal</option>
+                    <option value=2>Frecuente</option>
+                </select>
                <button id="enviar">Enviar</button>
-           </form>
+            </form>                 
        </div>
         <div>
             <form action="../templates/PagInicio.php">
                 <button class="salir">Volver al Inicio</button>
             </form>
         </div>
+        <div>
+            <button class="salir" id="frecuente">Preguntas frecuentes</button>
+        </div>
+        <div>
+            <button class="salir" id="normal" style="display: none">Preguntas normales</button>
+        </div>
         <div class="Cuadro-blanco" >
             <div class="indice" style="display: none;" >
                 <center><h1 id="indice" style="background-color: #092473">ÍNDICE</h1></center>
             </div>
             <div id="foro" >
+                <p>Foro dudas</p>
+                <p>-</p>
+                <p>-</p>
+                
+            </div>
+
+            <div id="foroFrecuente" >
                 <p>Foro dudas</p>
                 <p>-</p>
                 <p>-</p>
@@ -58,10 +77,10 @@
             </form>
         </div>
     </div>
-    <footer id="piedep">
+    <!-- <footer id="piedep">
        <p>Ubicación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
-        Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
-   </footer>
+        Créditos: Equipo 7: Julieta Flores, Daniela Cárdenas, Santiago Gónzalez</p>
+   </footer> -->
     <script src="../dynamics/js/foro.js"></script>
 </body>
 </html>
