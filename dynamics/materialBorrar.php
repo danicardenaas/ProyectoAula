@@ -12,8 +12,11 @@
             $query = mysqli_query( $conexion, $peticion); 
             $peticion = "DELETE FROM material  WHERE ID_material = $material";   
     }
-    else{
+    else if($reportar==1){
         $peticion = "UPDATE material SET reportado=1 WHERE ID_material = $material"; 
+    }
+    else if($reportar==2){
+        $peticion = "UPDATE material SET reportado=0 WHERE ID_material = $material"; 
     }
    
     $query = mysqli_query( $conexion, $peticion); 

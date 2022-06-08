@@ -1,3 +1,6 @@
+body{
+    overflow-x:hidden;
+}
 .Cuadro-blanco {
     position: absolute;
 
@@ -69,4 +72,20 @@
     height: 80vh;
     overflow-y: scroll;
     display:flex;
+}
+#form{
+    position: relative;
+    left:45%;
+    background-color: #C4C4C4;
+    display: inline;
+}
+#reportado{
+    position:absolute;
+    top:50%;
+    left:2vh;
+}
+#meGusta{
+    position:absolute;
+    top:70%;
+    left:2vh;
 }
