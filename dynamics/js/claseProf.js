@@ -6,7 +6,7 @@ const asignaciones = document.getElementById ("asignaciones");
 const asignacion = document.getElementById ("asignacionVer");
 const botones = document.getElementById ("botones");
 const entregas= document.getElementById ("entregas");
-const calificar= document.getElementById ("calificar");
+const calificar= document.getElementById ("calificarForm");
 const divcal= document.getElementById ("divCal");
 const enviar= document.getElementById ("enviar");
 const calif= document.getElementById ("calif");
@@ -201,20 +201,20 @@ entregas.addEventListener("click", (evento)=>{
 });
 
 divcal.addEventListener("click", (evento)=>{
-  console.log(evento.target.id);
-  console.log(calif.value);
+
  if(evento.target.id == "enviar")
  {
-   console.log(calificar);
-   console.log(calif);
-   console.log(comentP);
-    const datosForm4 = new FormData(calificar);
-
+    // console.log(calificar.children);
+    calificar.children[0].value = document.getElementById("calif").value;
+    calificar.children[2].value = document.getElementById("coment").value;
+    const datosForm4= new FormData(calificar);
+    // console.log(calificar.children[0].value,"Esto viene del form");
+    // console.log(calificar.children[2].value,"Esto viene del form");
     datosForm4.append("id_entrega", entregaForm);
-    datosForm4.append("calif",calif.value);
-    console.log(calif.value);
-    datosForm4.append("coment", comentP.value);
-
+    // console.log(document.getElementById("calif").value,"Esto viene del elemento");
+    // console.log(document.getElementById("coment").value,"Esto viene del elemento");
+    // console.log(datosForm4);
+ 
     fetch("../dynamics/insertarCalif.php", {
       method:"POST", 
       body: datosForm4,

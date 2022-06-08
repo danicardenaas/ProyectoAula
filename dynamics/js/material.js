@@ -2,6 +2,7 @@ const addArch= document.getElementById ("addArch");
 const form= document.getElementById ("formSubir");
 const enviar= document.getElementById ("enviar");
 
+
 var arch=1;
 const etiqArch= document.getElementById ("archivos");
 addArch.addEventListener("click",(evento)=>{

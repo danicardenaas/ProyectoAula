@@ -49,12 +49,12 @@
     </div>
 
     <div id="divCal"  style="display: none;">
-    <form id="calificar" method="post" action="./insertarCalif" >
-          Calificación: 
-            <input id="calif" type="number" /><br>
-          <textarea  id="coment" ></textarea>
-       </form>
-        <button id="enviar">Enviar</button>
+      <form id="calificarForm" method="post">
+            Calificación: 
+            <input id="calif" type="number"  name="calif"/><br>
+            <textarea  id="coment" name="coment"></textarea>   
+      </form>
+      <button id="enviar">Enviar</button>
     </div>
       
 
