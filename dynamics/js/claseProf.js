@@ -20,7 +20,6 @@ var entregaForm;
 var cookieArray = new Array();
 for (cookie of cookies)
 {
-   
     if(cookie.includes("id_materia"))
     {
         elemento = cookie.split("=");
@@ -97,6 +96,7 @@ asignaciones.addEventListener("click", (evento)=>{
           asignaciones.innerHTML +="Fecha limite de entrega: "+datosJSON.datos.fecha_limite +"<br>";
           asignaciones.innerHTML +="<h1>"+datosJSON.datos.nombre+"</h1>"+"Puntaje máximo: "+datosJSON.datos.puntaje+" <br>Tema: "+datosJSON.datos.tema+"<br>";
           asignaciones.innerHTML += "<strong>Indicaciones:</strong> <br>"+datosJSON.datos.indicaciones+"<br>"; 
+          asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
           
           if(datosJSON.datos.rubrica != null && datosJSON.datos.rubrica != "")
           {
@@ -127,11 +127,23 @@ asignaciones.addEventListener("click", (evento)=>{
           asignaciones.innerHTML += "</div>"; 
           botones.style.display="none";
         }
+        else
+       {  
+          console.log("else"); 
+
+       }
       });
       //Vista de todo lo entregado por los alumnos
      muestraEntregas();
   }
- 
+  if(evento.target.classList.contains("juego")){
+    console.log("entre if");
+    document.cookie = "id_juego ="+ evento.target.id;   
+    if(evento.target.id%2==0)
+      window.location = "./trivia.html"; 
+    else 
+      window.location = "./ahorcado.html"; 
+  }
 });
 
 btn_borrar.addEventListener("click", (evento)=>{

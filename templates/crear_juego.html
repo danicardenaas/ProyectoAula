@@ -12,27 +12,33 @@
     <div> ¡Recuerda no dejar espacios en blanco después de anotar las respuestas! </div>
     <div id="contenedor-juego">
         <form id="form-pregunta" action="../dynamics/datosJuego.php" method="post" enctype="multipart/form-data" >
+            <div>
+                <input type="text" name="nombreJuego" placeholder="Nombre del juego" required>
+                <label for="fecha">Fecha límite:
+                    <input type="date" name="fecha" id="fecha" required>
+               </label>
+            </div>
             <div id="pregunta1">
                 <h1>Pregunta 1</h1>
                 <div class="campo-form">
                     <label>Pregunta</label> 
-                    <input type="text" name="pregunta" id="pregunta" placeholder="Pregunta">
+                    <input type="text" name="pregunta" id="pregunta" placeholder="Pregunta" required>
                 </div>
                 <div class="campo-form">
                     <label>Respuesta correcta</label> 
-                    <input type="text" name="res1-1" id="res1" placeholder="Respuesta correcta">
+                    <input type="text" name="res1-1" id="res1" placeholder="Respuesta correcta" required>
                 </div>
                 <div class="campo-form">
                     <label>Respuesta incorrecta</label> 
-                    <input type="text" name="res2-1" id="res2" placeholder="Respuesta incorrecta">
+                    <input type="text" name="res2-1" id="res2" placeholder="Respuesta incorrecta" required>
                 </div>
                 <div class="campo-form">
                     <label>Respuesta incorrecta</label> 
-                    <input type="text" name="res3-1" id="res3" placeholder="Respuesta incorrecta">
+                    <input type="text" name="res3-1" id="res3" placeholder="Respuesta incorrecta" required>
                 </div> <br> 
                 <div class="campo-form">
                     <label>Imagen pregunta</label> 
-                    <input class="archivo" type="file" name="img1" id="imagen">
+                    <input class="archivo" type="file" name="img1" id="imagen" required>
                 </div> <br> 
                 
             </div>

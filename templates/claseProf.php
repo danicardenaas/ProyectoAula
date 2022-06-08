@@ -35,6 +35,10 @@
         <li id="asignacion" class="nav-item">
           <a class="nav-link" >Crear una asignación</a>
         </li>
+
+        <li id="asignacion" class="nav-item">
+          <a href="./crear_juego.html" class="nav-link" >Crear un juego</a>
+        </li>
       
        
       </ul>
