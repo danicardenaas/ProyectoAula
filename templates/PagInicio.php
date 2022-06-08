@@ -53,7 +53,7 @@
     </nav>
     <footer id="piedep">
         <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
-         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
+         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
     </footer>
     <script src="../dynamics/js/principal.js"></script>
 

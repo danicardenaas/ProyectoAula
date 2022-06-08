@@ -53,3 +53,7 @@
     height: 30%;   
     background-color: #FFFFFF;
 }
+#encabezado p{
+    font-size: 130%;
+    font-weight: bold !important;
+}
