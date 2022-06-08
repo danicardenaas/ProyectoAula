@@ -54,15 +54,15 @@ function tareaf()
         comentario.innerHTML += "Entregado:"+datosJSON.Info.fecha_entr+"<br>";
         if(datosJSON.Info.coment_alumno != null)
         {
-          comentario.innerHTML += "Comentarios añadidos:"+datosJSON.Info.coment_alumno +"<br>";
+          comentario.innerHTML += "Comentarios añadidos por el alumno:"+datosJSON.Info.coment_alumno +"<br>";
         }
         if(datosJSON.Info.coment_profe != null)
         {
-          comentario.innerHTML += "Comentarios añadidos:"+datosJSON.Info.coment_profe +"<br>";
+          comentario.innerHTML += "Comentarios añadidos por el profesor:"+datosJSON.Info.coment_profe +"<br>";
         }
         if(datosJSON.Info.calif != null)
         {
-          comentario.innerHTML += "Calif:"+datosJSON.Info.calif +"<br>";
+          comentario.innerHTML += "Calificación:"+datosJSON.Info.calif +"<br>";
         }
         adjuntos.innerHTML += "<ol>";
         for (archivo of datosJSON.archivos)
@@ -111,8 +111,7 @@ function muestraAsignaciones()
     }).then ((datosJSON)=>{
         for(tarea of datosJSON)
         {
-        
-        asignaciones.innerHTML+="<div class='actividad' id='"+tarea.ID_actividad+"'>"+tarea.nombre+"<br>"+tarea.fecha_limite+"<br></div><br>"
+          asignaciones.innerHTML+="<div class='actividad' id='"+tarea.ID_actividad+"'>"+tarea.nombre+"<br>"+tarea.fecha_limite+"<br></div><br>"
         }
     
   });
@@ -172,7 +171,7 @@ asignaciones.addEventListener("click", (evento)=>{
           }
        
           asignaciones.innerHTML += "</div>"; 
-          botones.style.display="none";
+          // botones.style.display="none";
         }
       });
      

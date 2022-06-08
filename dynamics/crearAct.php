@@ -23,12 +23,12 @@
     $formatoEntrega= (isset($_POST['formatoEntrega']) && $_POST["formatoEntrega"] != "")? $_POST['formatoEntrega'] : false;
     $titulo= (isset($_POST['titulo']) && $_POST["titulo"] != "")? $_POST['titulo'] : false;
     $rubricatxt= (isset($_POST['rubricatxt']) && $_POST["rubricatxt"] != "")? $_POST['rubricatxt'] : false;
-
+    
     $linkC= (isset($_POST['linkC']) && $_POST["linkC"] != "")? $_POST['linkC'] : false;
     $archC= (isset($_POST['archC']) && $_POST["archC"] != "")? $_POST['archC'] : false;
     $link= (isset($_POST['link1']) && $_POST["link1"] != "")? $_POST['link1'] : false;
     $arch= (isset($_POST['arch1']) && $_POST["arch1"] != "")? $_POST['arch1'] : false;
-
+    $fecha = $fecha." ".$hora;
     //id_materia
     if($tema && $puntaje && $hora && $fecha && $indicaciones && $formatoEntrega && $titulo)
     {
@@ -38,7 +38,7 @@
         {
             
             $peticion = "INSERT INTO actividad (tema, nombre, indicaciones, puntaje, fecha_pub, id_materia, id_entrega, rubrica, fecha_limite)
-            VALUES ('$tema', '$titulo' , '$indicaciones', '$puntaje' , '$fecha_pub', '$id_materia' , 1 , '$rubricatxt', '$fecha2') ";
+            VALUES ('$tema', '$titulo' , '$indicaciones', '$puntaje' , '$fecha2', '$id_materia' , 1 , '$rubricatxt', '$fecha') ";
         }
          
         else if(isset($_FILES["rubricaArch"]) && $_FILES["rubricaArch"]['tmp_name'] != ""  ){
@@ -74,10 +74,11 @@
             $peticion = "INSERT INTO actividad (tema, nombre, indicaciones, puntaje, fecha_pub, id_materia, id_entrega,fecha_limite)
             VALUES ('$tema', '$titulo', '$indicaciones',$puntaje, '$fecha2', $id_materia, 1,  '$fecha') ";
         }
-      
-        //INSERTAR ACTIVIDAD TIPO 1: JUEGO
+        
+        
         $query = mysqli_query( $conexion, $peticion ); 
         $id_act=  mysqli_insert_id($conexion);
+        $desEvento="Entrega de: ".$titulo." Programada para: ". $fecha;
        //INSERTAR ARCHIVOS(RUTAS  y links) a la tabla de archivos
        //links
        if($link)
@@ -109,14 +110,33 @@
                 
             }
         }
-       
+    
         if($query)
         {
            $respuesta= array ("ok" => true, "texto" => "Listo")   ; 
         }
-        
-      
+     
+        $fechaEv = explode(" ", $fecha);
+        $fechaEv = $fechaEv[0];
+        $peticion = "SELECT * FROM materia WHERE id_materia = $id_materia";
+        $query = mysqli_query( $conexion, $peticion ); 
+        $row = mysqli_fetch_assoc($query);
+        $nomMat=$row["nombreMateria"];
+        $desEvento = $desEvento." de tu clase: ".$nomMat;
        
+        //insertar el evento para los alumnos
+        $peticion = "INSERT INTO evento (ID_tipoevento, fecha, descripcion, ruta_imagen ) VALUES (2, '$fechaEv', '$desEvento', '') ";
+        $query = mysqli_query( $conexion, $peticion ); 
+        $ID_evento = mysqli_insert_id($conexion);
+        $peticion = "SELECT * FROM uhm  WHERE id_materia= $id_materia";
+        $query = mysqli_query( $conexion, $peticion ); 
+  
+        while($row = mysqli_fetch_assoc($query)){
+            $usuarioInt=$row["ID_usuario"];            
+            $peticion = "INSERT INTO usuariohasevento (ID_evento, id_usuario) VALUES ($ID_evento, $usuarioInt)";
+            $query2 = mysqli_query( $conexion, $peticion );
+        }
+        
 
     }
     else{

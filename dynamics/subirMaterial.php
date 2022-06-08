@@ -18,8 +18,8 @@
 
     if( $descripcion && $tema && $unidad && $tipo && $materia && $cantArch)
     {
-        $peticion = "INSERT INTO material (ID_usuario, likes, ID_tipoMaterial, Id_clasificacion, descripcion, tema, unidad, fecha)
-        VALUES ($id_usuario, 0, $tipo, $materia, '$descripcion', '$tema', $unidad, '$fecha')";
+        $peticion = "INSERT INTO material (ID_usuario, likes, ID_tipoMaterial, Id_clasificacion, descripcion, tema, unidad, fecha, reportado)
+        VALUES ($id_usuario, 0, $tipo, $materia, '$descripcion', '$tema', $unidad, '$fecha', 0)";
         $query = mysqli_query( $conexion, $peticion); 
         $id_material=mysqli_insert_id($conexion);
 
