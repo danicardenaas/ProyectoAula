@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: prueba1
+-- Host: localhost    Database: proyectoaula
 -- ------------------------------------------------------
 -- Server version	10.4.24-MariaDB
 
@@ -60,13 +60,14 @@ CREATE TABLE `actividad` (
   `tema` char(100) NOT NULL,
   `nombre` char(100) NOT NULL,
   `indicaciones` text NOT NULL,
-  `ruta_archivos` varchar(1000) DEFAULT NULL,
-  `texto_tarea` text DEFAULT NULL,
   `fecha_pub` datetime NOT NULL,
   `ID_materia` int(11) NOT NULL,
   `ID_entrega` int(11) NOT NULL,
   `ruta_rubrica` varchar(1000) DEFAULT NULL,
   `ID_juego` int(11) DEFAULT NULL,
+  `rubrica` text DEFAULT NULL,
+  `fecha_limite` datetime DEFAULT NULL,
+  `puntaje` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_actividad`),
   KEY `ID_materia` (`ID_materia`),
   KEY `ID_entrega` (`ID_entrega`),
@@ -115,6 +116,35 @@ CREATE TABLE `anuncio` (
 LOCK TABLES `anuncio` WRITE;
 /*!40000 ALTER TABLE `anuncio` DISABLE KEYS */;
 /*!40000 ALTER TABLE `anuncio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `archivos`
+--
+
+DROP TABLE IF EXISTS `archivos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `archivos` (
+  `ID_archivo` int(11) NOT NULL AUTO_INCREMENT,
+  `ruta` varchar(100) DEFAULT NULL,
+  `ID_actividad` int(11) DEFAULT NULL,
+  `ID_tipoArch` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_archivo`),
+  KEY `ID_actividad` (`ID_actividad`),
+  KEY `ID_tipoArch` (`ID_tipoArch`),
+  CONSTRAINT `archivos_ibfk_1` FOREIGN KEY (`ID_actividad`) REFERENCES `actividad` (`ID_actividad`),
+  CONSTRAINT `archivos_ibfk_2` FOREIGN KEY (`ID_tipoArch`) REFERENCES `tipoarch` (`ID_tipoArch`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `archivos`
+--
+
+LOCK TABLES `archivos` WRITE;
+/*!40000 ALTER TABLE `archivos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `archivos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -181,6 +211,7 @@ CREATE TABLE `dudaresp` (
   `fecha_pub` datetime NOT NULL,
   `ID_usuario` int(11) NOT NULL,
   `ID_duda` int(11) NOT NULL,
+  `ruta_img` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`ID_dudaresp`),
   KEY `ID_usuario` (`ID_usuario`),
   KEY `ID_duda` (`ID_duda`),
@@ -208,7 +239,7 @@ DROP TABLE IF EXISTS `evento`;
 CREATE TABLE `evento` (
   `ID_evento` int(11) NOT NULL AUTO_INCREMENT,
   `ID_tipoevento` int(11) NOT NULL,
-  `fecha` datetime NOT NULL,
+  `fecha` date DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `ruta_imagen` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`ID_evento`),
@@ -249,7 +280,10 @@ CREATE TABLE `ghm` (
 -- Dumping data for table `ghm`
 --
 
-
+LOCK TABLES `ghm` WRITE;
+/*!40000 ALTER TABLE `ghm` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ghm` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `grupo`
@@ -266,7 +300,14 @@ CREATE TABLE `grupo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `grupo`
+--
 
+LOCK TABLES `grupo` WRITE;
+/*!40000 ALTER TABLE `grupo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grupo` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `juego`
@@ -277,11 +318,9 @@ DROP TABLE IF EXISTS `juego`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `juego` (
   `ID_juego` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_pregunta` int(11) DEFAULT NULL,
   `ruta_imagen` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`ID_juego`),
   KEY `ID_pregunta` (`ID_pregunta`),
-  CONSTRAINT `juego_ibfk_1` FOREIGN KEY (`ID_pregunta`) REFERENCES `preguntas` (`ID_pregunta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -311,6 +350,14 @@ CREATE TABLE `materia` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `materia`
+--
+
+LOCK TABLES `materia` WRITE;
+/*!40000 ALTER TABLE `materia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `materia` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `mhc`
@@ -332,6 +379,15 @@ CREATE TABLE `mhc` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `mhc`
+--
+
+LOCK TABLES `mhc` WRITE;
+/*!40000 ALTER TABLE `mhc` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mhc` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `phc`
 --
 
@@ -341,7 +397,7 @@ DROP TABLE IF EXISTS `phc`;
 CREATE TABLE `phc` (
   `ID_PHC` int(11) NOT NULL AUTO_INCREMENT,
   `ID_usuario` int(11) NOT NULL,
-  `ID_materia` int(11) DEFAULT NULL,
+  `ID_materia` int(11) NOT NULL,
   PRIMARY KEY (`ID_PHC`),
   KEY `ID_usuario` (`ID_usuario`),
   KEY `ID_materia` (`ID_materia`),
@@ -350,6 +406,14 @@ CREATE TABLE `phc` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `phc`
+--
+
+LOCK TABLES `phc` WRITE;
+/*!40000 ALTER TABLE `phc` DISABLE KEYS */;
+/*!40000 ALTER TABLE `phc` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `preguntas`
@@ -362,7 +426,10 @@ CREATE TABLE `preguntas` (
   `ID_pregunta` int(11) NOT NULL AUTO_INCREMENT,
   `pregunta` text NOT NULL,
   `ruta_imagen` varchar(300) DEFAULT NULL,
-  PRIMARY KEY (`ID_pregunta`)
+  `ID_juego` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_pregunta`),
+  KEY `ID_juego` (`ID_juego`),
+  CONSTRAINT `preguntas_ibfk_1` FOREIGN KEY (`ID_juego`) REFERENCES `juego` (`ID_juego`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -414,7 +481,7 @@ CREATE TABLE `tipoactividad` (
   `tipo` char(50) NOT NULL,
   PRIMARY KEY (`ID_entrega`),
   UNIQUE KEY `tipo` (`tipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -423,7 +490,32 @@ CREATE TABLE `tipoactividad` (
 
 LOCK TABLES `tipoactividad` WRITE;
 /*!40000 ALTER TABLE `tipoactividad` DISABLE KEYS */;
+INSERT INTO `tipoactividad` VALUES (1,'Tarea');
 /*!40000 ALTER TABLE `tipoactividad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipoarch`
+--
+
+DROP TABLE IF EXISTS `tipoarch`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipoarch` (
+  `ID_tipoArch` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`ID_tipoArch`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipoarch`
+--
+
+LOCK TABLES `tipoarch` WRITE;
+/*!40000 ALTER TABLE `tipoarch` DISABLE KEYS */;
+INSERT INTO `tipoarch` VALUES (1,'link'),(2,'archivo');
+/*!40000 ALTER TABLE `tipoarch` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -462,7 +554,7 @@ CREATE TABLE `tipoevento` (
   `nombre` char(50) NOT NULL,
   PRIMARY KEY (`ID_tipoevento`),
   UNIQUE KEY `nombre` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -471,6 +563,7 @@ CREATE TABLE `tipoevento` (
 
 LOCK TABLES `tipoevento` WRITE;
 /*!40000 ALTER TABLE `tipoevento` DISABLE KEYS */;
+INSERT INTO `tipoevento` VALUES (2,'ACADEMICO'),(1,'SOCIAL');
 /*!40000 ALTER TABLE `tipoevento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -486,7 +579,7 @@ CREATE TABLE `tipousuario` (
   `tipo_usuario` varchar(50) NOT NULL,
   PRIMARY KEY (`ID_tipousuario`),
   UNIQUE KEY `tipo_usuario` (`tipo_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -495,7 +588,7 @@ CREATE TABLE `tipousuario` (
 
 LOCK TABLES `tipousuario` WRITE;
 /*!40000 ALTER TABLE `tipousuario` DISABLE KEYS */;
-INSERT INTO `tipousuario` VALUES (1,'estudiante'),(2,'profesor');
+INSERT INTO `tipousuario` VALUES (3,'administrador'),(1,'estudiante'),(2,'profesor');
 /*!40000 ALTER TABLE `tipousuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -508,7 +601,6 @@ DROP TABLE IF EXISTS `uhg`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `uhg` (
   `ID_UHG` int(11) NOT NULL AUTO_INCREMENT,
-  `Archivo` varchar(1000) DEFAULT NULL,
   `ID_usuario` int(11) NOT NULL,
   `ID_grupo` int(11) NOT NULL,
   PRIMARY KEY (`ID_UHG`),
@@ -522,6 +614,10 @@ CREATE TABLE `uhg` (
 -- Dumping data for table `uhg`
 --
 
+LOCK TABLES `uhg` WRITE;
+/*!40000 ALTER TABLE `uhg` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uhg` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `uhm`
@@ -542,7 +638,14 @@ CREATE TABLE `uhm` (
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `uhm`
+--
 
+LOCK TABLES `uhm` WRITE;
+/*!40000 ALTER TABLE `uhm` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uhm` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
@@ -574,6 +677,14 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuariohasevento`
@@ -612,4 +723,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-04  2:34:52
+-- Dump completed on 2022-06-06 15:35:29
