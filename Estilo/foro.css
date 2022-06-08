@@ -5,9 +5,15 @@
     position: absolute;
 
     width: 70%;
+<<<<<<< HEAD
     height: auto;
     overflow: auto;
     top: 25%;
+=======
+    height: 50%;
+
+    top: 35vh;
+>>>>>>> c7186b729b53d6717e4958db29aa48c453f80d2c
     left: 15%;
 }
 .indice {
@@ -34,6 +40,16 @@
 }
 .prevista{
     width: 100%;
+
+.salir{
+    margin: 50px;
+}
+
+#frecuente{
+    margin-left: 52vw;
+}
+#normal{
+    margin-left: 52vw;
 }
 #encabezado p{
     font-size: 100% !important; 
@@ -49,6 +65,7 @@
 #foro{
     overflow-y: scroll;
 }
+<<<<<<< HEAD
 .salir{
     margin: 50px;
 }
@@ -57,3 +74,5 @@
     overflow-y: scroll;
     display:flex;
 }
+=======
+>>>>>>> c7186b729b53d6717e4958db29aa48c453f80d2c

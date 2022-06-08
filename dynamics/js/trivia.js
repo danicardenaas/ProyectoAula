@@ -1,6 +1,7 @@
 //funciona con la db proyectoaula
 
 window.addEventListener("load", (evento) =>{
+
     const btn = document.getElementById("iniciar"); 
     const terminar = document.getElementById("terminar"); 
     const contenedor = document.getElementById("contenedor"); 
@@ -30,7 +31,26 @@ window.addEventListener("load", (evento) =>{
     var cont=0; 
     var tiempoRestante; 
 
-    fetch("../dynamics/trivia.php")
+    cookies= document.cookie;
+    cookies = cookies.split(";");;
+    var cookieArray = new Array();
+    for (cookie of cookies)
+    {
+        
+        if(cookie.includes("id_juego"))
+        {
+            elemento = cookie.split("=");
+        }
+    }
+
+    juego = elemento[1]; 
+
+    const datosForm = new FormData();
+    datosForm.append("id_juego", juego); 
+    fetch("../dynamics/trivia.php", { 
+        method: "POST", 
+        body: datosForm,
+    })
         .then ((response) =>{
             return response.json();
     }).then ((datosJSON)=>{
@@ -151,5 +171,6 @@ window.addEventListener("load", (evento) =>{
         });
     }); 
  
+
 
 }); 

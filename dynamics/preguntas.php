@@ -6,6 +6,9 @@
     session_id("123456789");
     $conexion= connect();
     session_start();
+
+    $rol= $_SESSION["rol"];
+
     if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
     {
         $nuevaURL='./inicio.php';
@@ -31,7 +34,7 @@
         
        $i++; 
     }
-    $mandar= array("preguntas" => $preguntas, "respuestas" => $respuesta);
+    $mandar= array("preguntas" => $preguntas, "respuestas" => $respuesta, "rol" => $rol);
     echo json_encode($mandar);
 
 ?>
