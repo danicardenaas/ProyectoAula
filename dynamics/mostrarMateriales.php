@@ -9,36 +9,104 @@
     $rol=$_SESSION["rol"];
     $materia = (isset($_POST['materia']) && $_POST["materia"] != "")? $_POST['materia'] :false;
     $tipo = (isset($_POST['tipo']) && $_POST["tipo"] != "")? $_POST['tipo'] :false;
+    $favoritos = (isset($_POST['favoritos']) && $_POST["favoritos"] != "")? $_POST['favoritos'] :false;
+    $reportados = (isset($_POST['reportados']) && $_POST["reportados"] != "")? $_POST['reportados'] :false;
     $usuarioB = (isset($_POST['usuarioB']) && $_POST["usuarioB"] != "")? $_POST['usuarioB'] :false;
     $filtrado = (isset($_POST['filtrado']) && $_POST["filtrado"] != "")? $_POST['filtrado'] :false;
-    switch($filtrado)
+    if($reportados == 0)
     {
+        switch($filtrado)
+        {
+            case "0":
+                {
+                    $peticion = "SELECT * FROM material WHERE reportado = 0";
+                    break;
+                }
+            case "1":
+                {
+                    $peticion = "SELECT * FROM material WHERE id_clasificacion=$materia  AND reportado =0";
+                    break;
+                }
+            case "2":
+                {
+                    $peticion = "SELECT * FROM material NATURAL JOIN usuario WHERE usuario='$usuarioB' AND reportado = 0";
+                    break;
+                }
+            case "3":
+                {
+                    $peticion = "SELECT * FROM material WHERE reportado =0 ORDER BY likes DESC";
+                    break;
+                }
+            case "4":
+                {
+                    $peticion = "SELECT * FROM material where ID_tipoMaterial = $tipo  AND reportado =0";
+                    break;
+                }
+    
+        }
+    }
+    else if($reportados==1){
+        switch($filtrado)
+        {
         case "0":
             {
-                $peticion = "SELECT * FROM material WHERE reportado = 0";
+                $peticion = "SELECT * FROM material WHERE reportado = 1";
                 break;
             }
         case "1":
             {
-                $peticion = "SELECT * FROM material WHERE id_clasificacion=$materia  AND reportado =0";
+                $peticion = "SELECT * FROM material WHERE id_clasificacion=$materia  AND reportado = 1";
                 break;
             }
         case "2":
             {
-                $peticion = "SELECT * FROM material NATURAL JOIN usuario WHERE usuario='$usuarioB' AND reportado = 0";
+                $peticion = "SELECT * FROM material NATURAL JOIN usuario WHERE usuario='$usuarioB' AND reportado = 1";
                 break;
             }
         case "3":
             {
-                $peticion = "SELECT * FROM material WHERE reportado =0 ORDER BY likes DESC";
+                $peticion = "SELECT * FROM material WHERE reportado = 1 ORDER BY likes DESC";
                 break;
             }
         case "4":
             {
-                $peticion = "SELECT * FROM material where ID_tipoMaterial = $tipo  AND reportado =0";
+                $peticion = "SELECT * FROM material where ID_tipoMaterial = $tipo  AND reportado = 1";
                 break;
             }
 
+        }
+    }
+    if($favoritos == 1)
+    {
+        switch($filtrado)
+        {
+        case "0":
+            {
+                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material WHERE ID_usuario = $id_usuario";
+                break;
+            }
+        case "1":
+            {
+                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material WHERE ID_usuario = $id_usuario AND id_clasificacion=$materia  ";
+                break;
+            }
+        case "2":
+            {
+                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material NATURAL JOIN usuario WHERE usuario='$usuarioB' AND  ID_usuario = $id_usuario";
+                break;
+            }
+        case "3":
+            {
+                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material  ORDER BY likes DESC";
+                break;
+            }
+        case "4":
+            {
+                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material NATURAL JOIN usuario WHERE ID_tipoMaterial = $tipo ";
+                break;
+            }
+
+        }
     }
     $query = mysqli_query($conexion, $peticion);
     $i = 0;
@@ -81,10 +149,21 @@
         }
         $i++;
     }
-
+    $peticion = "SELECT * FROM ULikesMaterial where id_usuario = $id_usuario";
+    $query = mysqli_query($conexion, $peticion);
+    $LeGusta = array();
+    $i=0;
+    while($row = mysqli_fetch_assoc($query))
+    {
+        $LeGusta[$i] = $row;
+        $i++;
+    }
+   
+  
     $respuesta= array("res" =>$datos, "arch" =>$archivos, "usuarios" => $usuarios,
                       "materias" => $clases, "tipos" => $tipos, "usuario" =>$id_usuario, 
-                       "rol" =>$rol);
+                       "rol" =>$rol, "Favoritos"=> $LeGusta);
+
     echo json_encode($respuesta);
     
 ?>
