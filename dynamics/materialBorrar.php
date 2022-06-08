@@ -8,7 +8,9 @@
     $reportar = (isset($_POST['reportar']) && $_POST["reportar"] != "")? $_POST['reportar']:false;
     if($reportar ==0)
     {
-        $peticion = "DELETE FROM archivostablon WHERE ID_material = $material";   
+            $peticion = "DELETE FROM ULikesmaterial WHERE ID_material = $material";   
+            $query = mysqli_query( $conexion, $peticion); 
+            $peticion = "DELETE FROM archivostablon WHERE ID_material = $material";   
             $query = mysqli_query( $conexion, $peticion); 
             $peticion = "DELETE FROM material  WHERE ID_material = $material";   
     }

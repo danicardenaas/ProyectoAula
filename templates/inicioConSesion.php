@@ -23,7 +23,7 @@
         <a href="./Tablero_tareas.php" id="anuncio" class="botonAzul">Clases</a><br/> 
         <!-- <a id="anuncio" class="botonAzul">Anuncios</a><br/> -->
         <a href="./foro.html" id="foro" class="botonAzul">Foro de dudas</a><br/>
-        <a href="./juegos_edu.html" id="juegos" class="botonAzul">Tablon de alumnos</a><br/>
+        <a href="./tablon.php" id="juegos" class="botonAzul">Tablón</a><br/>
     </nav>
 
     <main id="main">

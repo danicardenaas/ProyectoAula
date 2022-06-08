@@ -21,7 +21,7 @@
               
                 <br>
                 <a href="./MaterialEstudio.html"><button>Subir un material</button> </a>
-                
+                <a href="./inicioConSesion.php"><button>Inicio</button> </a>
             </div>
         </aside>
             <div class="rec2">
@@ -110,6 +110,7 @@
             <form id="meGusta">
                 <strong> Mis me gusta</strong><input type="checkbox" id="favoritos" >
             </form>
+            
     <footer id="piedep">
        <p>Ubicación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
