@@ -55,6 +55,11 @@ body{
     font-size: 0.8em;
     color: white;
 }
+.salir:hover{
+    background-color: #ac820f;
+    padding: 10px;
+    font-size: 90%;
+}
 
 #piedep{
     background-color: #C5DCFF;
