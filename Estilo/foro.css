@@ -5,6 +5,9 @@
     position: absolute;
 
     width: 70%;
+    height: auto;
+    overflow: auto;
+    top: 25%;
     height: 50%;
 
     top: 35vh;
@@ -22,7 +25,19 @@
     padding: 20px;
     top: 0%;
 }
-
+.MaterialHoja{
+    background-color:#f2f2f2;
+    border-color: palevioletred;
+    border-width: 1vh;
+    margin:2vh;
+    height: 30vh;
+    overflow: auto;
+    flex-wrap: wrap;
+    
+}
+.prevista{
+    width: 100%;
+}
 .salir{
     margin: 50px;
 }
@@ -46,4 +61,12 @@
 }
 #foro{
     overflow-y: scroll;
+}
+.salir{
+    margin: 50px;
+}
+#tablon{
+    height: 80vh;
+    overflow-y: scroll;
+    display:flex;
 }
