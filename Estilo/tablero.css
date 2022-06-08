@@ -1,6 +1,9 @@
+body{
+    margin: auto;
+}
 #encabezado{
     position:relative;
-    width:98vw;
+    width:100vw;
     height: 25vh;
     top:0px;
     left:0px;
@@ -11,7 +14,7 @@
 /* columnas -
 ------------------------------------------------------------------------------------------------*/
 #colIzquierdo, #colDerecho{
-    width: 10vw;
+    width: 11vw;
     height:100vh;
     background-color:#FABE2E;
     top:26.5vh;
@@ -81,13 +84,15 @@ img{
 #piedep{
     background-color: #C5DCFF;
     width:100vw;
-    height:2%;
+    height:20%;
     line-height: 30px;
     text-align: center;
     color:#FFFFFF;
     position:absolute;
     top:125vh;
 }
+
+
 
 
 

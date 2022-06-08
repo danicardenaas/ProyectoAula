@@ -169,21 +169,7 @@
     position: absolute;
 }
 
-.titulo p {
-    display: table-cell;
-    margin: 0;
-    vertical-align: middle;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 48px;
-    text-align: center;
-    padding: 2%;
-    font-weight: bold;
 
-    color: #FFFFFF;
-}
 
 .etiqueta{
     border-radius: 10px;
@@ -522,12 +508,6 @@
     border-radius: 10px;
 }
 
-#cca{
-    background: #092473;
-    left: 25%;
-    width: 45%;
-    height: 15%;
-}
 
 #ccb{
     top: 80%;

@@ -29,7 +29,7 @@
 
 .rec{
     width: 92px; 
-    height: 550px; 
+    height: 100%; 
     border: 3px solid #555;
     float: left;
 
@@ -37,9 +37,8 @@
 }
 
 .rec2{
-    position: relative;
     width: 92px; 
-    height: 550px; 
+    height: 100%; 
     border: 3px solid #555;
     background: #D1A11D;
    float: right;

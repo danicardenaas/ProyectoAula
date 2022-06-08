@@ -43,7 +43,8 @@
     
     </main>
     <footer id="piedep">
-        <p>Aula virtual prepa6</p>
+        <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
+         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
     </footer>
     <script src="../dynamics/js/tablero.js"></script>
 </body>

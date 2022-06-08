@@ -46,8 +46,6 @@
             {
                 echo "algo salió mal";
             }
-            echo ($_SESSION["nombre"]);
-            echo ($_SESSION['apellido']);
             echo "
                 <main id='contenedor'>
                     <div id='cuadro-blanco'>
