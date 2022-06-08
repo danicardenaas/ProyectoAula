@@ -29,24 +29,44 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" id="anuncios">Anuncios</a>
+          <a class="nav-link active" aria-current="page" href="#" id="asignacion">Asignaciones</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#" id="materiales">Materiales</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="asignaciones">Asignaciones</a>
-        </li>
+        </li> -->
        
       </ul>
     </div>
   </div>
 </nav>
+<div id="asignaciones">
     <h1>Bienvenido a tu clase :))</h1>
-    <form action="./Tablero_tareas.php" method="post">
+</div>
+    <br><br>  
+    <form id='formEntrega' style="display:none" method="post" enctype="multipart/form-data">
+     <h3> Haz tu entrega</h3>
+     <label id="archivos">
+        <input type='file' name='arch1'><br>
+     </label>
+     <br>
+      <button  id="addArch">Agregar archivo</button><br>
+     Comentario adicional:<input type='text' name="coment" placeholder='comentario'>
+     <button id="enviarTarea">Enviar</button>
+    </form>
+    <div style="display:none" id="actEntregada">
+      Ya hiciste esta entrega
+       <br><button class='Eliminar'>Eliminar entrega</button>
+       <p id="comentario"></p>
+       <div id="adjuntos"></div>
+    </div>
+    
+    <br><br>  
+  <form action="./Tablero_tareas.php" method="post">
         <button>Regresar a tablón</button>
     </form>
-    
    <script src="../dynamics/js/clase.js"></script>
 </body>
 </html>

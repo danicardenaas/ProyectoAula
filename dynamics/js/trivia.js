@@ -126,7 +126,7 @@ window.addEventListener("load", (evento) =>{
                 // los || son por si al final de la respuesta se dejó algún espacio
                 if((correcta == (evento.target.innerText+" ")) || correcta == (evento.target.innerText)  || correcta == (evento.target.innerText+"  ")) 
                     puntaje++; 
-                else
+                else 
                     alert("Respuesta correcta=> " + correcta); 
         
                 correctas.innerHTML = 'Puntos: ' + puntaje+ ' / ' + totalPreguntas;

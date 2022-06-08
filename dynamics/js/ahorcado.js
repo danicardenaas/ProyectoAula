@@ -43,7 +43,7 @@ window.addEventListener("load", (evento) =>{
     .then ((response) =>{
         return response.json();
     }).then ((datosJSON)=>{
-        console.log(datosJSON); 
+        // console.log(datosJSON); 
         preguntita = datosJSON.pregunta; 
         imagen = datosJSON.ruta_imagen; 
         respuesta = datosJSON.respuesta; 
@@ -52,14 +52,14 @@ window.addEventListener("load", (evento) =>{
         
         totalPreguntas = (preguntita.length)-1; //para diferenciar los índices 
         prueba=datosJSON.respuesta[1].respuesta; 
-        console.log("total preguntas: " + totalPreguntas); 
+        // console.log("total preguntas: " + totalPreguntas); 
         
         for(i=0; i<=totalPreguntas; i++) //sirve para quitar los espacios
         {
             textoRespuesta =(datosJSON.respuesta[i].respuesta); 
             valor = datosJSON.respuesta[i].respuesta.length; 
             espacios=0; 
-            console.log("respuesta:   " + textoRespuesta); 
+            // console.log("respuesta:   " + textoRespuesta); 
             for(verificador=0; verificador<=totalPreguntas; verificador++)
             {
                 
@@ -69,11 +69,11 @@ window.addEventListener("load", (evento) =>{
                     espacios++; //contador de la cantidad de espacios); 
                 }
             }
-            console.log(espacios); 
-            console.log(textoRespuesta.slice(0, (valor-espacios)).length); //localidades reales de la respuesta
+            // console.log(espacios); 
+            // console.log(textoRespuesta.slice(0, (valor-espacios)).length); //localidades reales de la respuesta
             respuestaVerificada[i] = textoRespuesta.slice(0, (valor-espacios)); 
         }
-        console.log(respuestaVerificada); 
+        // console.log(respuestaVerificada); 
     });
 
    
@@ -95,8 +95,8 @@ window.addEventListener("load", (evento) =>{
         
         copiaRes = respuestaVerificada[i].toLowerCase();
         copiaResMayus = respuestaVerificada[i].toUpperCase();
-        console.log("minus "+copiaRes);  
-        console.log("mayus=  " + copiaResMayus); 
+        // console.log("minus "+copiaRes);  
+        // console.log("mayus=  " + copiaResMayus); 
         longitudRes = respuestaVerificada[i].length; 
 
         
@@ -110,10 +110,10 @@ window.addEventListener("load", (evento) =>{
             resGuiones[guiones] = "_"; 
             ahorcado.innerHTML += resGuiones[guiones] + " "; 
             
-            console.log(resGuiones[guiones]); 
+            // console.log(resGuiones[guiones]); 
         }
 
-        console.log(resGuiones); 
+        // console.log(resGuiones); 
         
         //se debe de quitar en el juego final 
         // pruebaHTML.innerHTML += respuestaVerificada[i];  
@@ -165,7 +165,7 @@ window.addEventListener("load", (evento) =>{
 
 
         teclado.addEventListener("keyup", (evento) =>{
-            console.log(evento.key); 
+            // console.log(evento.key); 
             verificador=0; 
             existe =0; 
             if(i<totalPreguntas)
@@ -175,7 +175,7 @@ window.addEventListener("load", (evento) =>{
                     if((evento.key == copiaRes[verificador]) || (evento.key == copiaResMayus[verificador]))
                     {
                         resGuiones[verificador] = respuestaVerificada[i][verificador];
-                        console.log(resGuiones); 
+                        // console.log(resGuiones); 
                         existe=1; 
                         ahorcado.innerHTML = ""; 
                         for(guiones=0; guiones<longitudRes; guiones++)
@@ -188,23 +188,27 @@ window.addEventListener("load", (evento) =>{
                     
                             ahorcado.innerHTML += resGuiones[guiones] + " "; 
                             
-                            console.log(resGuiones[guiones]); 
+                            // console.log(resGuiones[guiones]); 
                         }
                     }
                    
                 }
 
                 comprobacion=0; 
+              
+               
                 for(verificador=0; verificador<respuestaVerificada[i].length; verificador++)
                 {
+                    console.log(i); 
+                
                     if(resGuiones[verificador] == respuestaVerificada[i][verificador])
                     {
                         comprobacion++; 
                     }
                     if(comprobacion == respuestaVerificada[i].length)
                     {
-                        puntaje++
-                        console.log("ganaste"); 
+                        puntaje++; 
+                        // console.log("ganaste"); 
                         i++; 
                         if(i==totalPreguntas)
                         {
@@ -232,19 +236,20 @@ window.addEventListener("load", (evento) =>{
                         dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado0.png" alt="dibujo ahorcado" height="200" width="200px">';
                     
                     if(vidas==2)
-                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado1.png" alt="dibujo ahorcado" height="200px" width="200px">';
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado2.png" alt="dibujo ahorcado" height="200px" width="200px">';
                     
                     if(vidas==1)
-                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado2.png" alt="dibujo ahorcado" height="200px" width="200px">';
+                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado3.png" alt="dibujo ahorcado" height="200px" width="200px">';
 
                     if(vidas == 0)
                     {
                         cont =0;
                         tiempoMaximo=20;    
-                        dibujo.innerHTML= ""; 
-                        dibujo.innerHTML += '<img src="../Imgs/juegos/ahorcado/ahorcado3.png" alt="dibujo ahorcado" height="200px" width="200px">'
+                        // dibujo.innerHTML= ""; 
 
                         alert("Respuesta correcta=> " + correcta); 
+                        dibujo.innerHTML = '<img src="../Imgs/juegos/ahorcado/ahorcado3.png" alt="dibujo ahorcado" height="200px" width="200px">'
+
                         i++; 
                         if(i==totalPreguntas)
                         {

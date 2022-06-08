@@ -23,7 +23,7 @@
         <a href="./Tablero_tareas.php" id="anuncio" class="botonAzul">Clases</a><br/> 
         <!-- <a id="anuncio" class="botonAzul">Anuncios</a><br/> -->
         <a href="./foro.html" id="foro" class="botonAzul">Foro de dudas</a><br/>
-        <a href="./juegos_edu.html" id="juegos" class="botonAzul">Juegos educativos</a><br/>
+        <a href="./juegos_edu.html" id="juegos" class="botonAzul">Tablon de alumnos</a><br/>
     </nav>
 
     <main id="main">
@@ -65,7 +65,7 @@
      ?>
     <footer id="piedep">
         <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
-         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez, Andrés Rojas</p>
+         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
     </footer>
     <script src="../dynamics/js/principal.js"></script>
 
