@@ -1,0 +1,11 @@
+#piedep{
+    bottom: 0;
+    top: 79vh;
+}
+.fondo{
+    background-color: #092473;
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    z-index: -2;
+}

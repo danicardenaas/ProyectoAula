@@ -52,8 +52,8 @@
         <!-- <button class="botonAzul" id="prueba" style="margin-top: 300%">Boton Prueba</button>     Este btn es solo para verificar eventos -->
     </nav>
     <footer id="piedep">
-        <p>Ubicaación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>Contactos:<br>
-         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
+    <p>Ubicación: Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>
+            Créditos: Equipo 7: Julieta Flores, Daniela Cárdenas, Santiago Gónzalez</p>
     </footer>
     <script src="../dynamics/js/principal.js"></script>
 

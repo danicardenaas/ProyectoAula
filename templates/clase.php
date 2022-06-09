@@ -18,6 +18,8 @@
     <title>Clase</title>
     <link rel="stylesheet" href="../libs/bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
     <link rel="shortcut icon" href="../imgs/ENP6.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../Estilo/statics/styles/estilo.css">
+    <link rel="stylesheet" href="../Estilo/statics/styles/clase.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="BarraDeNavegacion">
@@ -39,34 +41,81 @@
         </li> 
         -->
       </ul>
+  <header>
+    <div >
+          <img src="../Imgs/encabezado.png" width="100%" height="12%" alt=""> 
     </div>
-  </div>
-</nav>
-<div id="asignaciones">
-    <h1>Bienvenido a tu clase :))</h1>
-</div>
-    <br><br>  
-    <form id='formEntrega' style="display:none" method="post" enctype="multipart/form-data">
-     <h3> Haz tu entrega</h3>
-     <label id="archivos">
-        <input type='file' name='arch1'><br>
-     </label>
-     <br>
-      <button  id="addArch">Agregar archivo</button><br>
-     Comentario adicional:<input type='text' name="coment" placeholder='comentario'>
-     <button id="enviarTarea">Enviar</button>
-    </form>
-    <div style="display:none" id="actEntregada">
-      Ya hiciste esta entrega
-       <br><button class='Eliminar'>Eliminar entrega</button>
-       <p id="comentario"></p>
-       <div id="adjuntos"></div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="BarraDeNavegacion">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="nombreClase">Clase</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" id="asignacion">Asignaciones</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#" id="materiales">Materiales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="asignaciones">Asignaciones</a>
+          </li> -->
+        
+        </ul>
+      </div>
     </div>
-    
-    <br><br>  
-  <form action="./Tablero_tareas.php" method="post">
-        <button>Regresar a tablón</button>
-    </form>
+  </nav>
+  <div class="fondo">
+    <div id="contenedor-encabezado">
+        <div id="encabezado">
+            <p>Clase</p>
+        </div>
+    </div>
+    <aside>
+      <div class="rec">
+      </div>
+    </aside>
+      <div class="rec2">
+      </div> 
+      <div id="contenido">
+        <div id="asignaciones">
+          <h1>Bienvenido a tu clase :))</h1>
+        </div>
+          <br><br>  
+          <form id='formEntrega' style="display:none" method="post" enctype="multipart/form-data">
+          <h3> Haz tu entrega</h3>
+          <label id="archivos">
+              <input type='file' name='arch1'><br>
+          </label>
+          <br>
+            <button  id="addArch">Agregar archivo</button><br>
+          Comentario adicional:<input type='text' name="coment" placeholder='comentario'>
+          <button id="enviarTarea">Enviar</button>
+          </form>
+          <div style="display:none" id="actEntregada">
+            Ya hiciste esta entrega
+            <br><button class='Eliminar'>Eliminar entrega</button>
+            <p id="comentario"></p>
+            <div id="adjuntos"></div>
+          </div>
+
+          <br><br>  
+          <form action="./Tablero_tareas.php" method="post">
+                <button>Regresar a tablón</button>
+          </form>
+        <div>
+          <form action="../templates/PagInicio.php">
+              <button class="salir">Volver al Inicio</button>
+          </form>
+        </div>
+    </div> 
+    <footer id="piedep">
+      <p>Ubicación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>
+        Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
+    </footer>
    <script src="../dynamics/js/clase.js"></script>
 </body>
 </html>
