@@ -8,6 +8,7 @@
     session_start();
 
     $rol= $_SESSION["rol"];
+    $user=$_SESSION["ID_usuario"];
 
     if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
     {
@@ -17,8 +18,8 @@
     $peticion = "SELECT * from duda NATURAL JOIN usuario";
     $query = mysqli_query($conexion, $peticion);
     
-    $preguntas=array();
-    $respuesta=array();
+    $preguntas=array(null);
+    $respuesta=array(null);
     $i=0;
     while($datos=mysqli_fetch_assoc($query)){
         $id_preg=$datos["ID_duda"];
@@ -35,7 +36,9 @@
        $i++; 
     }
     // Agrego rol
-    $mandar= array("preguntas" => $preguntas, "respuestas" => $respuesta, "rol"=> $rol);
+    // var_dump($preguntas);
+    // Var_dump($respuesta);
+    $mandar= array("preguntas" => $preguntas, "respuestas" => $respuesta, "rol"=> $rol, "usuario"=>$user);
     echo json_encode($mandar);
 
 ?>

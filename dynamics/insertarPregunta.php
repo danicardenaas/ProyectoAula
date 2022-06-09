@@ -1,4 +1,6 @@
 <?php
+    include './config.php';
+    include './funcionFecha.php';
     session_name("SesionUsuario");
     session_id("123456789");
     session_start();
@@ -9,7 +11,7 @@
         $nuevaURL='./inicio.php';
         header('Location: '.$nuevaURL);
     }
-    include './config.php';
+    
     $conexion = connect();
 
     
@@ -21,15 +23,7 @@
     $pregunta = (isset($_POST['pregunta']) && $_POST["pregunta"] != "")? $_POST['pregunta'] : false;
     if($pregunta) {
        
-        $hoy = getdate();
-        $mes = $hoy["mon"];
-        $año = $hoy["year"];
-        $dia =  $hoy["mday"];
-        $horas =  $hoy["hours"];
-        $min =  $hoy["minutes"];
-        $seg=  $hoy["seconds"];
-        $mk=mktime($horas, $min, $seg, $mes, $dia, $año);
-        $fecha = date("Y-m-d H:i:s", $mk);
+        $fecha=fecha();
         if(isset($_FILES['arch']) && $_FILES['arch']['tmp_name'] != "" )
         { 
         $name=$_FILES['arch']['name'];

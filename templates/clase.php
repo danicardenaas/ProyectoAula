@@ -31,13 +31,13 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#" id="asignacion">Asignaciones</a>
         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#" id="materiales">Calificaciones</a>
+        </li> 
         <!-- <li class="nav-item">
-          <a class="nav-link" href="#" id="materiales">Materiales</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#" id="asignaciones">Asignaciones</a>
-        </li> -->
-       
+        </li> 
+        -->
       </ul>
     </div>
   </div>
