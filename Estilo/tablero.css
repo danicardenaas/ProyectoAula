@@ -1,6 +1,5 @@
 body{
     margin: auto;
-    height: auto;
     background-color: #092473;
 }
 #encabezado{
@@ -31,11 +30,15 @@ body{
 /*Main
 ---------------------------*/
 #contenedor{
+    position: absolute;
+    left: 20%;
+    margin-top: 5%;
     display: flex;
     flex-flow: row wrap;
     flex-wrap: wrap;
-    width: auto;
-    height: auto;
+    width: 50vw;
+    height: 80vh;
+    overflow: auto;
 }
 h4{
     text-align: center;
@@ -58,6 +61,11 @@ img{
     text-justify: center;
     text-align: center;
     overflow: auto;
+}
+
+.materia:hover{
+    background-color: #FABE2E;
+    padding: 2%;
 }
 .tareas{
     position: relative;
@@ -99,8 +107,8 @@ img{
     line-height: 30px;
     text-align: center;
     color:#4f89c0;
-    position:relative;
-    bottom: 0%;
+    position:absolute;
+    top: 125vh;
 }
 
 
