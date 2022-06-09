@@ -18,59 +18,79 @@
     <title>Clase</title>
     <link rel="stylesheet" href="../libs/bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
     <link rel="shortcut icon" href="../imgs/ENP6.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../Estilo/statics/styles/estilo.css">
+    <link rel="stylesheet" href="../Estilo/statics/styles/clase.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="BarraDeNavegacion">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#" id="nombreClase">Clase</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" id="asignacionVer">Asignaciones</a>
-        </li>
+  <header>
+    <div>
+      <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado"> 
+    </div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="BarraDeNavegacion">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="nombreClase">Clase</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" id="asignacionVer">Asignaciones</a>
+          </li>
+          
+          <li id="asignacion" class="nav-item">
+            <a class="nav-link" >Crear una asignación</a>
+          </li>
+
+          <li id="asignacion" class="nav-item">
+            <a href="./crear_juego.html" class="nav-link" >Crear un juego</a>
+          </li>
         
-        <li id="asignacion" class="nav-item">
-          <a class="nav-link" >Crear una asignación</a>
-        </li>
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="fondo">
+    <div id="contenedor-encabezado">
+        <div id="encabezado">
+            <p>Clase</p>
+        </div>
+    </div>
+    <aside>
+      <div class="rec">
+      </div>
+    </aside>
+      <div class="rec2">
+      </div> 
 
-        <li id="asignacion" class="nav-item">
-          <a href="./crear_juego.html" class="nav-link" >Crear un juego</a>
-        </li>
+    <div id="contenido">
+      <div id="asignaciones">
+        <p>Bienvenido a tu clase :))</p>
+      </div>
+      <div id="entregas">
+      </div>
       
-       
-      </ul>
-    </div>
-  </div>
-</nav>
-<div id="asignaciones">
-    <h1>Bienvenido a tu clase :))</h1>
-    </div>
-    <div id="entregas">
-
+      <div id="divCal"  style="display: none;">
+        <form id="calificarForm" method="post">
+          Calificación: 
+          <input id="calif" type="number"  name="calif"/><br>
+          <textarea  id="coment" name="coment"></textarea>   
+        </form>
+        <button id="enviar">Enviar</button>
+      </div>
     </div>
 
-    <div id="divCal"  style="display: none;">
-      <form id="calificarForm" method="post">
-            Calificación: 
-            <input id="calif" type="number"  name="calif"/><br>
-            <textarea  id="coment" name="coment"></textarea>   
-      </form>
-      <button id="enviar">Enviar</button>
+    <form action="./Tablero_tareas.php" method="post">
+        <button id="regresar" class="salir">Regresar a tablón</button>
+    </form>
+    <button id="btn-borrar">Borrar clase</button>
     </div>
-      
-
-    <div id="botones" >
-      <form action="./Tablero_tareas.php" method="post">
-          <button>Regresar a tablón</button>
-      </form>
-      <button id="btn-borrar">Borrar clase</button>
-    </div>
-    
- 
-    
+    <footer id="piedep-1">
+      <p>Ubicación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>
+        Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
+    </footer>
    <script src="../dynamics/js/claseProf.js"></script>
 </body>
 </html>

@@ -23,8 +23,8 @@
 </head>
 <body>
   <header>
-    <div >
-          <img src="../Imgs/encabezado.png" width="100%" height="12%" alt=""> 
+    <div>
+      <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado" > 
     </div>
   </header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="BarraDeNavegacion">
@@ -61,38 +61,38 @@
     </aside>
       <div class="rec2">
       </div> 
-      <div id="contenido">
-        <div id="asignaciones">
-          <h1>Bienvenido a tu clase :))</h1>
+    <div id="contenido">
+      <div id="asignaciones">
+        <p>Bienvenido a tu clase :))</p>
+      </div>
+        <br><br>  
+        <form id='formEntrega' style="display:none" method="post" enctype="multipart/form-data">
+        <h3> Haz tu entrega</h3>
+        <label id="archivos">
+            <input type='file' name='arch1'><br>
+        </label>
+        <br>
+          <button  id="addArch">Agregar archivo</button><br>
+        Comentario adicional:<input type='text' name="coment" placeholder='comentario'>
+        <button id="enviarTarea">Enviar</button>
+        </form>
+        <div style="display:none" id="actEntregada">
+          Ya hiciste esta entrega
+          <br><button class='Eliminar'>Eliminar entrega</button>
+          <p id="comentario"></p>
+          <div id="adjuntos"></div>
         </div>
-          <br><br>  
-          <form id='formEntrega' style="display:none" method="post" enctype="multipart/form-data">
-          <h3> Haz tu entrega</h3>
-          <label id="archivos">
-              <input type='file' name='arch1'><br>
-          </label>
-          <br>
-            <button  id="addArch">Agregar archivo</button><br>
-          Comentario adicional:<input type='text' name="coment" placeholder='comentario'>
-          <button id="enviarTarea">Enviar</button>
-          </form>
-          <div style="display:none" id="actEntregada">
-            Ya hiciste esta entrega
-            <br><button class='Eliminar'>Eliminar entrega</button>
-            <p id="comentario"></p>
-            <div id="adjuntos"></div>
-          </div>
 
-          <br><br>  
-          <form action="./Tablero_tareas.php" method="post">
-                <button>Regresar a tablón</button>
-          </form>
-        <div>
-          <form action="../templates/PagInicio.php">
-              <button class="salir">Volver al Inicio</button>
-          </form>
-        </div>
-    </div> 
+        <br><br>  
+    </div>
+    <form action="./Tablero_tareas.php" method="post">
+              <button class="salir" id="regresar" >Regresar a tablón</button>
+        </form>
+      <div>
+        <form action="../templates/PagInicio.php">
+            <button class="salir" id="inicio">Volver al Inicio</button>
+        </form>
+      </div>
     <footer id="piedep">
       <p>Ubicación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>
         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
