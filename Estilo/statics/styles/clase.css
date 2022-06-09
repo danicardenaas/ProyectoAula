@@ -83,3 +83,7 @@ body{
     padding: 10px;
     font-size: 90%;
 }
+.juego{
+    position: absolute;
+    top:100vh;
+}

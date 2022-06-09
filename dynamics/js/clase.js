@@ -14,6 +14,7 @@ const datosForm4 = new FormData(formEntrega);
 cookies= document.cookie;
 cookies = cookies.split(";");
 var i =0;
+var jugado=false;
 var arch=1;
 var cookieArray = new Array();
 for (cookie of cookies)
@@ -51,7 +52,7 @@ function tareaf()
         adjuntos.innerHTML="";
         formEntrega.style.display="none";
         actEntregada.style.display="block";
-        comentario.innerHTML += "Entregado:"+datosJSON.Info.fecha_entr+"<br>";
+        comentario.innerHTML += "Entregado: "+datosJSON.Info.fecha_entr+"<br>";
         if(datosJSON.Info.coment_alumno != null)
         {
           comentario.innerHTML += "Comentarios añadidos por el alumno:  "+datosJSON.Info.coment_alumno +"<br>";
@@ -62,12 +63,15 @@ function tareaf()
         }
         if(datosJSON.Info.calif != null)
         {
+          jugado=true;
           comentario.innerHTML += "Calificación:"+datosJSON.Info.calif +"<br>";
+        }
+        else{
+          jugado=false;
         }
         adjuntos.innerHTML += "<ol>";
         for (archivo of datosJSON.archivos)
         {
-    
           if(archivo.ID_tipoarch == 1)
           {
             adjuntos.innerHTML += "<a href='"+archivo.ruta+"'>"+archivo.ruta+"</a>";
@@ -180,9 +184,15 @@ asignaciones.addEventListener("click", (evento)=>{
         {  
            console.log("else"); 
            console.log(datosJSON);
-           asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
+           if(jugado==false)
+           {
+             asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
+           }
+           
            formEntrega.style.display="none";
+           
           }
+         
       });
      
        //Petición para obtener si el alumno ya realizo una entrega
@@ -192,11 +202,23 @@ asignaciones.addEventListener("click", (evento)=>{
       tareaf();
   }
 
-  if(evento.target.classList.contains("juego")){
-    document.cookie = "id_juego ="+ evento.target.id;      
-  }
+if(evento.target.classList.contains("juego")){
+  console.log("entre if");
+  document.cookie = "id_juego ="+ evento.target.id;   
+  if(evento.target.id%2==0)
+    window.location = "./trivia.html"; 
+  else 
+    window.location = "./ahorcado.html"; 
+}
 });
-
+if(evento.target.classList.contains("juego")){
+  console.log("entre if");
+  document.cookie = "id_juego ="+ evento.target.id;   
+  if(evento.target.id%2==0)
+    window.location = "./trivia.html"; 
+  else 
+    window.location = "./ahorcado.html"; 
+}
 asignacion.addEventListener("click", ()=>{
     muestraAsignaciones();
 

@@ -172,5 +172,26 @@ window.addEventListener("load", (evento) =>{
     }); 
  
 
-
+    terminar.addEventListener("click", (evento)=>
+    {
+       
+        evento.preventDefault();
+        console.log(puntaje);
+        const datosForm2 = new FormData();
+        puntaje=(puntaje/totalPreguntas)*10;
+        datosForm2.append("id_juego", juego); 
+        datosForm2.append("puntaje", puntaje); 
+        fetch("../dynamics/puntaje.php", {
+            method:"POST", 
+            body: datosForm2,
+          }).then ((response) =>{
+            return response.json();
+          }).then ((datosJSON)=>{
+            if(datosJSON)
+            {
+                window.location="./PagInicio.php";
+            }
+          });
+          
+    })
 }); 
