@@ -205,10 +205,9 @@ asignaciones.addEventListener("click", (evento)=>{
 if(evento.target.classList.contains("juego")){
   console.log("entre if");
   document.cookie = "id_juego ="+ evento.target.id;   
-  if(evento.target.id%2==0)
+
     window.location = "./trivia.html"; 
-  else 
-    window.location = "./ahorcado.html"; 
+
 }
 });
 if(evento.target.classList.contains("juego")){
