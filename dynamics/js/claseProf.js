@@ -35,7 +35,15 @@ function muestraEntregas(){
   }).then ((datosJSON)=>{
     for(entrega of datosJSON)
     {
-      entregas.innerHTML+="<div class='entrega "+entrega.usuario+"' id='"+entrega.ID_act_entrega+"'>"+entrega.usuario+"</div>";
+      entregas.innerHTML+="<div class='entrega "+entrega.usuario+"' id='"+entrega.ID_act_entrega+"'>"+entrega.usuario;
+      if(entrega.calif != null)
+      {
+        entregas.innerHTML+="   Calificación: "+entrega.calif+"</div>";
+      }
+      else{
+        entregas.innerHTML+="      No calificado";
+      }
+      
     }
   })
 }
@@ -51,7 +59,6 @@ function muestraAsignaciones()
       }).then ((response) =>{
         return response.json();
       }).then ((datosJSON)=>{
-
         nomClase.innerHTML=datosJSON.nombreMateria;
       });
       const datosForm2 = new FormData();
@@ -80,8 +87,7 @@ asignaciones.addEventListener("click", (evento)=>{
  //
   if(evento.target.classList.contains("actividad"))
   { 
-    asignaciones.innerHTML ="";  
-    
+    asignaciones.innerHTML = "";  
     datosForm3.append("id_actividad", evento.target.id);
     fetch("../dynamics/mostrarAct.php", {
         method:"POST", 
@@ -90,13 +96,13 @@ asignaciones.addEventListener("click", (evento)=>{
         return response.json();
       }).then ((datosJSON)=>{
       
-        if(datosJSON.ID_juego == null)
+        if(datosJSON.datos.ID_juego == null || datosJSON.datos.ID_juego == undefined)
         {
+          console.log(datosJSON);
           asignaciones.innerHTML ="<div>Fecha de publicación: "+datosJSON.datos.fecha_pub+"<br>";
           asignaciones.innerHTML +="Fecha limite de entrega: "+datosJSON.datos.fecha_limite +"<br>";
           asignaciones.innerHTML +="<h1>"+datosJSON.datos.nombre+"</h1>"+"Puntaje máximo: "+datosJSON.datos.puntaje+" <br>Tema: "+datosJSON.datos.tema+"<br>";
           asignaciones.innerHTML += "<strong>Indicaciones:</strong> <br>"+datosJSON.datos.indicaciones+"<br>"; 
-          asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
           
           if(datosJSON.datos.rubrica != null && datosJSON.datos.rubrica != "")
           {
@@ -130,7 +136,7 @@ asignaciones.addEventListener("click", (evento)=>{
         else
        {  
           console.log("else"); 
-
+          asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
        }
       });
       //Vista de todo lo entregado por los alumnos
@@ -145,7 +151,6 @@ asignaciones.addEventListener("click", (evento)=>{
       window.location = "./ahorcado.html"; 
   }
 });
-
 btn_borrar.addEventListener("click", (evento)=>{
     const datosForm2 = new FormData();
     datosForm2.append("id_materia", materia);
@@ -238,7 +243,7 @@ divcal.addEventListener("click", (evento)=>{
         alert("Algo salió mal");
       }
       else{
-        console.log("ok");
+        divcal.style.display="none";
         muestraEntregas();
       }
 

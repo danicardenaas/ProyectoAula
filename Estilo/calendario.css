@@ -20,6 +20,9 @@ td{
     position:absolute;
     top: 140vh;
 }
+#eventito{
+    background-color:#ac820f;
+}
 .th{
     font-size: 60%;
 }

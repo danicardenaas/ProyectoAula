@@ -6,7 +6,7 @@
     session_name("SesionUsuario");
     session_id("123456789");
     session_start();
-
+    $_SESSION["nombre2"]=false;
     $rol= $_SESSION["rol"];
     $user=$_SESSION["ID_usuario"];
     $termino = (isset($_POST['termino']) && $_POST["termino"] != "")? $_POST['termino'] : false;

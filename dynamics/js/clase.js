@@ -143,7 +143,7 @@ asignaciones.addEventListener("click", (evento)=>{
           asignaciones.innerHTML +="Fecha limite de entrega: "+datosJSON.datos.fecha_limite +"<br>";
           asignaciones.innerHTML +="<h1>"+datosJSON.datos.nombre+"</h1>"+"Puntaje máximo: "+datosJSON.datos.puntaje+" <br>Tema: "+datosJSON.datos.tema+"<br>";
           asignaciones.innerHTML += "<strong>Indicaciones:</strong> <br>"+datosJSON.datos.indicaciones+"<br>"; 
-          asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
+          
           
           if(datosJSON.datos.rubrica != null && datosJSON.datos.rubrica != "")
           {
@@ -173,6 +173,9 @@ asignaciones.addEventListener("click", (evento)=>{
        
           asignaciones.innerHTML += "</div>"; 
           // botones.style.display="none";
+        }
+        else{
+          asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
         }
       });
      

@@ -29,6 +29,11 @@
     <main id="main">
         <div id="cuadroAzul">
             <?php
+                $_SESSION['nombre2']="";
+                $_SESSION["nombre2"] ="";
+                $_SESSION["apellido2"]="";
+                $_SESSION['nombre_real2']="";
+                $_SESSION['rol2']="";
                 session_name("SesionUsuario");
                 session_id("123456789");
                 session_start();

@@ -103,7 +103,7 @@ function despliegue(){
           {
               if(respuesta.ID_duda == duda )
               { 
-                divForo.innerHTML += "<div style='margin-left:5vw ' class='resp' id='"+respuesta.ID_dudaresp+"'><span>"+respuesta.descripcion+"</span><br>"+respuesta.fecha_pub+"  "+respuesta.usuario+"</div>";
+                divForo.innerHTML += "<div style='margin-left:5vw ' class='resp' id='"+respuesta.ID_dudaresp+"'><div>"+respuesta.descripcion+"</div><br>"+respuesta.fecha_pub+"  <span class='usuario' id='"+pregunta.ID_usuario+"'> "+respuesta.usuario+"</span></div>";
               }
               if(datosJSON.rol==4 || datosJSON.usuario==respuesta.ID_usuario ){
                 divForo.innerHTML += "<button class = 'borrarResp' id='"+respuesta.ID_dudaresp+"'>Borrar</button>";
@@ -135,14 +135,13 @@ function despliegue(){
             {  
               if(respuesta.ID_duda == duda )
               {  
-                 divFrecuente.innerHTML += "<div class = 'resp' style='margin-left:5vw ' id='"+respuesta.ID_dudaresp+"'><span>"+respuesta.descripcion+"</span><br>"+respuesta.fecha_pub+"  "+respuesta.usuario+"</div>";
+                 divFrecuente.innerHTML += "<div class = 'resp' style='margin-left:5vw ' id='"+respuesta.ID_dudaresp+"'><span>"+respuesta.descripcion+"</span><br>"+respuesta.fecha_pub+"  <div class='usuario'  id='"+pregunta.ID_usuario+"'>"+respuesta.usuario+"</div></div>";
               }
               if(datosJSON.rol==4 || datosJSON.usuario==respuesta.ID_usuario ){
                 divFrecuente.innerHTML += "<button class = 'borrarResp' id='"+respuesta.ID_dudaresp+"'>Borrar</button><br><br>";
                 divForo.innerHTML += "<button class='modificarResp' id='"+respuesta.ID_dudaresp+"'>Modificar</button><br>";
                 console.log();
               } 
-              
             }
           }
         }
@@ -219,8 +218,20 @@ divForo.addEventListener("click", (evento)=>{
   else if(evento.target.classList.contains("usuario"))
   {
     
+    const datosFormUs = new FormData ();
     usuarioTarget=evento.target.id;
-    console.log(usuarioTarget);
+    datosFormUs.append("id_verUsuario", usuarioTarget);
+  
+    fetch("../dynamics/verUsuario.php", {
+      method:"POST", 
+      body: datosFormUs,
+    }).then ((response) =>{
+      return response.json();
+    }).then ((datosJSON)=>{
+      console.log(datosJSON);
+      window.location=" ../templates/perfil.php";
+      
+      });
   }
 });
 divFrecuente.addEventListener("click", (evento)=>{
@@ -260,8 +271,21 @@ divFrecuente.addEventListener("click", (evento)=>{
   }
   else if(evento.target.classList.contains("usuario"))
   {
-    
-   usuarioTarget=evento.target.id;
+    const datosFormUs = new FormData ();
+    usuarioTarget=evento.target.id;
+    datosFormUs.append("id_verUsuario", usuarioTarget);
+  
+    fetch("../dynamics/verUsuario.php", {
+      method:"POST", 
+      body: datosFormUs,
+    }).then ((response) =>{
+      return response.json();
+    }).then ((datosJSON)=>{
+      console.log(datosJSON);
+      window.location=" ../templates/perfil.php";
+      
+      });
+ 
    //para lo del perfil
   }
 

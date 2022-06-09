@@ -34,15 +34,32 @@
              </form>
          </div>
          <?php
+         
+          
             session_name("SesionUsuario");
             session_id("123456789");
             session_start();
-            if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
+          
+        
+            if($_SESSION["nombre2"]=="")
             {
-                $nuevaURL='./inicio.php';
-                header('Location: '.$nuevaURL);
+                $nombre=$_SESSION["nombre"];
+                $apellido=$_SESSION["apellido"];
+                 $nombre_real= $_SESSION['nombre_real'];
+                $rol = $_SESSION['rol'];
+            }else{
+                
+                $nombre=$_SESSION["nombre2"];
+                $apellido=$_SESSION['apellido2'] ;
+                 $nombre_real= $_SESSION['nombre_real2'];
+                $rol =$_SESSION['rol2'];
             }
-            if(!isset($_SESSION["apellido"]) && $_SESSION["apellido"]==false)
+            // if(!isset($nombre) && $nombre==false)
+            // {
+            //     $nuevaURL='./inicio.php';
+            //     header('Location: '.$nuevaURL);
+            // }
+            if(!isset($apellido) && $apellido==false)
             {
                 echo "algo salió mal";
             }
@@ -50,16 +67,23 @@
                 <main id='contenedor'>
                     <div id='cuadro-blanco'>
                         <div id='texto'>
-                            <div>Nombre: "; echo ($_SESSION['nombre_real']); echo "</div><br/>
-                            <div>Apellidos: "; echo ($_SESSION['apellido']); echo "</div><br/>
-                            <div>Nombre de usuario: "; echo ($_SESSION['nombre']); echo "</div><br/>
+                            <div>Nombre: "; echo ($nombre_real); echo "</div><br/>
+                            <div>Apellidos: "; echo ($apellido); echo "</div><br/>
+                            <div>Nombre de usuario: "; echo ($nombre); echo "</div><br/>
                             <div>Rol: "; 
-                            if(($_SESSION['rol']) == 1 ){
+                            if(($rol) == 1 ){
                                 echo "estudiante";
                             } 
-                            if(($_SESSION['rol']) == 2 ){
+                            if(($rol) == 2 ){
                                 echo "profesor(a)";
                             } 
+                            if(($rol) == 3 ){
+                                echo "Administrador(a)";
+                            } 
+                            if(($rol) == 4 ){
+                                echo "moderador(a)";
+                            } 
+
                             echo "</div><br/>
                         </div>
                     </div>

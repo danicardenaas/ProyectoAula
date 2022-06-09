@@ -206,15 +206,15 @@ calendario.addEventListener("click", (evento) => {
     cuadradoDatos.innerHTML ="";
        if(datosJSON.eventos[0] == "no")
        {
-            cuadradoDatos.innerHTML = "No hay eventos :)";
+            cuadradoDatos.innerHTML = "<div id='eventito'>No hay eventos :)</div>";
        }
        else{
            var evento = datosJSON.eventos;
             for(suceso of evento)
             {
                 // console.log(suceso);
-                cuadradoDatos.innerHTML += "<br><br><br>"+suceso.fecha + "<br>" + suceso.descripcion;
-                cuadradoDatos.innerHTML += "<br><br><img src =' "+suceso.ruta_imagen+"' height='40vh'>";
+                cuadradoDatos.innerHTML += "<br><br><br><div id='eventito'>"+suceso.fecha + "<br>" + suceso.descripcion;
+                cuadradoDatos.innerHTML += "<br><br><img src =' "+suceso.ruta_imagen+"' height='40vh'></div>";
                 if(rol==3)
                 {
                     cuadradoDatos.innerHTML += "<button class='borrar' id= '"+suceso.ID_evento+"'>Borrar</button>";
