@@ -1,11 +1,85 @@
+body{
+    margin: auto;
+}
 #piedep{
     bottom: 0;
-    top: 79vh;
+    top: auto;
 }
+#piedep-1{
+    position: absolute;
+    bottom: 0%;
+    background-color: #C5DCFF;
+    width:100vw;
+    height:15%;
+    line-height: 30px;
+    text-align: center;
+    color:#4f89c0;
+    top: 100vh;
+}
+
 .fondo{
     background-color: #092473;
     width: 100%;
-    height: 80%;
+    height: 70%;
     position: absolute;
     z-index: -2;
+}
+#encabezado p{
+    font-weight: bold;
+    font-size: 120%;
+    padding: auto;
+}
+#encabezado {
+    padding: auto;
+    height: auto;
+    top: 5vh !important;
+}
+#regresar{
+    position: absolute !important;
+    top: 5vh !important;
+    /* right: 20vw !important; */
+    left: 70vw !important;
+    height: auto;
+}
+#inicio{
+    top: 5vh !important;
+    height: auto;
+}
+#contenido{
+    position: relative;
+    top: 21%;
+    width: 70%;
+    left: 15%;
+    height: auto;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    background-color: white;
+    border-radius: 7%;
+    border: 3px solid #555;
+    text-align: left;
+    padding: auto;
+    margin-top: 15px;
+}
+#asignaciones{
+    position: relative;
+}
+#asignaciones p{
+    text-align: center;
+}
+.salir:hover{
+    background-color: #ac820f;
+    padding: 2px;
+    font-size: 90%;
+}
+#btn-borrar{
+    position: absolute !important;
+    bottom: 15% !important;
+    right: 13% !important;
+    background-color: #f01515;
+}
+#btn-borrar:hover{
+    background-color: #e75714;
+    padding: 10px;
+    font-size: 90%;
 }

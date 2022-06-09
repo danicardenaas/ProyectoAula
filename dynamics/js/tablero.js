@@ -29,7 +29,7 @@ fetch("../dynamics/tablero.php", {
       if (materia != "no")
       {
         
-        cuadroTarea.innerHTML=" <div class='materia' id='"+materia.ID_materia+"'><div id='nom"+materia.nombreMateria+"'><h4>"+materia.nombreMateria+"</h4><img src='"+materia.ruta_imagen+"' alt='Imagen de la materia' width='200vw' height='200vh' /></div><div class='tareas' id='tarea"+i+"'> Tareas pendientes:<ul> <a><li>Tarea 2</li></a><a><li>Tarea 3</li> </a> </ul></div></div>";
+        cuadroTarea.innerHTML=" <div class='materia' id='"+materia.ID_materia+"'><div id='nom"+materia.nombreMateria+"'><div id='nombre_materia'>"+materia.nombreMateria+"</div><img src='"+materia.ruta_imagen+"' alt='Imagen de la materia' width='80%' height='80%' /></div> ";
        
         i++;
         divtarea.appendChild(cuadroTarea);
