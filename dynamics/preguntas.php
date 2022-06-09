@@ -9,13 +9,21 @@
 
     $rol= $_SESSION["rol"];
     $user=$_SESSION["ID_usuario"];
+    $termino = (isset($_POST['termino']) && $_POST["termino"] != "")? $_POST['termino'] : false;
 
     if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
     {
         $nuevaURL='./inicio.php';
         header('Location: '.$nuevaURL);
     }
-    $peticion = "SELECT * from duda NATURAL JOIN usuario";
+    if(!$termino)
+    {
+        $peticion = "SELECT * from duda NATURAL JOIN usuario";
+    }
+    else{
+        $peticion = "SELECT * from duda NATURAL JOIN usuario WHERE descripcion Like '%$termino%'";
+    }
+   
     $query = mysqli_query($conexion, $peticion);
     
     $preguntas=array(null);

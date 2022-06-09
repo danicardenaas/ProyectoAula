@@ -10,6 +10,7 @@
         header('Location: '.$nuevaURL);
     }
     $conexion = connect(); 
+    var_dump($_POST);
     $id_usuario=$_SESSION["ID_usuario"];
     $nombre = (isset($_POST['nombre']) && $_POST["nombre"] != "")? $_POST['nombre'] : false;
     $materia = (isset($_POST['materia']) && $_POST["materia"] != "")? $_POST['materia'] : false;

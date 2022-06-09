@@ -46,7 +46,7 @@
                     <button class="salir">Volver al Inicio</button>
                 </form>
             </div>
-        <div id="contenedor">
+        <form id="contenedor" >
             <label for="nombre">Nombre 
                 <input name="nombre" id="nombre" type="text">
             </label><br>
@@ -194,7 +194,7 @@
                 </label> <br>
             <button id="btn-enviar"> Crear clase</button>
 
-        </div>
+        </form>
      </div>
      <footer id="piedep">
      <p>Ubicación: Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>

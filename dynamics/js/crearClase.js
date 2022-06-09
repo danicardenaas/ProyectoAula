@@ -2,8 +2,8 @@ const btn_enviar = document.getElementById("btn-enviar");
 const contra = document.getElementById("contrasena");
 const privada = document.getElementById("privada");
 const publica = document.getElementById("publica");
-const form = document.getElementById("formularioCrear");
-
+const form = document.getElementById("contenedor");
+console.log(form);
 privada.addEventListener("change", ()=>
 {
 

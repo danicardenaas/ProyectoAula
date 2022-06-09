@@ -45,7 +45,27 @@ body{
 .salir{
     margin: 50px;
 }
-
+.pregunta{
+    background-color: antiquewhite;
+    margin:2vh;
+    width: auto;
+}
+.resp{
+    background-color: antiquewhite;
+    margin:2vh;
+    width: auto;
+}
+.usuario{
+    background-color: antiquewhite;
+    margin:2vh;
+}
+#filtradoF{
+    position:absolute;
+    left: 40vw;
+    top: 30vh;
+    color: aliceblue;
+    
+}
 #frecuente{
     margin-left: 52vw;
 }
@@ -89,4 +109,7 @@ body{
     position:absolute;
     top:70%;
     left:2vh;
+}
+#modif{
+    background-color: antiquewhite;
 }
