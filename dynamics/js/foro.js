@@ -17,61 +17,80 @@ var rol;
 const datosForm2= new FormData();
 function despliegue(){
   divForo.innerHTML="";
+  divFrecuente.innerHTML="";
   fetch("../dynamics/preguntas.php", {
     method:"POST", 
     body: datosForm2,
   }).then ((response) =>{
     return response.json();
   }).then ((datosJSON)=>{
-    console.log(datosJSON);
+    
     // console.log(selectDuda.value); 
     // console.log(datosJSON.preguntas[3].ID_tipoduda); //da el valor del tipo
-    // if(rol==4){
-    //   console.log("eres un moderador"); 
-    //   selectDuda.style.display="block";
-    // }
+    if(datosJSON.rol==4){
+    
+      selectDuda.style.display="block";
+    } 
+    else{
+      selectDuda.style.display="none";
+    }
+     i=0;
      for (pregunta of datosJSON.preguntas){
-      console.log(pregunta.ID_tipoduda); 
+      // console.log(pregunta.ID_tipoduda); 
       tipoduda = pregunta.ID_tipoduda; 
+    
+    
       if(tipoduda == 1) //normal
       {
         duda = pregunta.ID_duda
         divForo.innerHTML += "<div id='"+pregunta.ID_duda+"'>"+pregunta.descripcion+"<br>";
         divForo.innerHTML += pregunta.fecha_pub+"  ";
-        divForo.innerHTML += pregunta.usuario+"<button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div><br><br><br>";
-        for(respuesta of datosJSON.respuestas)
-        {
-          for (respuestita of respuesta)
-          {
-            if(respuestita.ID_duda == duda )
-            {
-        
-              console.log(respuestita.ID_duda+" =="+ duda );
-              divForo.innerHTML += "<div style='margin-left:5vw ' id='"+respuestita.ID_dudaresp+"'>"+respuestita.descripcion+"<br>"+respuestita.fecha_pub+"  "+respuestita.usuario+"</div><br><br><br>";
-            }
-          }
+        divForo.innerHTML += pregunta.usuario+"<button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div>";
+        if(datosJSON.rol==4){
+          divForo.innerHTML += "<button id='"+pregunta.ID_duda+"'>Borrar</button><br>";
+        } 
+        if(datosJSON.usuario==pregunta.ID_usuario){
           
+          divForo.innerHTML += "<button class='borrar' id='"+pregunta.ID_duda+"'>Borrar</button><br>";
+        } 
+        
+        if(datosJSON.respuestas[i])
+        {
+          for(respuesta of datosJSON.respuestas[i])
+        {
+            if(respuesta.ID_duda == duda )
+            { 
+              divForo.innerHTML += "<div style='margin-left:5vw ' id='"+respuesta.ID_dudaresp+"'>"+respuesta.descripcion+"<br>"+respuesta.fecha_pub+"  "+respuesta.usuario+"</div>";
+            }
+            if(datosJSON.rol==4){
+              divForo.innerHTML += "<button id='"+respuesta.ID_dudaresp+"'>Borrar</button><br><br>";
+            } 
         }
+        }
+        
       }
-      if(tipoduda == 2) //normal
+     else  if(tipoduda == 2) //normal
       {
+       
         duda = pregunta.ID_duda
         divFrecuente.innerHTML += "<div id='"+pregunta.ID_duda+"'>"+pregunta.descripcion+"<br>";
         divFrecuente.innerHTML += pregunta.fecha_pub+"  ";
         divFrecuente.innerHTML += pregunta.usuario+"<button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div><br><br><br>";
-        for(respuesta of datosJSON.respuestas)
+        if(datosJSON.respuestas[i])
         {
-          for (respuestita of respuesta)
-          {
-            if(respuestita.ID_duda == duda )
-            {
-              console.log(respuestita.ID_duda+" =="+ duda );
-              divFrecuente.innerHTML += "<div style='margin-left:5vw ' id='"+respuestita.ID_dudaresp+"'>"+respuestita.descripcion+"<br>"+respuestita.fecha_pub+"  "+respuestita.usuario+"</div><br><br><br>";
+          for(respuesta of datosJSON.respuestas[i])
+          {  
+            if(respuesta.ID_duda == duda )
+            {  
+               divFrecuente.innerHTML += "<div style='margin-left:5vw ' id='"+respuesta.ID_dudaresp+"'>"+respuesta.descripcion+"<br>"+respuesta.fecha_pub+"  "+respuesta.usuario+"</div>";
             }
+            if(datosJSON.rol==4){
+              divFrecuente.innerHTML += "<button id='"+respuesta.ID_dudaresp+"'>Borrar</button><br><br>";
+            } 
           }
-          
         }
       }
+      i++;
      }
   })
 }
@@ -111,10 +130,19 @@ divForo.addEventListener("click", (evento)=>{
     resp.style.background="pink";
   }
   id_preg=evento.target.id;
+  
+});
+divFrecuente.addEventListener("click", (evento)=>{
+  if(evento.target.classList.contains("resp"))
+  {
+    resp.style.display="block";
+    resp.style.background="pink";
+  }
+  id_preg=evento.target.id;
 });
 enviar_res.addEventListener("click", (evento)=>{
   evento.preventDefault();
-  console.log();
+
     const datosForm2= new FormData(resp);
     datosForm2.append("id_pregunta", id_preg);
     fetch("../dynamics/insertarRes.php", {
@@ -137,16 +165,19 @@ enviar_res.addEventListener("click", (evento)=>{
 btnFrecuente.addEventListener("click", (evento) =>{
   divForo.style.display="none"; 
   divFrecuente.style.display="block"; 
-  divFrecuente.innerHTML = "looooooooooooooooooool"; 
+
   despliegue(); 
   btnNormal.style.display="block"; 
   btnFrecuente.style.display="none"; 
+ 
 }); 
 
 btnNormal.addEventListener("click", (evento) =>{
+ 
   despliegue(); 
   divFrecuente.style.display="none"; 
   divForo.style.display="block"; 
   btnNormal.style.display="none"; 
   btnFrecuente.style.display="block"; 
+  
 }); 

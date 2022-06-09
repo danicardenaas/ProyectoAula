@@ -37,6 +37,7 @@
                         <option value=1>Estudiante</option>
                         <option value=2>Profesor</option>
                         <option value=3>Administrador</option>
+                        <option value=4>Moderador</option>
                     </select><br/><br/><br/>
                     <label for="cuenta" id ="cuenta" style="display: none;" >
                         <input type="text" name="cuenta" placeholder="No.de cuenta" required class="escribir">
@@ -170,12 +171,10 @@
                 
                 </fieldset>
             </form>
-            <form action="./Paginicio.php">
+            <form action="../templates/InicioConSesion.php">
                 <button class="boton" id="volver">Volver al inicio</button>
             </form> 
-            <form action="./inicio.php">
-                <button class="boton" id="iniciar">Iniciar sesión</button>
-            </form> 
+     
         </main>
 
         <footer class="piedep">

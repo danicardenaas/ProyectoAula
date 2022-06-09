@@ -4,6 +4,7 @@
     session_start();
 
     include './config.php';
+    include './funcionFecha.php';
     $conexion = connect();
     if(!$conexion)
     {
@@ -14,15 +15,7 @@
     $id_pregunta = (isset($_POST['id_pregunta']) && $_POST["id_pregunta"] != "")? $_POST['id_pregunta'] : false;
     if($respuesta) {
        
-        $hoy = getdate();
-        $mes = $hoy["mon"];
-        $año = $hoy["year"];
-        $dia =  $hoy["mday"];
-        $horas =  $hoy["hours"];
-        $min =  $hoy["minutes"];
-        $seg=  $hoy["seconds"];
-        $mk=mktime($horas, $min, $seg, $mes, $dia, $año);
-        $fecha = date("Y-m-d H:i:s", $mk);
+        $fecha=fecha();
         if(isset($_FILES['arch']) && $_FILES['arch']['tmp_name'] != "" )
         { 
         $name=$_FILES['arch']['name'];
