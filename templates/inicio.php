@@ -48,7 +48,8 @@
           
         </main>
         <footer class="piedep">
-            Aula virtual - Escuela Nacional Preparatoria Plantel 6 "Antonio Caso"
+        <p>Ubicación: Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>
+            Créditos: Equipo 7: Julieta Flores, Daniela Cárdenas, Santiago Gónzalez</p>
         </footer>
     </body>
     <scritpt src="./dynamics/inicio.js"></scritpt>
