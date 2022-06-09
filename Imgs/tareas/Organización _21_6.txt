@@ -1,0 +1,127 @@
+﻿Semana 2 
+
+
+Bases de datos
+* Terminar de identificar todas las entidades y sus propiedades.
+1. Arreglar el diagrama, con restricciones, tipos de datos y relaciones (flechas) correctas Dani 
+* Normalizar la base hasta la 3NF.
+* 2.  Las tablas de la base en MariaDB deben tener sus relaciones correspondientes Santi 
+Estilos
+* Comenzar la implementación de colores de las vistas con el uso de CSS.
+* Colocar etiquetas estructurales en las vistas, acorde a las necesidades de semántica de su sitio web.
+//Andrés 
+Verificar que las etiquetas estructurales sean correctas 
+Acomodar las rutas de acuerdo a la carpeta indicada 
+Statics
+        Styles 
+                .css
+Despliegue de información
+* 4. La información debe ser desplegada de forma coherente, acorde a las necesidades de su vista. –July 
+Desplegar la información de registro, y de inicio dirigir a página principal 
+—---Ir despeglando en las demás vistas 
+
+
+
+
+
+
+
+
+
+
+Semana 3 
+Sube aquí el progreso que logró tu equipo en los propósitos de esta semana.
+Propósitos:
+* Trabajar en el maquetado de las vistas de tablón y foro.
+Técnicamente ya están 
+* Implementar diseño con css a sus vistas que tengan creadas.
+Técnicamente ya están 
+* Implementar la detección de eventos que se considere necesaria para sus sistemas.
+* Implementar el uso de sesiones y cookies según lo necesite su sistema.
+* Poder manipular el DOM de las vistas a través de JS.
+Recomendaciones adicionales:
+Maquetado
+* De no contar con ellos, realizar los wireframes de las vistas de tablón. 
+* Recordar el uso de etiquetas estructurales en su maquetado
+Técnicamente ya están 
+Estilos
+* Aplicar posicionamiento a los contenedores
+* Aplicar propiedades de borde e implementar fuentes según sus wireframes
+* Implementación de imágenes acorde a sus wireframes
+Interactividad
+* Hacer uso de eventos para crear funcionalidad en sus vistas
+Sesiones y cookies
+* Hacer uso de cookies y sesiones para preservar la información de los usuarios que iniciaron sesión
+División en el equipo 
+1. Todo lo relacionado con CSS 
+2. Cookies y sesiones 
+3. 6 js 
+4. 6 js
+Fecha de entrega: jueves 19 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aspecto
+	Fecha tentativa
+	Responsable
+	Tablón de alumnos--miercoles
+	Mircoles
+	Julieta
+	Calendario--lunes
+	Domingo
+	Julieta
+	Asignacion de actividades
+	Martes
+	Julieta
+	Foro  
+	Miércoles
+	X-X
+	juegos Trivia 
+	Domingo
+	Dani
+	juego 2 
+	Martes
+	Dani
+	Perfil
+	Domingo
+	Santi
+	Documentación
+	Martes
+	Santi
+	CSS 
+	Martes
+	Santi
+	Seguridad--- hoy
+	Miercoles
+	Julieta

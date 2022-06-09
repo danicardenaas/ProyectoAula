@@ -45,8 +45,7 @@ function tareaf()
         actEntregada.style.display="none";
         comentario.innerHTML="";
         adjuntos.innerHTML="";
-      }
-      else{
+      }   else{
         console.log(datosJSON);
         comentario.innerHTML="";
         adjuntos.innerHTML="";
@@ -188,7 +187,7 @@ asignaciones.addEventListener("click", (evento)=>{
            {
              asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
            }
-           
+           console.log(datosJSON);
            formEntrega.style.display="none";
            
           }
@@ -210,14 +209,7 @@ if(evento.target.classList.contains("juego")){
 
 }
 });
-if(evento.target.classList.contains("juego")){
-  console.log("entre if");
-  document.cookie = "id_juego ="+ evento.target.id;   
-  if(evento.target.id%2==0)
-    window.location = "./trivia.html"; 
-  else 
-    window.location = "./ahorcado.html"; 
-}
+
 asignacion.addEventListener("click", ()=>{
     muestraAsignaciones();
 

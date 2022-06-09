@@ -166,7 +166,7 @@
                     <label for="foto" class="Etiquetas">Foto: </label>
                     <input type="file" name="foto" class="escribir"><br/><br>
                     
-                    <button type="submit" class="boton" id="registrarme">¡Registrarme! </button> 
+                    <button type="submit" class="boton" id="registrarme">Registrar </button> 
                     <button type="reset" class="boton" id="borrar">Borrar todo </button> 
                 
                 </fieldset>
