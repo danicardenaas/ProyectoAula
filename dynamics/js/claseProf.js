@@ -35,12 +35,15 @@ function muestraEntregas(){
   }).then ((datosJSON)=>{
     for(entrega of datosJSON)
     {
+      console.log(entrega);
       entregas.innerHTML+="<div class='entrega "+entrega.usuario+"' id='"+entrega.ID_act_entrega+"'>"+entrega.usuario;
       if(entrega.calif != null)
       {
+        console.log("hola");
         entregas.innerHTML+="   Calificación: "+entrega.calif+"</div>";
       }
       else{
+        console.log("hola2");
         entregas.innerHTML+="      No calificado";
       }
       
@@ -190,8 +193,11 @@ entregas.addEventListener("click", (evento)=>{
       return response.json();
     }).then ((datosJSON)=>{
       divcal.innerHTML+="ALUMNO: "+alumno+"<br>";
+      console.log(datosJSON);
       for (entrega of datosJSON)
       {
+        console.log(entrega);
+        divcal.innerHTML += "Comentario del alumno: "+entrega.coment_alumno;
         if(entrega.ID_tipoarch == 1)//link
             {
               divcal.innerHTML += "<li><a href='"+entrega.ruta+"'>"+entrega.ruta+"</a></li><br>"; 

@@ -54,11 +54,11 @@ function tareaf()
         comentario.innerHTML += "Entregado:"+datosJSON.Info.fecha_entr+"<br>";
         if(datosJSON.Info.coment_alumno != null)
         {
-          comentario.innerHTML += "Comentarios añadidos por el alumno:"+datosJSON.Info.coment_alumno +"<br>";
+          comentario.innerHTML += "Comentarios añadidos por el alumno:  "+datosJSON.Info.coment_alumno +"<br>";
         }
         if(datosJSON.Info.coment_profe != null)
         {
-          comentario.innerHTML += "Comentarios añadidos por el profesor:"+datosJSON.Info.coment_profe +"<br>";
+          comentario.innerHTML += "Comentarios añadidos por el profesor:  "+datosJSON.Info.coment_profe +"<br>";
         }
         if(datosJSON.Info.calif != null)
         {
@@ -136,9 +136,11 @@ asignaciones.addEventListener("click", (evento)=>{
       }).then ((response) =>{
         return response.json();
       }).then ((datosJSON)=>{
-        console.log(datosJSON);  
-        if(datosJSON.datos.ID_juego == null)
+       
+        if(datosJSON.datos.ID_juego == null || datosJSON.datos.ID_juego == undefined)
+        
         {
+          console.log(datosJSON);  
           asignaciones.innerHTML ="<div>Fecha de publicación: "+datosJSON.datos.fecha_pub+"<br>";
           asignaciones.innerHTML +="Fecha limite de entrega: "+datosJSON.datos.fecha_limite +"<br>";
           asignaciones.innerHTML +="<h1>"+datosJSON.datos.nombre+"</h1>"+"Puntaje máximo: "+datosJSON.datos.puntaje+" <br>Tema: "+datosJSON.datos.tema+"<br>";
@@ -174,9 +176,13 @@ asignaciones.addEventListener("click", (evento)=>{
           asignaciones.innerHTML += "</div>"; 
           // botones.style.display="none";
         }
-        else{
-          asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
-        }
+        else
+        {  
+           console.log("else"); 
+           console.log(datosJSON);
+           asignaciones.innerHTML += "<button class='juego' id='"+datosJSON.datos.ID_juego +"'>Jugar</button>"; 
+           formEntrega.style.display="none";
+          }
       });
      
        //Petición para obtener si el alumno ya realizo una entrega

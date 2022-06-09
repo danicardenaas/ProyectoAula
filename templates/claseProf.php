@@ -81,12 +81,14 @@
         <button id="enviar">Enviar</button>
       </div>
     </div>
-
-    <form action="./Tablero_tareas.php" method="post">
-        <button id="regresar" class="salir">Regresar a tablón</button>
-    </form>
-    <button id="btn-borrar">Borrar clase</button>
+    <div id="botones">
+      <form action="./Tablero_tareas.php" method="post">
+          <button id="regresar" class="salir">Regresar a tablón</button>
+      </form>
+      <button id="btn-borrar">Borrar clase</button>
+  </div>
     </div>
+  
     <footer id="piedep-1">
       <p>Ubicación:Corina 3, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX<br>
         Créditos: Equipo 7: Julieta Flores, Daniela Cardenas, Santiago Gónzalez</p>
