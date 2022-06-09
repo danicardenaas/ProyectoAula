@@ -19,17 +19,22 @@
 
 ## Instrucciones de uso 
 ### Usuarios
-	Para utilizar correctamente nuestra aula virtual se de comenzar en /templates/inicio.php a partir del registro o inicio se tendra acceso 
+	Para utilizar correctamente nuestra aula virtual se de comenzar en /templates/PagInicio.php a partir del registro o inicio de sesión se tendrá acceso 
 	a los demás apartados del proyecto, donde se podrá observar un calendario, crear clases, asignaciones, juegos, entre otros recursos educativos. 
 
 	A través de las vistas de nuestro proyecto, se podrá llegar de forma intuitiva hacia otros apartados. 
-	Inicio sesión > Registro 
+	Página de incio > Inicio sesión ó Registro 
 	Crear clase> Buscar/Crear/Ver Clases> Asignaciones > entrega actividades y juegos
 	Tablón de Materiales
+	Foro de dudas > frecuentes y normales
 	
 
 ### Programadores
 	Nuestro proyecto está organizado en secciones, existen carpetas con nombres descriptivos dentro de las cuáles están nuestro códigos y su redireccionamiento a través de rutas relativas.
+	
+	Perfil de administrador: 
+		Nombre usuario: A 
+		Contraseña: A
 
 ## Créditos
 	- Julieta Melina Flores Morán 
