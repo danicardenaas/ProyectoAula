@@ -28,13 +28,19 @@
 	Tablón de Materiales
 	Foro de dudas > frecuentes y normales
 	
+	Perfil de administrador: 
+		Nombre usuario: A 
+		Contraseña: A
+		
+	Perfil de moderador existente: 
+		Nombre usuario: MOD 
+		Contraseña: MOD 
+	
 
 ### Programadores
 	Nuestro proyecto está organizado en secciones, existen carpetas con nombres descriptivos dentro de las cuáles están nuestro códigos y su redireccionamiento a través de rutas relativas.
 	
-	Perfil de administrador: 
-		Nombre usuario: A 
-		Contraseña: A
+	
 
 ## Créditos
 	- Julieta Melina Flores Morán 
