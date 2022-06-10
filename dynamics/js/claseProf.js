@@ -134,7 +134,7 @@ asignaciones.addEventListener("click", (evento)=>{
           }
        
           asignaciones.innerHTML += "</div>"; 
-          botones.style.display="none";
+          
         }
         else
        {  

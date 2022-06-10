@@ -22,25 +22,6 @@
     <link rel="stylesheet" href="../Estilo/statics/styles/clase.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="BarraDeNavegacion">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#" id="nombreClase">Clase</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" id="asignacion">Asignaciones</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#" id="materiales">Calificaciones</a>
-        </li> 
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#" id="asignaciones">Asignaciones</a>
-        </li> 
-        -->
-      </ul>
   <header>
     <div>
       <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado" > 

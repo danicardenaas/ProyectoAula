@@ -14,13 +14,13 @@ body{
     line-height: 30px;
     text-align: center;
     color:#4f89c0;
-    top: 100vh;
+    top: 130vh;
 }
 
 .fondo{
     background-color: #092473;
     width: 100%;
-    height: 70%;
+    height: 100%;
     position: absolute;
     z-index: -2;
 }
@@ -46,11 +46,11 @@ body{
     height: auto;
 }
 #contenido{
-    position: relative;
-    top: 21%;
+    position: absolute;
+    top: 17%;
     width: 70%;
     left: 15%;
-    height: auto;
+    max-height: 60%;
     justify-content: center;
     justify-items: center;
     justify-self: center;
@@ -60,9 +60,13 @@ body{
     text-align: left;
     padding: auto;
     margin-top: 15px;
+    overflow: auto;
 }
 #asignaciones{
     position: relative;
+    padding: 2%;
+    max-height: 100%;
+    max-width: 100%;
 }
 #asignaciones p{
     text-align: center;
@@ -71,6 +75,9 @@ body{
     background-color: #ac820f;
     padding: 2px;
     font-size: 90%;
+}
+#botones{
+    display: inline-block;
 }
 #btn-borrar{
     position: absolute !important;
