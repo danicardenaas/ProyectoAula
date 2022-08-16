@@ -6,6 +6,7 @@
     session_id("123456789");
     session_start();
     $id_usuario=$_SESSION["ID_usuario"];
+
     $rol=$_SESSION["rol"];
     $materia = (isset($_POST['materia']) && $_POST["materia"] != "")? $_POST['materia'] :false;
     $tipo = (isset($_POST['tipo']) && $_POST["tipo"] != "")? $_POST['tipo'] :false;
@@ -82,27 +83,27 @@
         {
         case "0":
             {
-                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material WHERE ID_usuario = $id_usuario";
+                $peticion = "SELECT * FROM  ULikesmaterial LEFT JOIN  material ON material.ID_material = UlikesMaterial.ID_material WHERE ulikesmaterial.ID_usuario = $id_usuario";
                 break;
             }
         case "1":
             {
-                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material WHERE ID_usuario = $id_usuario AND id_clasificacion=$materia  ";
+                $peticion = "SELECT * FROM  ULikesmaterial LEFT JOIN  material ON material.ID_material = UlikesMaterial.ID_material WHERE ulikesmaterial.ID_usuario = = $id_usuario AND id_clasificacion=$materia  ";
                 break;
             }
         case "2":
             {
-                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material NATURAL JOIN usuario WHERE usuario='$usuarioB' AND  ID_usuario = $id_usuario";
+                $peticion = "SELECT * FROM  ULikesmaterial LEFT JOIN  material ON material.ID_material = UlikesMaterial.ID_material  NATURAL JOIN usuario WHERE usuario='$usuarioB' AND  ulikesmaterial.ID_usuario = $id_usuario";
                 break;
             }
         case "3":
             {
-                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material  ORDER BY likes DESC";
+                $peticion = "SELECT * FROM  ULikesmaterial LEFT JOIN  material ON material.ID_material = UlikesMaterial.ID_material WHERE ulikesmaterial.ID_usuario =$id_usuario ORDER BY likes DESC";
                 break;
             }
         case "4":
             {
-                $peticion = "SELECT * FROM  ULikesmaterial NATURAL JOIN material NATURAL JOIN usuario WHERE ID_tipoMaterial = $tipo ";
+                $peticion = "SELECT * FROM  ULikesmaterial LEFT JOIN  material ON material.ID_material = UlikesMaterial.ID_material WHERE ulikesmaterial.ID_usuario =$id_usuario AND  ID_tipoMaterial = $tipo ";
                 break;
             }
 
@@ -119,9 +120,9 @@
     while($row = mysqli_fetch_assoc($query))
     {
         $datos[$i] = $row;
-        $id_usuario = $row["ID_usuario"];
+        $id_usuario2 = $row["ID_usuario"];
         //Guardar el nombre del usuario asociado al ID
-        $peticion = "SELECT * FROM usuario WHERE id_usuario = $id_usuario";
+        $peticion = "SELECT * FROM usuario WHERE id_usuario = $id_usuario2";
         $query1 = mysqli_query($conexion, $peticion);
         $datosUs = mysqli_fetch_assoc($query1);
         $usuarios[$i]=$datosUs["usuario"];
@@ -150,10 +151,11 @@
         $i++;
     }
     $peticion = "SELECT * FROM ULikesMaterial where id_usuario = $id_usuario";
-    $query = mysqli_query($conexion, $peticion);
+  
+    $query1 = mysqli_query($conexion, $peticion);
     $LeGusta = array();
     $i=0;
-    while($row = mysqli_fetch_assoc($query))
+    while($row = mysqli_fetch_assoc($query1))
     {
         $LeGusta[$i] = $row;
         $i++;

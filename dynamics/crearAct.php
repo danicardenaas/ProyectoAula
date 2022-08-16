@@ -102,7 +102,7 @@
                     $name=$_FILES[$archivoNum]['name'];
                     $arch=$_FILES[$archivoNum]['tmp_name'];
                     $ext=pathinfo($name,PATHINFO_EXTENSION);
-                    $ruta="../Imgs/actividad/material/$fecha"."_".$titulo."_"."$tema.$ext";      
+                    $ruta="../Imgs/actividad/material/$titulo"."_"."$tema.$ext";      
                     rename($arch,$ruta); 
                     $peticion = "INSERT INTO archivos (ruta, ID_actividad,ID_tipoArch) VALUES ('$ruta', '$id_act', 2) ";
                     $query = mysqli_query( $conexion, $peticion ); 
