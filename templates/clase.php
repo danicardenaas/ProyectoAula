@@ -1,54 +1,13 @@
 <?php
-    include("./config.php"); 
     session_name("SesionUsuario");
     session_id("123456789");
-    $conexion= connect();
     session_start();
-    if(!isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false)
-    {
-        $nuevaURL='./inicio.php';
-        header('Location: '.$nuevaURL);
-    }
-    $id_materia = (isset($_POST['id_materia']) && $_POST["id_materia"] != "")? $_POST['id_materia'] : false;
-    $id_usuario= $_SESSION["ID_usuario"];
-    $procedimiento = (isset($_POST['fetch']) && $_POST["fetch"] != "")? $_POST['fetch'] : false;
-   
-    if($procedimiento ==1)
-    {
-        $peticion = "SELECT * FROM uhm WHERE id_usuario = $id_usuario AND id_materia = $id_materia ";
-  
-        $query = mysqli_query( $conexion, $peticion); 
-        $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
-        if($datos != NULL)
-        {
-            $peticion = "SELECT * FROM phc WHERE id_usuario = $id_usuario AND id_materia = $id_materia";
-            $query = mysqli_query( $conexion, $peticion); 
-            $usuario=mysqli_fetch_array($query, MYSQLI_ASSOC);
-            //dejar entrar a la pestaña principal
-            $resultados = array ("inscrito" => true, "rol" =>$usuario);
     
-        }
-        else{
-            //Si no esta ya inscrito mostrarle una pestaña para inscribirse
-            $peticion = "SELECT * FROM materia WHERE id_materia = $id_materia ";
-            $query = mysqli_query( $conexion, $peticion); 
-            $datos=mysqli_fetch_array($query, MYSQLI_ASSOC);
-            $resultados = array ("inscrito" => false, "datosMat" => $datos);
-        }
-       
-    }
-    else if($procedimiento == 2)
+    if( isset($_SESSION["nombre"]) && $_SESSION["nombre"]==false )
     {
-        $peticion = "INSERT INTO UHM (ID_usuario, ID_materia) VALUES ($id_usuario, $id_materia)";
-        $res = mysqli_query($conexion, $peticion);
-        if($res)
-        {
-            $resultados = array ("inscrito" => true );
-        }
-        
+        $texto=$_SESSION['mensaje'];
+        echo "<p style='align-center'> $texto</p>";
     }
-   
-   echo json_encode($resultados);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,8 +22,6 @@
     <link rel="stylesheet" href="../Estilo/statics/styles/clase.css">
 </head>
 <body>
-<<<<<<< HEAD
-=======
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="BarraDeNavegacion">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" id="nombreClase">Clase</a>
@@ -84,7 +41,6 @@
         </li> 
         -->
       </ul>
->>>>>>> b94afc1b8a6945644c96559409c9688fddb98d82
   <header>
     <div>
       <img src="../Imgs/encabezado.png" width="100%" height="12%" alt="encabezado" > 
