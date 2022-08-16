@@ -109,15 +109,17 @@ asignaciones.addEventListener("click", (evento)=>{
           
           if(datosJSON.datos.rubrica != null && datosJSON.datos.rubrica != "")
           {
-            asignaciones.innerHTML += "<strong>Rúbrica:</strong><br>"+datosJSON.datos.rubrica+"<br>"; 
+            asignaciones.innerHTML += "<strong>Rúbrica: </strong><br>"+datosJSON.datos.rubrica+"<br>"; 
           }
           if(datosJSON.datos.ruta_rubrica != null  && datosJSON.datos.ruta_rubrica != "")
           {
-            asignaciones.innerHTML += "<strong>Rúbrica:</strong><<br><embed src='"+datosJSON.datos.ruta_rubrica+"' width='20%'><br>"; 
+            asignaciones.innerHTML += "<strong>Rúbrica:</strong><br><embed src='"+datosJSON.datos.ruta_rubrica+"' width='20%'><br>"; 
             
           }
+          asignaciones.innerHTML += "<strong>Material de consulta:</strong><br>"; 
           for (archivo of datosJSON.archivos)
           {
+          
             if(archivo.ID_tipoArch == 1)//link
             {
               asignaciones.innerHTML += "<li><a href='"+archivo.ruta+"'>"+archivo.ruta+"</a></li><br>"; 

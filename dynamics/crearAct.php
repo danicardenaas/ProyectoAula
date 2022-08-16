@@ -61,7 +61,7 @@
            
             if(!$rubricatxt)
             {
-                 $peticion = "INSERT INTO actividad (tema, nombre, indicaciones, puntaje, fecha_pub, id_materia, id_entrega, ruta,fecha_limite)
+                 $peticion = "INSERT INTO actividad (tema, nombre, indicaciones, puntaje, fecha_pub, id_materia, id_entrega, ruta_rubrica,fecha_limite)
             VALUES ('$tema', '$titulo', '$indicaciones',$puntaje, '$fecha2', $id_materia, 1, '$ruta', '$fecha') ";
             }
             else{
