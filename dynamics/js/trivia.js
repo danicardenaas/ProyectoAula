@@ -42,11 +42,20 @@ window.addEventListener("load", (evento) =>{
             elemento = cookie.split("=");
         }
     }
-
     juego = elemento[1]; 
+    for (cookie of cookies)
+    {
+        
+        if(cookie.includes("id_actividad"))
+        {
+            elemento = cookie.split("=");
+        }
+    }
+    actividad=elemento[1];
 
     const datosForm = new FormData();
     datosForm.append("id_juego", juego); 
+   
     fetch("../dynamics/trivia.php", { 
         method: "POST", 
         body: datosForm,
@@ -176,10 +185,11 @@ window.addEventListener("load", (evento) =>{
     {
        
         evento.preventDefault();
-        console.log(puntaje);
+        console.log(juego);
         const datosForm2 = new FormData();
         puntaje=(puntaje/totalPreguntas)*10;
-        datosForm2.append("id_juego", juego); 
+        // datosForm2.append("id_juego", juego); 
+        datosForm2.append("id_actividad", actividad); 
         datosForm2.append("puntaje", puntaje); 
         fetch("../dynamics/puntaje.php", {
             method:"POST", 

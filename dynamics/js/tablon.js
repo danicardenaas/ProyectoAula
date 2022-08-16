@@ -62,7 +62,7 @@ function muestraMaterial(){
   }).then ((response) =>{
     return response.json();
   }).then ((datosJSON)=>{
-    console.log(datosJSON);
+    // console.log(datosJSON);
     i=0;
     if(datosJSON.rol == 3 || datosJSON.rol ==4)
     {
@@ -73,7 +73,7 @@ function muestraMaterial(){
     
       for(material of datosJSON.res)
       { 
-        usuario =material.ID_usuario;
+        usuario =datosJSON.usuario;
         const div = document.createElement("div");
         div.classList.add("MaterialHoja");
         
@@ -82,19 +82,26 @@ function muestraMaterial(){
         boton.innerHTML="Like";
         boton.style.background="grey";
         boton.classList.add("like");
-        boton.classList.remove(usuario);
         boton.id=material.ID_material;
+        boton.classList.remove("ya");
         for(gusto of datosJSON.Favoritos)
         {
+          // console.log(gusto);
+        
           if(gusto.ID_material == material.ID_material)
-          {
-                  boton.classList.add(usuario);
-                  boton.style.background="pink";
-                  boton.innerHTML="Deslike";
-                  div.append(boton);
+          {   
+              // console.log(usuario);
+              boton.classList.add("ya");
+              boton.style.background="pink";
+              boton.innerHTML="Deslike";
+              div.append(boton);
           }
-        }     
-          
+          else{
+           
+            div.append(boton);
+            
+          }
+        }        
   
         div.append(boton);
         div.innerHTML+="<div class='usuario' id='"+material.ID_usuario+"'>De: "+datosJSON.usuarios[i]+"<br>Subido: "+material.fecha+"</div>";
@@ -102,7 +109,7 @@ function muestraMaterial(){
         div.innerHTML+="<div id='"+material.ID_material+"'>Tipo de material: "+datosJSON.tipos[i]+"</div>";
         div.innerHTML+="<div id='"+material.ID_material+"'>Tema: "+material.Tema+"</div>";
         div.innerHTML+="<div id='"+material.ID_material+"'>Unidad: "+material.Unidad+"</div>";
-        div.innerHTML+="<div id='"+material.ID_material+"'>Tema: "+material.Descripcion+"</div>";
+        div.innerHTML+="<div id='"+material.ID_material+"'>Descripción: "+material.Descripcion+"</div>";
       if(datosJSON.arch[i])
       {
         for(archivo of datosJSON.arch[i])
@@ -160,7 +167,7 @@ usuarioBuscado.addEventListener("keyup", (evento)=>{
 tablon.addEventListener("click", (evento)=>{
   if(evento.target.classList.contains("usuario"))
   {
-    console.log(evento.target.id);
+    // console.log(evento.target.id);
     //puede mandarse el id del usuario así :)
   }
   if(evento.target.classList.contains("reportar"))
@@ -231,22 +238,24 @@ tablon.addEventListener("click", (evento)=>{
   {
     const datosForm1 = new FormData();
   
-    if(evento.target.classList.contains(usuario))
+    if(evento.target.classList.contains("ya"))
     {
-      evento.target.classList.remove(usuario);
-      evento.target.style.background="grey";
-      evento.target.innerHTML="Like";
+      // evento.target.classList.remove("ya");
+      // evento.target.style.background="grey";
+      // evento.target.innerHTML="Like";
       //quitar like
-      datosForm1.append("likes", -1);
-
+      datosForm1.append("likes", "NO");
+      // console.log("bb");
     }
     else{
-      datosForm1.append("likes", 1);
-      evento.target.classList.add(usuario);
-      evento.target.style.background="pink";
-      evento.target.innerHTML="Deslike";
+      // console.log("aa");
+      datosForm1.append("likes", "SI");
+      // evento.target.classList.add("ya");
+      // evento.target.style.background="pink";
+      // evento.target.innerHTML="Deslike";
     }
     //peticion para actualizar los likes
+  
     datosForm1.append("material", evento.target.id);
     fetch("../dynamics/materialLikes.php", {
       method:"POST", 
@@ -254,7 +263,8 @@ tablon.addEventListener("click", (evento)=>{
     }).then ((response) =>{
       return response.json();
     }).then ((datosJSON)=>{
-      evento.target.previousElementSibling.innerHTML=datosJSON;
+      // console.log(datosJSON);
+      muestraMaterial();
     });
   }
 })
@@ -271,7 +281,7 @@ reportados.addEventListener("change", ()=>
     pagRepor=0
     muestraMaterial();
   }
-  console.log(pagRepor);
+  // console.log(pagRepor);
 });
 favoritos.addEventListener("change", ()=>
 {

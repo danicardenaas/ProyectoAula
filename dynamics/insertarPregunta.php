@@ -29,7 +29,7 @@
         $name=$_FILES['arch']['name'];
         $ext=pathinfo($name, PATHINFO_EXTENSION);
         $arch=$_FILES['arch']['tmp_name'];
-        $archivo=$pregunta.$user.$mes.$dia.$año.".".$ext;
+        $archivo="$pregunta.$ext";
 
         $ruta= "../Imgs/imgforo/$archivo";
         rename($arch, $ruta);

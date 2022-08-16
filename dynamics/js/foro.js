@@ -84,14 +84,14 @@ function despliegue(){
         if(tipoduda == 1) //normal
         {
           duda = pregunta.ID_duda
-          divForo.innerHTML += "<div class ='pregunta' id='"+pregunta.ID_duda+"'><span>"+pregunta.descripcion+"</span><br>";
+          divForo.innerHTML += "<div class ='pregunta' id='"+pregunta.ID_duda+"'><span><strong>"+pregunta.descripcion+"</strong></span><br>";
           divForo.innerHTML += pregunta.fecha_pub+"  ";
           divForo.innerHTML += "<span class='usuario' id='"+pregunta.ID_usuario+"'>"+pregunta.usuario+"</span><button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div>";
           if(datosJSON.rol==4){
             divForo.innerHTML += "<button class='borrarPreg' id='"+pregunta.ID_duda+"'>Borrar</button>";
             divForo.innerHTML += "<button class='modificarPreg' id='"+pregunta.ID_duda+"'>Modificar</button><br>";
           } 
-          if(datosJSON.usuario==pregunta.ID_usuario){
+          else if (datosJSON.usuario==pregunta.ID_usuario){
             
             divForo.innerHTML += "<button class='borrarPreg' id='"+pregunta.ID_duda+"'>Borrar</button>";
             divForo.innerHTML += "<button class='modificarPreg' id='"+pregunta.ID_duda+"'>Modificar</button><br>";
@@ -101,14 +101,18 @@ function despliegue(){
           {
             for(respuesta of datosJSON.respuestas[i])
           {
+            if(respuesta != null)
+            { console.log(respuesta);
               if(respuesta.ID_duda == duda )
               { 
-                divForo.innerHTML += "<div style='margin-left:5vw ' class='resp' id='"+respuesta.ID_dudaresp+"'><div>"+respuesta.descripcion+"</div><br>"+respuesta.fecha_pub+"  <span class='usuario' id='"+pregunta.ID_usuario+"'> "+respuesta.usuario+"</span></div>";
+                divForo.innerHTML += "<div style='margin-left:5vw ' class='resp' id='"+respuesta.ID_dudaresp+"'><div><strong>"+respuesta.descripcion+"</strong></div><br>"+respuesta.fecha_pub+"  <span class='usuario' id='"+respuesta.ID_usuario+"'> "+respuesta.usuario+"</span></div>";
               }
               if(datosJSON.rol==4 || datosJSON.usuario==respuesta.ID_usuario ){
                 divForo.innerHTML += "<button class = 'borrarResp' id='"+respuesta.ID_dudaresp+"'>Borrar</button>";
                 divForo.innerHTML += "<button class='modificarResp' id='"+respuesta.ID_dudaresp+"'>Modificar</button><br>";
               } 
+            }
+              
           }
           }
           
@@ -117,30 +121,31 @@ function despliegue(){
         {
          
           duda = pregunta.ID_duda
-          divFrecuente.innerHTML += "<div class='pregunta' id='"+pregunta.ID_duda+"'><span>"+pregunta.descripcion+"</span><br>";
+          divFrecuente.innerHTML += "<div class='pregunta' id='"+pregunta.ID_duda+"'><span><strong>"+pregunta.descripcion+"</strong></span><br>";
           divFrecuente.innerHTML += pregunta.fecha_pub+"  ";
-          divFrecuente.innerHTML += "<span class='usuario' id='"+pregunta.ID_usuario+"'>"+pregunta.usuario+"</span><button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div>";
+          divFrecuente.innerHTML += "<span class='usuario' id='"+pregunta.ID_usuario+"'><strong>"+pregunta.usuario+"</strong></span><button class='resp' id='"+pregunta.ID_duda+"'>Responder</button></div>";
           if(datosJSON.rol==4){
-            divForo.innerHTML += "<button class='borrarPreg' id='"+pregunta.ID_duda+"'>Borrar</button>";
-              divForo.innerHTML += "<button class='modificarPreg' id='"+pregunta.ID_duda+"'>Modificar</button><br>";
+            divFrecuente.innerHTML += "<button class='borrarPreg' id='"+pregunta.ID_duda+"'>Borrar</button>";
+              divFrecuente.innerHTML += "<button class='modificarPreg' id='"+pregunta.ID_duda+"'>Modificar</button><br>";
           } 
-          if(datosJSON.usuario==pregunta.ID_usuario){
+         else  if(datosJSON.usuario==pregunta.ID_usuario){
             
-            divForo.innerHTML += "<button class='borrarPreg' id='"+pregunta.ID_duda+"'>Borrar</button>";
-              divForo.innerHTML += "<button class='modificarPreg' id='"+pregunta.ID_duda+"'>Modificar</button><br>";
+              divFrecuente.innerHTML += "<button class='borrarPreg' id='"+pregunta.ID_duda+"'>Borrar</button>";
+              divFrecuente.innerHTML += "<button class='modificarPreg' id='"+pregunta.ID_duda+"'>Modificar</button><br>";
           } 
           if(datosJSON.respuestas[i])
           {
             for(respuesta of datosJSON.respuestas[i])
             {  
+             
               if(respuesta.ID_duda == duda )
               {  
-                 divFrecuente.innerHTML += "<div class = 'resp' style='margin-left:5vw ' id='"+respuesta.ID_dudaresp+"'><span>"+respuesta.descripcion+"</span><br>"+respuesta.fecha_pub+"  <div class='usuario'  id='"+pregunta.ID_usuario+"'>"+respuesta.usuario+"</div></div>";
+                 divFrecuente.innerHTML += "<div class = 'resp' style='margin-left:5vw ' id='"+respuesta.ID_dudaresp+"'><span><strong>"+respuesta.descripcion+"</strong></span><br>"+respuesta.fecha_pub+"  <div class='usuario'  id='"+respuesta.ID_usuario+"'>"+respuesta.usuario+"</div></div>";
               }
               if(datosJSON.rol==4 || datosJSON.usuario==respuesta.ID_usuario ){
                 divFrecuente.innerHTML += "<button class = 'borrarResp' id='"+respuesta.ID_dudaresp+"'>Borrar</button><br><br>";
                 divForo.innerHTML += "<button class='modificarResp' id='"+respuesta.ID_dudaresp+"'>Modificar</button><br>";
-                console.log();
+               
               } 
             }
           }
@@ -201,7 +206,7 @@ divForo.addEventListener("click", (evento)=>{
     modif.style.display="block";
     resp.style.display="none";
     id_resp=evento.target.id;
-    modText.value=evento.target.previousElementSibling.previousElementSibling.children[0].innerHTML;
+    modText.value=evento.target.previousElementSibling.previousElementSibling.children[0].children[0].innerHTML;
     modificar=2;
     console.log(evento.target);
 
@@ -212,7 +217,7 @@ divForo.addEventListener("click", (evento)=>{
     modif.style.display="block";
     id_preg=evento.target.id;
     console.log(evento.target.parentElement.children[0].innerHTML);
-    modText.value=evento.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].innerHTML;
+    modText.value=evento.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].children[0].innerHTML;
     modificar=1;
   }
   else if(evento.target.classList.contains("usuario"))
@@ -255,7 +260,7 @@ divFrecuente.addEventListener("click", (evento)=>{
     modif.style.display="block";
     resp.style.display="none";
     id_resp=evento.target.id;
-    modText.value=evento.target.previousElementSibling.previousElementSibling.children[0].innerHTML;
+    modText.value=evento.target.previousElementSibling.previousElementSibling.children[0].children[0].innerHTML;
     modificar=2;
     console.log(id_resp);
   }
@@ -266,7 +271,7 @@ divFrecuente.addEventListener("click", (evento)=>{
     id_preg=evento.target.id;
    
     console.log(evento.target.parentElement.children[0].innerHTML);
-    modText.value=evento.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].innerHTML;
+    modText.value=evento.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].children[0].innerHTML;
     modificar=1;
   }
   else if(evento.target.classList.contains("usuario"))

@@ -7,20 +7,32 @@
     $id_usuario=$_SESSION["ID_usuario"];
     $likes = (isset($_POST['likes']) && $_POST["likes"] != "")? $_POST['likes']:0;
     $material = (isset($_POST['material']) && $_POST["material"] != "")? $_POST['material']:0;
+     
     $peticion = "SELECT * FROM material WHERE ID_material = $material";   
     $query = mysqli_query( $conexion, $peticion);
     $datos=mysqli_fetch_assoc($query);
+    
     $likesBD=$datos["Likes"];
-    $total=$likesBD+$likes;
-
-    $peticion = "UPDATE material SET likes=$total  WHERE ID_material = $material";   
+   
+    if($likes == "NO")
+    {
+        
+        $total=$likesBD-1;
+    }
+    else{
+        $total=$likesBD+1;
+       
+    }
+    
+  
+    $peticion = "UPDATE material SET Likes=$total  WHERE ID_material = $material";   
     $query = mysqli_query( $conexion, $peticion); 
-    if($likes>0)
+    if($likes=="SI")
     {
         $peticion = "INSERT INTO  ULikesMaterial(ID_usuario, ID_material) VALUES ($id_usuario, $material)"; 
         $query = mysqli_query($conexion, $peticion);
     }
-    if($likes<0)
+    if($likes=="NO")
     {
         $peticion = "DELETE FROM ULikesMaterial WHERE ID_usuario=$id_usuario AND ID_material= $material";
         $query = mysqli_query($conexion, $peticion); 
@@ -28,5 +40,5 @@
 
     
     
-    echo json_encode($total);
+    echo json_encode($likes);
 ?>

@@ -197,15 +197,15 @@ asignaciones.addEventListener("click", (evento)=>{
        //Petición para obtener si el alumno ya realizo una entrega
       ID_actividad=evento.target.id;
       datosForm4.append("id_actividad", ID_actividad);
-     
+      
       tareaf();
   }
 
 if(evento.target.classList.contains("juego")){
   console.log("entre if");
   document.cookie = "id_juego ="+ evento.target.id;   
-
-    window.location = "./trivia.html"; 
+  document.cookie = "id_actividad ="+ ID_actividad;   
+  window.location = "./trivia.html"; 
 
 }
 });
