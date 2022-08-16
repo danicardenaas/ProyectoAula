@@ -51,7 +51,7 @@
             if($ext=="png" || $ext=="jpg" || $ext=="jpeg"){
                 $arch=$_FILES["rubricaArch"]['tmp_name'];
               
-                $ruta="../Imgs/actividad/rubrica/$fecha"."_".$titulo."_"."rubrica.".$ext;
+                $ruta="../Imgs/actividad/rubrica/$titulo"."_"."rubrica.".$ext;
                 rename($arch,$ruta);
             }
             else{
